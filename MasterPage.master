@@ -6,25 +6,51 @@
 
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+
+        .auto-style2 {
+            width: 459px;
+        }
+    </style>
 </head>
 <body>
+
     <form id="form1" runat="server">
-    <div>
-        <h1>TVI CINEMA</h1>
-        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
-            <Items>
-                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon"></asp:MenuItem>
-            </Items>
-        </asp:Menu>
-        <br />
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
- 
-        </asp:ContentPlaceHolder>
-    </div>
+        <div>
+            <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+            <h1>TVI CINEMA BANNER</h1>
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+            <table class="auto-style1">
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="2">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+            </table>
+            <br />
+            <div class="Footer">
+                <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
+                </asp:TreeView>
+            </div>
+        </div>
     </form>
 </body>
 </html>
