@@ -9,6 +9,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //int i;
+        List<Movie> movieList = MovieDB.GetMovieList();
+        //i = movieList.Count(); Use as a breakpoint if bindings dont work.
     }
 }
