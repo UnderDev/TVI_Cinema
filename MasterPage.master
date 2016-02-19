@@ -31,6 +31,19 @@
                     <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon"></asp:MenuItem>
                 </Items>
             </asp:Menu>
+            <div id="book_tickets_panel">
+                Book Tickets
+                <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" 
+                    AutoPostBack="True" onselectedindexchanged="ddlSelectFilm_SelectedIndexChanged">
+                    <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlSelectTimes" runat="server" 
+                    AppendDataBoundItems="True" TabIndex="1">
+                    <asp:ListItem Text="CHOOSE A DATE" Value="" />
+                </asp:DropDownList>
+                <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" />
+            </div>
+            <br />
             <table class="auto-style1">
                 <tr>
                     <td colspan="2">&nbsp;</td>
