@@ -10,9 +10,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
     List<Movie> movieList;
     protected void Page_Load(object sender, EventArgs e)
     {
-        int i;
+        //int i;
         movieList = MovieDB.GetMovieList();
-        i = movieList.Count();// Use as a breakpoint if bindings dont work.
+        //i = movieList.Count();// Use as a breakpoint if bindings dont work.
         if (!IsPostBack)
         {
             ddlSelectFilm.DataSource = movieList;
