@@ -12,9 +12,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         //int i;
+<<<<<<< HEAD
         //i = movieList.Count();// Use as a breakpoint if bindings dont work.
         
         //this code only needs to run when its not a postBack
+=======
+        movieList = MovieDB.GetMovieList();
+        //i = movieList.Count();// Use as a breakpoint if bindings dont work.
+>>>>>>> origin/master
         if (!IsPostBack)
         {
             //get list of movies from MovieDB
