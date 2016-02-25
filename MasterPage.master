@@ -4,6 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script language="javascript" type="text/javascript">
+        var i = 1;
+        function fun() {
+            i++;
+            document.getElementById("img1").src = "Assets/" + i + ".jpg";
+            if (i == 3) //number of images to display in the slide show
+            { i = 0; }
+        }
+        setInterval("fun()", 3000);
+</script> 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
@@ -57,7 +67,10 @@
             <table class="TableStyle">
                 <tr>
                     <td class="NavBarLeft">
-                        ghfhg
+                        <div>
+                            <asp:Image ID="img1" runat="server"  src="Images/1.jpg" Height="200px" Width="200px" Border="2px" />
+                        </div>
+
                     </td>
                     <td colspan="2" class="ContentPlaceHolder">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
