@@ -68,7 +68,7 @@
                 <tr>
                     <td class="NavBarLeft">
                         <div>
-                            <asp:Image ID="img1" runat="server"  src="Images/1.jpg" Height="200px" Width="200px" Border="2px" />
+                            <asp:Image ID="img1" runat="server"  src="Assets/1.jpg" Height="200px" Width="200px" Border="2px" />
                         </div>
 
                     </td>
