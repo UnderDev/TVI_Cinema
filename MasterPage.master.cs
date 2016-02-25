@@ -7,7 +7,21 @@ using System.Web.UI.WebControls;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    List<Movie> movieList;
+    private List<Movie> movieList;
+
+    public List<Movie> MovieList
+    {
+        get
+        {
+            return movieList;
+        }
+
+        set
+        {
+            movieList = value;
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         int i;
