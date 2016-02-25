@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-
+<link rel="stylesheet" type="text/css" href="StyleSheet.css">
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -21,7 +21,7 @@
 <body>
 
     <form id="form1" runat="server">
-        <div>
+        <div >
             <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
             <h1>TVI CINEMA BANNER</h1>
             <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
@@ -31,31 +31,43 @@
                     <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon"></asp:MenuItem>
                 </Items>
             </asp:Menu>
-            <div id="book_tickets_panel">
-                Book Tickets
-                <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" 
-                    AutoPostBack="True" onselectedindexchanged="ddlSelectFilm_SelectedIndexChanged">
+            <div id="bnrTks">
+                <div class="bnrItmTks"><asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label></div>
+
+                <div class="bnrItmTks"><asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" >
                     <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
-                </asp:DropDownList>
-                <asp:DropDownList ID="ddlSelectTimes" runat="server" 
-                    AppendDataBoundItems="True" TabIndex="1">
+                </asp:DropDownList></div>
+                <div class="bnrItmTks"><asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
+                    TabIndex="1" >
                     <asp:ListItem Text="CHOOSE A DATE" Value="" />
-                </asp:DropDownList>
-                <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" />
+                </asp:DropDownList></div>
+                <div class="bnrItmTks"><div class="calander">
+                    <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
+                    <asp:Calendar ID="Calendar1" runat="server" Visible="False" style="position:absolute;"
+                        onselectionchanged="Calendar1_SelectionChanged"></asp:Calendar>
+                </div></div>
+                <div class="bnrItmTks"><asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" /></div>
             </div>
             <br />
             <table class="auto-style1">
                 <tr>
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
                     <td colspan="2">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                        &nbsp;
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">&nbsp;</td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td colspan="2">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        &nbsp;
+                    </td>
                 </tr>
             </table>
             <br />
