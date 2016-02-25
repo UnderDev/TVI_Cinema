@@ -6,7 +6,7 @@
 .WebSiteBorder
 {
     border: medium solid #000000;
-    width: 900px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -15,10 +15,10 @@
 
 .Banner
 {
-    width:inherit;
-    height:inherit;
-    border-top-right-radius:20px;
-    border-top-left-radius:20px;
+    width: inherit;
+    height: inherit;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .Header
@@ -33,14 +33,14 @@
 
 .BookTktsHead
 {
-    text-align:center;
-    font-size:x-large;
+    text-align: center;
+    font-size: x-large;
     border-top: thin solid #bcc0cc;
 }
 
 .NavMenu li
 {
-    padding-left:160px;   
+    padding-left: 160px;
 }
 
 
@@ -48,7 +48,7 @@
 .BannerBoarder
 {
     height: 140px;
-    width:inherit;
+    width: inherit;
 }
 
 .RightBoarder
@@ -60,11 +60,11 @@
 .Footer
 {
     border: thin solid #BDC0CC;
-    border-bottom-left-radius:20px;
-    border-bottom-right-radius:20px;
-    background-color:#BDC0CC;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #BDC0CC;
     height: 50px;
-    border-top:thin solid #000000;
+    border-top: thin solid #000000;
 }
 
 .NavBarLeft
@@ -73,54 +73,54 @@
     height: 650px;
     background-color: #046c8a;
     border-collapse: collapse;
-    border-right:thin solid #000000;
+    border-right: thin solid #000000;
 }
 
 .ContentPlaceHolder
 {
-    vertical-align:top; 
-    text-align:center;
+    vertical-align: top;
+    text-align: center;
     border-right: thin solid #000000;
-    width:auto;
-    background-color:GhostWhite;
+    width: auto;
+    background-color: GhostWhite;
 }
-<<<<<<< HEAD
 
 .TableStyle
 {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
     border: 0;
     border-collapse: collapse;
 }
-    
 
-=======
+
 .calendar
 {
     width: 20%;
-  height: 600px;
-  float: left;
+    height: 600px;
+    float: left;
 }
 .tblBkTckts
 {
     table-layout: fixed;
-    position:absolute;
-    width: 100%;   
+    position: absolute;
+    width: 100%;
 }
 
-#bnrTks{
-width: auto;
-height: 100%;
-margin-right:5px;
+#bnrTks
+{
+    width: auto;
+    height: 100%;
+    margin-right: 5px;
 }
 
-.bnrItmTks{
-width: auto;
-height: 20%;
-float: left;
-margin-right:5px;
+.bnrItmTks
+{
+    width: auto;
+    height: 20%;
+    margin-right: 5px;
+    float:left;
 }
->>>>>>> refs/remotes/origin/master
+
