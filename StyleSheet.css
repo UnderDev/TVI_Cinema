@@ -84,6 +84,7 @@
     width:auto;
     background-color:GhostWhite;
 }
+<<<<<<< HEAD
 
 .TableStyle
 {
@@ -96,3 +97,30 @@
 }
     
 
+=======
+.calendar
+{
+    width: 20%;
+  height: 600px;
+  float: left;
+}
+.tblBkTckts
+{
+    table-layout: fixed;
+    position:absolute;
+    width: 100%;   
+}
+
+#bnrTks{
+width: auto;
+height: 100%;
+margin-right:5px;
+}
+
+.bnrItmTks{
+width: auto;
+height: 20%;
+float: left;
+margin-right:5px;
+}
+>>>>>>> refs/remotes/origin/master
