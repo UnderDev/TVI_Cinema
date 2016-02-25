@@ -4,21 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<head id="Head1" runat="server">
+<head runat="server">
     <title></title>
-
-<script language="javascript" type="text/javascript">
-    var i = 1;
-    function fun() {
-        i++;
-        document.getElementById("img1").src = "Images/" + i + ".jpg";
-        if (i == 3) //here 2 is number of images i want to display in the slide show
-        { i = 0; }
-    }
-    setInterval("fun()", 3000);
-</script>   
-
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -44,8 +31,6 @@
                     <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon"></asp:MenuItem>
                 </Items>
             </asp:Menu>
-            
-
             <div id="book_tickets_panel">
                 Book Tickets
                 <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" 
@@ -60,18 +45,18 @@
             </div>
             <br />
             <table class="auto-style1">
-                
                 <tr>
-                    <td >
-                        <div>
-                            <asp:Image ID="img1" runat="server"  src="Images/1.png" Height="100px" Width="100px" Border="2px" />
-                        </div>
-                </td>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
                     <td colspan="2">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
                     </td>
                 </tr>
-                
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
             </table>
             <br />
             <div class="Footer">
