@@ -123,4 +123,30 @@
     margin-right: 5px;
     float:left;
 }
+.content-container{
+  
+}
+.flex-container{
+    display:flex;
+   
+}
+.flex-fixed60p{
+    width:60%;    
+    
+}
+.flex-fixed30p{
+    width:30%;
 
+}
+.flex-fixed20p{
+    width:20%;
+
+}
+.flex-fixed40p{
+    width:40%;
+
+}
+.flex-item{
+    flex-grow:1;
+
+}
