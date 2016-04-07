@@ -4,6 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script language="javascript" type="text/javascript">
+        var i = 1;
+        function fun() {
+            i++;
+            document.getElementById("img1").src = "Assets/" + i + ".jpg";
+            if (i == 3) //number of images to display in the slide show
+            { i = 0; }
+        }
+        setInterval("fun()", 3000);
+</script> 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
@@ -40,6 +50,7 @@
                 </table>
             </div>
         </div>
+
     </div>
     <div class="ContentBackGround">
         <div class="BookMovieNavBar">
@@ -55,10 +66,35 @@
             <asp:Calendar ID="Calendar1" runat="server" Visible="False" Style="position: absolute;"
                 OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
             <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" />
+
+<%--        <div class="RightBoarder">
+            <table class="TableStyle">
+                <tr>
+                    <td class="NavBarLeft">
+                        <div>
+                            <asp:Image ID="img1" runat="server"  src="Assets/1.jpg" Height="200px" Width="200px" Border="2px" />
+                        </div>
+
+                    </td>
+                    <td colspan="2" class="ContentPlaceHolder">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
         </div>
+        <div class="Footer">
+            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
+            </asp:TreeView>
+ --%>
+        </div>
+           <div class="RightBoarder">
         <table class="TableStyle">
             <tr>
                 <td class="NavBarLeft">
+                         <div>
+                            <asp:Image ID="Image1" runat="server"  src="Assets/1.jpg" Height="200px" Width="200px" Border="2px" />
+                        </div>
                 </td>
                 <td colspan="2" class="ContentPlaceHolder">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -66,6 +102,7 @@
                 </td>
             </tr>
         </table>
+        </div>
     </div>
     <div class="Footer">
         <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
