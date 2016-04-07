@@ -17,53 +17,57 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+
 </head>
-<body class="BackGround">
+<body>
     <form id="form1" runat="server">
-    <div class="WebSiteBorder">
+    <div class="BackGround">
         <div class="BannerBoarder">
-            <img class="Banner" alt="TVI Cinema" src="Assets/TVI_Logo.png" />
-        </div>
-        <div class="Header">
-            <div class="NavMenu">
-                <div>
-                    <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
-                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
-                        <Items>
-                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon">
-                            </asp:MenuItem>
-                        </Items>
-                    </asp:Menu>
-                </div>
-                <div id="bnrTks">
-                    <div class="bnrItmTks">
-                        <asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label></div>
-                    <div class="bnrItmTks">
-                        <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True">
-                            <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
-                        </asp:DropDownList>
-                    </div>
-                    <div class="bnrItmTks">
-                        <asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
-                            TabIndex="1">
-                            <asp:ListItem Text="CHOOSE A DATE" Value="" />
-                        </asp:DropDownList>
-                    </div>
-                    <div class="bnrItmTks">
-                        <div class="calander">
-                            <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
-                            <asp:Calendar ID="Calendar1" runat="server" Visible="False" Style="position: absolute;"
-                                OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
-                        </div>
-                    </div>
-                    <div class="bnrItmTks">
-                        <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" /></div>
-                </div>
+            <img class="BannerImage" alt="TVI Cinema" src="Assets/TVI_Logo.png" />
+            
+            <div class="Header">
+                <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />         
+                <table>
+                    <tr>
+                        <td>
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" 
+                                LogoutPageUrl="~/UserAccount/LogIn.aspx" />
+                        </td>
+                        <td>
+                                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="NavMenu"
+                                RenderingMode="Table" StaticEnableDefaultPopOutImage="False" >
+                                    <Items>
+                                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home" ></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon">
+                                        </asp:MenuItem>
+                                    </Items>
+                                    <StaticMenuItemStyle CssClass="MenuBoxDesign"/>
+                                    <StaticHoverStyle CssClass="MenuBoxHover" />
+                                </asp:Menu>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-        <div class="RightBoarder">
+
+    </div>
+    <div class="ContentBackGround">
+        <div class="BookMovieNavBar">
+            <asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label>
+            <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True">
+                <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
+            </asp:DropDownList>
+            <asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
+                TabIndex="1">
+                <asp:ListItem Text="CHOOSE A DATE" Value="" />
+            </asp:DropDownList>
+            <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
+            <asp:Calendar ID="Calendar1" runat="server" Visible="False" Style="position: absolute;"
+                OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+            <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" />
+
+<%--        <div class="RightBoarder">
             <table class="TableStyle">
                 <tr>
                     <td class="NavBarLeft">
@@ -82,7 +86,28 @@
         <div class="Footer">
             <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
             </asp:TreeView>
+ --%>
         </div>
+           <div class="RightBoarder">
+        <table class="TableStyle">
+            <tr>
+                <td class="NavBarLeft">
+                         <div>
+                            <asp:Image ID="Image1" runat="server"  src="Assets/1.jpg" Height="200px" Width="200px" Border="2px" />
+                        </div>
+                </td>
+                <td colspan="2" class="ContentPlaceHolder">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    <div class="Footer">
+        <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
+        </asp:TreeView>
+    </div>
     </div>
     </form>
 </body>
