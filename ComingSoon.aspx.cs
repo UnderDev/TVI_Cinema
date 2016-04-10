@@ -15,5 +15,9 @@ public partial class Default2 : System.Web.UI.Page
     {
         
     }
-    
+    public string GetImage(object img)
+    {
+        return "data:image/jpg;base64," + Convert.ToBase64String((byte[])img);
+    }
+
 }
