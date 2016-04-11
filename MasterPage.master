@@ -83,12 +83,12 @@
                 </tr>
             </table>
         </div>
-    </div>
-    <div class="Footer">
-        <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
-        </asp:TreeView>
-    </div>
-    </div>
+
+        <div class="Footer">
+            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
+            </asp:TreeView>
+
+        </div>
     </form>
 </body>
 </html>
