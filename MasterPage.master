@@ -88,12 +88,12 @@
             </asp:TreeView>
  --%>
         </div>
-           <div class="RightBoarder">
+       <div>
         <table class="TableStyle">
             <tr>
                 <td class="NavBarLeft">
                          <div>
-                            <asp:Image ID="Image1" runat="server"  src="Assets/1.jpg" Height="200px" Width="200px" Border="2px" />
+                            <asp:Image ID="img1" runat="server"  src="Assets/1.jpg" Height="200px" Width="200px" Border="2px" />
                         </div>
                 </td>
                 <td colspan="2" class="ContentPlaceHolder">
@@ -107,7 +107,6 @@
     <div class="Footer">
         <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
         </asp:TreeView>
-    </div>
     </div>
     </form>
 </body>
