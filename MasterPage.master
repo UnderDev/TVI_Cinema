@@ -49,31 +49,29 @@
         </div>
     </div>
     <div class="ContentBackGround">
-
         <div class="BookMovieNavBar">
-        <div class="BookMovieContent">
-            <asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label>
-            <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" 
-                Font-Bold="False">
-                <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
-            </asp:DropDownList>
-            <asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
-                TabIndex="1">
-                <asp:ListItem Text="CHOOSE A DATE" Value="" />
-            </asp:DropDownList>
-            <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
-            <asp:Calendar ID="Calendar1" runat="server" Visible="False" Style="position: absolute;"
-                OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
-            <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" />
-         </div>
+            <div class="BookMovieContent">
+                <asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label>
+                <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" Font-Bold="False">
+                    <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
+                    TabIndex="1">
+                    <asp:ListItem Text="CHOOSE A DATE" Value="" />
+                </asp:DropDownList>
+                <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
+                <asp:Calendar ID="Calendar1" runat="server" Visible="False" Style="position: absolute;"
+                    OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+                <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" />
+            </div>
         </div>
-
         <div class="RightBoarder">
             <table class="TableStyle">
                 <tr>
                     <td class="NavBarLeft">
                         <div>
-                            <asp:Image ID="img1" runat="server"  src="Assets/1.jpg" Height="200px" Width="200px" Border="2px" />
+                            <asp:Image ID="img1" runat="server" src="Assets/1.jpg" Height="200px" Width="200px"
+                                Border="2px" />
                         </div>
                     </td>
                     <td colspan="2" class="ContentPlaceHolder">
@@ -83,12 +81,11 @@
                 </tr>
             </table>
         </div>
-
-        <div class="Footer">
-            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
-            </asp:TreeView>
-
-        </div>
+    </div>
+    <div class="Footer">
+        <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
+        </asp:TreeView>
+    </div>
     </form>
 </body>
 </html>
