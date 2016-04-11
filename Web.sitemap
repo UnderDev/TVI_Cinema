@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode title="Site Map">
-    <siteMapNode url="/Default.aspx" title="Home"  description="Home Page"/>
-    <siteMapNode url="/ComingSoon.aspx" title="Coming Soon"  description="Coming Soon!" />
-    <siteMapNode url="/Contact.aspx" title="Contact"  description="Contact Us!" />
+    <siteMapNode url="~/Default.aspx" title="Home"  description="Home Page"/>
+    <siteMapNode url="~/ComingSoon.aspx" title="Coming Soon"  description="Coming Soon!" />
+    <siteMapNode url="~/Contact.aspx" title="Contact"  description="Contact Us!" />
   </siteMapNode>   
 </siteMap>
