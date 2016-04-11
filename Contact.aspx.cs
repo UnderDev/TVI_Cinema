@@ -37,16 +37,7 @@ public partial class Default2 : System.Web.UI.Page
     }
 
 
-
-
-
-
-
-
-
-
-
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void btnSubmit_Click(object sender, EventArgs e)
     {
         try
         {
@@ -61,8 +52,4 @@ public partial class Default2 : System.Web.UI.Page
         }
         catch (Exception) { }
     }
-
-
-
-
 }
