@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -7,9 +8,41 @@ using System.Web;
 /// <summary>
 /// Summary description for MovieDB
 /// </summary>
+[DataObject(true)]
 public class MovieDB
 {
+    public static byte[] GetMoviePoster(int screen)
+    {
+        byte[] poster = null;
+        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+        builder["Data Source"] = "localhost\\sqlexpress";
+        builder["integrated Security"] = true;
+        builder["Initial Catalog"] = "MovieDB";
+        String selStatement = "select m.poster from movies as m where m.screen = "+screen+";";
+        SqlConnection con = new SqlConnection(builder.ConnectionString);
+        SqlCommand cmd = new SqlCommand(selStatement, con);
+        SqlDataReader reader;
 
+        con.Open();
+
+        reader = cmd.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+
+            poster = (byte[])reader["poster"];
+            
+        }
+        else
+        {
+            //Insert error message here?
+        }
+
+        reader.Close();
+        con.Close();
+        return poster;
+    }
+    [DataObjectMethod(DataObjectMethodType.Select)]
     public static List<Movie> GetMovieList()
     {
         Movie newMovie;

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -151,5 +153,12 @@ public class Movie
         this.trailerURL = trailerURL;
         this.rating = rating;
         this.starring = actors;
+    }
+
+    public Image GetPoster()
+    {
+        MemoryStream ms = new MemoryStream(this.poster);
+        Image poster = Image.FromStream(ms);
+        return poster;
     }
 }
