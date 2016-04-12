@@ -14,7 +14,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //int i;
 
         //i = movieList.Count();// Use as a breakpoint if bindings dont work.
-        
+
         //this code only needs to run when its not a postBack
 
         movieList = MovieDB.GetMovieList();
@@ -46,7 +46,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         //dateTime and list of dateTime objects created
         DateTime dt = DateTime.Now;
-        List<String>dates = new List<string>();
+        List<String> dates = new List<string>();
         //looping 7 times to accomodate a week's worth of dateTime objects
         for (int dateLoop = 0; dateLoop < 7; dateLoop++)
         {
@@ -64,6 +64,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
     }
 
+    public String dateTimeFromString(DateTime dt)
+    {
+        //converts String to a DateTime Object
+        return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
+    }
+
     protected void btnShowCal_Click(object sender, EventArgs e)
     {
         //button switches visibility based on state of calendar
@@ -74,12 +80,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
         else
         {
             Calendar1.Visible = false;
-        }   
+        }
+    }
+    //search function for movies based on their name
+    public Movie findMovie(String movieName)
+    {
+        foreach (Movie m in movieList)
+        {
+            if (m.Name.Equals(movieName))
+            {
+                return m;
+            }
+        }
+        return null;
     }
     protected void Calendar1_SelectionChanged(object sender, EventArgs e)
     {
         //list of dates is taken from genDates
-        List<String>dates = genDates();
+        List<String> dates = genDates();
         //get the selected date the user entered to the calendar
         DateTime dt = Calendar1.SelectedDate;
         //selctdDate refers to the location of the user selected date in the dates list
@@ -105,7 +123,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //simple search to see if dt is in the list dates
         for (int datesLoop = 0; datesLoop < dates.Count(); datesLoop++)
         {
-            if(dt.Equals(dates[datesLoop]))
+            if (dt.Equals(dates[datesLoop]))
             {
                 //if found, the position in dates is returned
                 return datesLoop;
@@ -114,5 +132,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //if loop exits with no value found
         //-1 is returned
         return -1;
+    }
+    protected void ddlSelectFilm_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Session["SelectedMovie"] = findMovie(ddlSelectFilm.SelectedValue);
+    }
+    protected void ddlSelectTimes_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //Session["SelectedDate"] = srchDates(ddlSelectTimes.SelectedValue, genDates);
+    }
+    protected void btnGo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Movie.aspx");
     }
 }
