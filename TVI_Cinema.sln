@@ -7,20 +7,21 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TVI_Cinema(1)", ".", "{B436
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51482"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\Desktop\TVI_Cinema-master\TVI_Cinema\"
+		Debug.AspNetCompiler.PhysicalPath = "..\TVI_Cinema\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51482\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_51482"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\Desktop\TVI_Cinema-master\TVI_Cinema\"
+		Release.AspNetCompiler.PhysicalPath = "..\TVI_Cinema\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51482\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "51482"
+		SlnRelativePath = "..\TVI_Cinema\"
 	EndProjectSection
 EndProject
 Global
