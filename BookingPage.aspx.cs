@@ -74,7 +74,6 @@ public partial class BookingPage : System.Web.UI.Page
     protected void btnContinue_Click(object sender, EventArgs e)
     {
         booking.Total = Convert.ToDouble(lblTotal.Text.Substring(1));
-        //booking.Total = Convert.ToDouble(lblTotal.Text);
         Session["Booking"] = booking;
         Response.Redirect("BookingPage2.aspx");
     }

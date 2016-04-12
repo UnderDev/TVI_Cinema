@@ -16,9 +16,7 @@ public partial class SummaryPage : System.Web.UI.Page
         }
         else
         {
-            booking = new Booking(2, DateTime.Now, 2);
-            //put back in when ready to push
-            //Response.Redirect("BookingPage.aspx");
+            Response.Redirect("BookingPage.aspx");
         }
     }
 }
