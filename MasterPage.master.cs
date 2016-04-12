@@ -9,6 +9,7 @@ using System.Text;
 public partial class MasterPage : System.Web.UI.MasterPage
 {
     public List<Movie> movieList;
+    public List<DateTime> datesList;
     protected void Page_Load(object sender, EventArgs e)
     {
         //int i;
@@ -18,6 +19,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //this code only needs to run when its not a postBack
 
         movieList = MovieDB.GetMovieList();
+        datesList = new List<DateTime>();
         //i = movieList.Count();// Use as a breakpoint if bindings dont work.
 
         if (!IsPostBack)
@@ -50,10 +52,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //looping 7 times to accomodate a week's worth of dateTime objects
         for (int dateLoop = 0; dateLoop < 7; dateLoop++)
         {
+            datesList.Add(dt);
             //current date is added to the list
             dates.Add(dateTimeToString(dt));
             //date is incremented by 1 day
             dt = dt.AddDays(1);
+            
         }
         //after the list is complete, return it
         return dates;
@@ -133,16 +137,25 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //-1 is returned
         return -1;
     }
-    protected void ddlSelectFilm_SelectedIndexChanged(object sender, EventArgs e)
+
+    protected void btnGo_Click(object sender, EventArgs e)
+    {
+        
+    }
+    protected void ddlSelectTimes_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        genDates();
+        Session["SelectedDate"] = datesList[ddlSelectTimes.SelectedIndex-1];
+    }
+    protected void ddlSelectFilm_SelectedIndexChanged1(object sender, EventArgs e)
     {
         Session["SelectedMovie"] = findMovie(ddlSelectFilm.SelectedValue);
     }
-    protected void ddlSelectTimes_SelectedIndexChanged(object sender, EventArgs e)
+    protected void btnGo_Click1(object sender, EventArgs e)
     {
-        //Session["SelectedDate"] = srchDates(ddlSelectTimes.SelectedValue, genDates);
-    }
-    protected void btnGo_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Movie.aspx");
+        if (ddlSelectFilm.SelectedIndex > 0 && ddlSelectTimes.SelectedIndex > 0)
+        {
+            Response.Redirect("Movie.aspx");
+        }
     }
 }
