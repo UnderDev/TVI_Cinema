@@ -42,7 +42,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-    private List<String> genDates()
+    public List<String> genDates()
     {
         //dateTime and list of dateTime objects created
         DateTime dt = DateTime.Now;
