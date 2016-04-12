@@ -14,9 +14,9 @@
             <div class="box">
                 <div class="content">
                     <h1>Authentication Required</h1>
-                    <asp:TextBox Cssclass="TxtBoxInput" placeholder="UserName" ID="UserName" 
+                    <asp:TextBox Cssclass="TxtBoxInput" placeholder="UserName" ID="txtBoxUserName" 
                         runat="server" AutoCompleteType="Email"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
+                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="txtBoxUserName"
                         ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="Login1"
                         ForeColor="#046c8a">*</asp:RequiredFieldValidator>
                     <br>
