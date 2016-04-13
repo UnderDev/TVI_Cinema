@@ -82,7 +82,7 @@
             <table >
                 <tr>
                     <td class="NavBarLeft">
-                        <div>
+                        <div style="margin-top: 20px">
                             <asp:Image ID="img1" runat="server" src="Assets/1.jpg" Height="200px" Width="200px" />
                         </div>
                         <div class="SiteMap">
@@ -102,8 +102,8 @@
                         </asp:TreeView>
                         </div>
                     </td>
-                    <td>
-                    <div  class="ContentPlaceHolder"> 
+                    <td class="AlignTop">
+                    <div class="ContentPlaceHolder"> 
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                         </div>

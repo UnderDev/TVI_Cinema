@@ -43,6 +43,26 @@
     padding-left: 200px;
 }
 
+.RegisterBtn
+{
+    float:left;
+    margin-left:135px;
+    background: #FFBF00;
+    border-radius: 8px;
+    font-weight: 700;
+    letter-spacing: 0.125em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.CenterRegister 
+{
+    margin-left:200px;    
+}
+
+
+
 .calendarWrapper
 {
     display: inline-block;
@@ -127,10 +147,6 @@
 
 
 
-.TableStyle
-{
-}
-
 
 .ContentBackGround
 {
@@ -143,13 +159,20 @@
     padding-top: 5px;
 }
 
+/*Centers all the content and Sets the width of the Content*/
 .ContentPlaceHolder
 {
     text-align: center;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;   
     width: 900px;
 }
+/*Tag is on the tables td in masterpage for content*/
+.AlignTop
+{
+    vertical-align:top;
+}
+
 
 
 .Footer
