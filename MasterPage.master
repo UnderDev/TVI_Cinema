@@ -51,11 +51,12 @@
             <div class="BookMovieNavBar">
                 <div class="BookMovieContent">
                     <asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label>
-                    <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" Font-Bold="False">
+                    <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" 
+                        Font-Bold="False" onselectedindexchanged="ddlSelectFilm_SelectedIndexChanged1">
                         <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
                     </asp:DropDownList>
                     <asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
-                        TabIndex="1">
+                        TabIndex="1" onselectedindexchanged="ddlSelectTimes_SelectedIndexChanged1">
                         <asp:ListItem Text="CHOOSE A DATE" Value="" />
                     </asp:DropDownList>
                     <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
@@ -76,7 +77,8 @@
                         <TodayDayStyle BackColor="#999999" ForeColor="White" />
                     </asp:Calendar>
 
-                    <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" />
+                    <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" 
+                        onclick="btnGo_Click1" />
                 </div>
             </div>
             <table >
