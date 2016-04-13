@@ -19,7 +19,7 @@
                 <asp:Label ID="LblStars" runat="server" Text=""></asp:Label>
             </div>
             <div class="flex-item" style="text-align:center;margin-left:10px">
-                <asp:Image ID="ImgPoster" runat="server" OnDataBinding="ImgBinding"/>
+                <asp:Image ID="ImgPoster" runat="server" />
             </div>
             
         </div>
