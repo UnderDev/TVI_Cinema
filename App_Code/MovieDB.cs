@@ -81,7 +81,7 @@ public class MovieDB
         con.Close();
         return movieList;
     }
-
+    [DataObjectMethod(DataObjectMethodType.Select)]
     public static Movie GetMovie(String name)
     {
         Movie movie = null;
