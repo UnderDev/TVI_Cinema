@@ -61,7 +61,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             dates.Add(dateTimeToString(dt));
             //date is incremented by 1 day
             dt = dt.AddDays(1);
-            
+
         }
         //after the list is complete, return it
         return dates;
@@ -142,14 +142,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         return -1;
     }
 
-    protected void btnGo_Click(object sender, EventArgs e)
-    {
-        
-    }
     protected void ddlSelectTimes_SelectedIndexChanged1(object sender, EventArgs e)
     {
         genDates();
-        Session["SelectedDate"] = datesList[ddlSelectTimes.SelectedIndex-1];
+        Session["SelectedDate"] = datesList[ddlSelectTimes.SelectedIndex - 1];
     }
     protected void ddlSelectFilm_SelectedIndexChanged1(object sender, EventArgs e)
     {

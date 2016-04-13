@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +10,7 @@ using System.Web;
 /// </summary>
 public class Movie
 {
+    private int screen;
     private String name;
     private String description;
     private int length;
@@ -15,7 +18,7 @@ public class Movie
     private String director;
     private String trailerURL;
     private String rating;
-    private List<String> starring;
+    private String starring;
 
     public string Name
     {
@@ -108,7 +111,7 @@ public class Movie
         }
     }
 
-    public List<string> Starring
+    public String Starring
     {
         get
         {
@@ -121,17 +124,27 @@ public class Movie
         }
     }
 
-    public void AddActor(String actor)
+    public int Screen
     {
-        starring.Add(actor);
+        get
+        {
+            return screen;
+        }
+
+        set
+        {
+            screen = value;
+        }
     }
 
     public Movie()
     {
+
     }
 
-    public Movie(string name, string description, int length, byte[] poster, string director, string trailerURL, string rating)
+    public Movie(string name, string description, int length, byte[] poster, string director, string trailerURL, string rating, int screen, string actors)
     {
+        this.screen = screen;
         this.name = name;
         this.description = description;
         this.length = length;
@@ -139,5 +152,13 @@ public class Movie
         this.director = director;
         this.trailerURL = trailerURL;
         this.rating = rating;
+        this.starring = actors;
+    }
+
+    public Image GetPoster()
+    {
+        MemoryStream ms = new MemoryStream(this.poster);
+        Image poster = Image.FromStream(ms);
+        return poster;
     }
 }

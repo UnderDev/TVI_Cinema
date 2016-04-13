@@ -47,11 +47,11 @@
                 <td>
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="Email Address is required"
-                        ValidationGroup="vGroupBasicInfo" ControlToValidate="txtEmail">*</asp:RequiredFieldValidator>
+                        ValidationGroup="vGroupBasicInfo" ControlToValidate="txtEmail" Display="Dynamic">*</asp:RequiredFieldValidator>
 
                     <asp:RegularExpressionValidator ID="revEmail" runat="server" 
                         ControlToValidate="txtEmail" ValidationGroup="vGroupBasicInfo" ErrorMessage="Invalid email address" 
-                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
+                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic">*</asp:RegularExpressionValidator>
                 </td>
                 <td width="120px">
                     <asp:Label ID="lblEmailC" runat="server" Text="Confirm Email: "></asp:Label>

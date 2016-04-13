@@ -1,3 +1,255 @@
-﻿body {
-
+﻿/* CSS FOR MASTERPAGE Start*/
+.BackGround
+{
+    margin-left: auto;
+    margin-right: auto;
+    background: #E0EAFC; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#CFDEF3,#E0EAFC); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#CFDEF3,#E0EAFC); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#CFDEF3,#E0EAFC); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#CFDEF3,#E0EAFC); /* Standard syntax */
 }
+
+.BannerBoarder
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 100%;
+    background-color: #046c8a;
+}
+
+.BannerImage
+{
+    width: 800px;
+    height: 120px;
+}
+
+
+/* MENU ON MASTERPAGE CSS START */
+.Header
+{
+    height: auto;
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.NavMenu
+{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 200px;
+}
+
+.calendarWrapper
+{
+    display: inline-block;
+}
+
+#LoginStatus
+{
+    color: #FFFFFF;
+    font-variant: small-caps;
+    text-transform: capitalize;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.SiteMap
+{
+    margin-left: 40px;
+}
+
+.MenuBoxDesign
+{
+    padding: 5px;
+    border: thin solid #000000;
+    border-radius: 2px;
+    background-color: #BDC0CC;
+    text-align: center;
+    font-family: Cambria;
+    font-weight: bold;
+    font-variant: small-caps;
+    color: #FFFFFF;
+    font-size: large;
+    width: auto;
+}
+
+.MenuBoxHover
+{
+    background-color: #FFFFFF;
+    color: #046C8A;
+}
+
+/* MENU ON MASTERPAGE CSS END */
+
+
+/* CONTACT US TEXTBOX CSS*/
+.TextBox
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.BookMovieNavBar
+{
+    width: 1100px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #BDC0CC;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: 'Copperplate Gothic Bold';
+    font-weight: bolder;
+    color: #FFFFFF;
+    font-size: large;
+}
+
+.BookMovieContent
+{
+    margin-right: auto;
+    margin-left: 250px;
+}
+
+
+
+.TableStyle
+{
+}
+
+
+.ContentBackGround
+{
+    width: 1120px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 20px #000;
+    padding-top: 5px;
+}
+
+.ContentPlaceHolder
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+
+
+.Footer
+{
+    background-color: #E2E2E2;
+    height: 75px;
+}
+
+.NavBarLeft
+{
+    width: 250px;
+    height: 800px;
+    border-collapse: collapse;
+    border-right: thin solid #000000;
+    vertical-align: top;
+    text-align: center;
+}
+/* CSS FOR MASTERPAGE END*/
+
+
+
+
+
+/* LOG IN Page CSS Start */
+.box
+{
+    text-align: center;
+    width: 280px;
+    height: auto;
+    margin: 0 auto;
+    background: #E2E2E2;
+    border-radius: 7px;
+    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.9);
+    padding: 20px 0px;
+}
+
+.content h1
+{
+    font-size: 28px;
+    font-weight: 400;
+    color: #046c8a;
+    letter-spacing: 0.125em;
+    float: left;
+}
+
+
+.TxtBoxInput
+{
+    margin: 10px auto;
+    padding: 10px;
+    background: #DDDDDD;
+    border-radius: 5px;
+    outline: none;
+    color: #046c8a;
+    font-weight: bolder;
+    letter-spacing: 0.125em;
+    text-align: center;
+    margin-left: 15px;
+    font-size: medium;
+}
+
+.btn
+{
+    margin: 10px;
+    padding: 10px;
+    background: #FFBF00;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: 700;
+    letter-spacing: 0.125em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btn:hover
+{
+    background: #FFBF00;
+    color: #333;
+}
+
+/* LOG IN Page CSS End */
+
+.content-container
+{
+}
+.flex-container
+{
+    display: flex;
+}
+.flex-fixed60p
+{
+    width: 60%;
+}
+.flex-fixed30p
+{
+    width: 30%;
+}
+.flex-fixed20p
+{
+    width: 20%;
+}
+.flex-fixed40p
+{
+    width: 40%;
+}
+.flex-item
+{
+    flex-grow: 1;
+}
+
+
+
+

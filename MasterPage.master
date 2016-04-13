@@ -1,69 +1,121 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head runat="server">
     <title></title>
+    <script language="javascript" type="text/javascript">
+        var i = 1;
+        function fun() {
+            i++;
+            document.getElementById("img1").src = "Assets/" + i + ".jpg";
+            if (i == 4) //number of images to display in the slide show
+            { i = 0; }
+        }
+        setInterval("fun()", 3000);
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-
-        .auto-style2 {
-            width: 459px;
-        }
-    </style>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
     <form id="form1" runat="server">
-        <div>
-            <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
-            <h1>TVI CINEMA BANNER</h1>
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
-                <Items>
-                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon"></asp:MenuItem>
-                </Items>
-            </asp:Menu>
-            <div id="book_tickets_panel">
-                Book Tickets
-                <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" 
-                    AutoPostBack="True" onselectedindexchanged="ddlSelectFilm_SelectedIndexChanged">
-                    <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
-                </asp:DropDownList>
-                <asp:DropDownList ID="ddlSelectTimes" runat="server" 
-                    AppendDataBoundItems="True" TabIndex="1">
-                    <asp:ListItem Text="CHOOSE A DATE" Value="" />
-                </asp:DropDownList>
-                <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" />
-            </div>
-            <br />
-            <table class="auto-style1">
-                <tr>
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td colspan="2">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-            </table>
-            <br />
-            <div class="Footer">
-                <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0">
-                </asp:TreeView>
+    <div class="BackGround">
+        <div class="BannerBoarder">
+            <img class="BannerImage" alt="TVI Cinema" src="Assets/TVI_Logo.png" />
+            <div class="Header">
+                <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+                <table>
+                    <tr>
+                        <td>
+                            <asp:LoginStatus ID="LoginStatus" runat="server" LogoutPageUrl="~/LogIn.aspx"/>
+                        </td>
+                        <td>
+                            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="NavMenu" RenderingMode="Table"
+                                StaticEnableDefaultPopOutImage="False">
+                                <Items>
+                                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon">
+                                    </asp:MenuItem>
+                                </Items>
+                                <StaticMenuItemStyle CssClass="MenuBoxDesign" />
+                                <StaticHoverStyle CssClass="MenuBoxHover" />
+                            </asp:Menu>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
+        <div class="ContentBackGround">
+            <div class="BookMovieNavBar">
+                <div class="BookMovieContent">
+                    <asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label>
+                    <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" 
+                        Font-Bold="False" onselectedindexchanged="ddlSelectFilm_SelectedIndexChanged1">
+                        <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
+                        TabIndex="1" onselectedindexchanged="ddlSelectTimes_SelectedIndexChanged1">
+                        <asp:ListItem Text="CHOOSE A DATE" Value="" />
+                    </asp:DropDownList>
+                    <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
+                    <asp:Calendar ID="Calendar1"  runat="server" Visible="False" Style="position: absolute;"
+                        OnSelectionChanged="Calendar1_SelectionChanged" CssClass="calendarWrapper" 
+                        BackColor="White" BorderColor="Black" BorderStyle="Solid" CellPadding="3" 
+                        CellSpacing="2" DayNameFormat="FirstLetter" Font-Italic="False" 
+                        Font-Names="Verdana" Font-Size="9pt" Font-Underline="True" ForeColor="Black" 
+                        NextPrevFormat="ShortMonth">
+                        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
+                            Height="8pt" />
+                        <DayStyle BackColor="#CCCCCC" />
+                        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                        <TitleStyle BackColor="#333399" BorderStyle="Solid" Font-Bold="True" 
+                            Font-Size="12pt" ForeColor="White" Height="12pt" />
+                        <TodayDayStyle BackColor="#999999" ForeColor="White" />
+                    </asp:Calendar>
+
+                    <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" 
+                        onclick="btnGo_Click1" />
+                </div>
+            </div>
+            <table >
+                <tr>
+                    <td class="NavBarLeft">
+                        <div>
+                            <asp:Image ID="img1" runat="server" src="Assets/1.jpg" Height="200px" Width="200px" />
+                        </div>
+                        <div class="SiteMap">
+                       <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" 
+                            ExpandDepth="0" Font-Names="Charlemagne Std" ImageSet="Msdn" NodeIndent="15" 
+                            Width="150px">
+                           <HoverNodeStyle BackColor="White" BorderColor="#888888" BorderStyle="Solid" 
+                               BorderWidth="1px" Font-Underline="True" />
+                           <NodeStyle Font-Names="Charlemagne Std" Font-Size="8pt" ForeColor="Black" 
+                               HorizontalPadding="5px" NodeSpacing="1px" VerticalPadding="2px" 
+                               BackColor="White" />
+                           <ParentNodeStyle Font-Bold="False" />
+                           <RootNodeStyle BackColor="White" Font-Size="Medium" />
+                           <SelectedNodeStyle BackColor="#CCCCCC" BorderColor="#888888" BorderStyle="Solid" 
+                               BorderWidth="1px" Font-Underline="False" HorizontalPadding="3px" 
+                               VerticalPadding="1px" ForeColor="White" />
+                        </asp:TreeView>
+                        </div>
+                    </td>
+                    <td>
+                    <div  class="ContentPlaceHolder"> 
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="Footer">
+        </div>
+    </div>
     </form>
 </body>
 </html>
