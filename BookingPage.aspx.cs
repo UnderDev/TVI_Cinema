@@ -49,25 +49,25 @@ public partial class BookingPage : System.Web.UI.Page
     {
         //loop through a string to remove the currency formatting 
         String newStr = "";
-        
-        int i = 0;
+
+        int i = str.Length - 1;
         Char c = str[i];
         while (c != ';')
         {
-            i++;
+            i--;
             try
             {
                 c = str[i];
             }
             catch
             {
-                i = -1;
+                i = 0;
                 c = ';';
             }
         }
         //increment i by 1 to not count the semi-colon
         i++;
-        newStr = str.Substring(i, str.Length-i);
+        newStr = str.Substring(i, str.Length - i);
 
         return newStr;
     }
