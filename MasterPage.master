@@ -27,8 +27,8 @@
                 <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
                 <table>
                     <tr>
-                        <td>
-                            <asp:LoginStatus ID="LoginStatus" runat="server" LogoutPageUrl="~/LogIn.aspx"/>
+                        <td style="padding-left: 60px">
+                            <asp:LoginStatus ID="LoginStatus" runat="server" LogoutPageUrl="~/LogIn.aspx" />
                         </td>
                         <td>
                             <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="NavMenu" RenderingMode="Table"
@@ -39,7 +39,7 @@
                                     <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon">
                                     </asp:MenuItem>
                                 </Items>
-                                <StaticMenuItemStyle CssClass="MenuBoxDesign" />
+                                <StaticMenuItemStyle CssClass="MenuBoxDesign" ItemSpacing="50px" Width="100px" />
                                 <StaticHoverStyle CssClass="MenuBoxHover" />
                             </asp:Menu>
                         </td>
@@ -49,65 +49,66 @@
         </div>
         <div class="ContentBackGround">
             <div class="BookMovieNavBar">
-                <div class="BookMovieContent">
-                    <asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label>
-                    <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" 
-                        Font-Bold="False" onselectedindexchanged="ddlSelectFilm_SelectedIndexChanged1">
-                        <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
-                    </asp:DropDownList>
-                    <asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
-                        TabIndex="1" onselectedindexchanged="ddlSelectTimes_SelectedIndexChanged1">
-                        <asp:ListItem Text="CHOOSE A DATE" Value="" />
-                    </asp:DropDownList>
-                    <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
-                    <asp:Calendar ID="Calendar1"  runat="server" Visible="False" Style="position: absolute;"
-                        OnSelectionChanged="Calendar1_SelectionChanged" CssClass="calendarWrapper" 
-                        BackColor="White" BorderColor="Black" BorderStyle="Solid" CellPadding="3" 
-                        CellSpacing="2" DayNameFormat="FirstLetter" Font-Italic="False" 
-                        Font-Names="Verdana" Font-Size="9pt" Font-Underline="True" ForeColor="Black" 
-                        NextPrevFormat="ShortMonth">
-                        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
-                            Height="8pt" />
-                        <DayStyle BackColor="#CCCCCC" />
-                        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
-                        <OtherMonthDayStyle ForeColor="#999999" />
-                        <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                        <TitleStyle BackColor="#333399" BorderStyle="Solid" Font-Bold="True" 
-                            Font-Size="12pt" ForeColor="White" Height="12pt" />
-                        <TodayDayStyle BackColor="#999999" ForeColor="White" />
-                    </asp:Calendar>
-
-                    <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" 
-                        onclick="btnGo_Click1" />
-                </div>
+                    <table class="style1">
+                        <tr>
+                            <td style="padding-left: 80px; font-family: 'Bernard MT Condensed'; font-size: large; font-weight: lighter; font-style: normal; font-variant: small-caps; text-transform: capitalize; letter-spacing: .2em;">
+                                <asp:LoginName ID="lnLoginName" runat="server" />
+                            </td>
+                            <td class="BookMovieContent">
+                                <asp:Label ID="lblBkTckts" runat="server" Text="Book Tickets"></asp:Label>
+                                <asp:DropDownList ID="ddlSelectFilm" runat="server" AppendDataBoundItems="True" Font-Bold="False"
+                                    OnSelectedIndexChanged="ddlSelectFilm_SelectedIndexChanged1">
+                                    <asp:ListItem Text="CHOOSE A MOVIE" Value="" />
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlSelectTimes" runat="server" AppendDataBoundItems="True"
+                                    TabIndex="1" OnSelectedIndexChanged="ddlSelectTimes_SelectedIndexChanged1">
+                                    <asp:ListItem Text="CHOOSE A DATE" Value="" />
+                                </asp:DropDownList>
+                                <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
+                                <asp:Calendar ID="Calendar1" runat="server" Visible="False" Style="position: absolute;"
+                                    OnSelectionChanged="Calendar1_SelectionChanged" CssClass="calendarWrapper" BackColor="White"
+                                    BorderColor="Black" BorderStyle="Solid" CellPadding="3" CellSpacing="2" DayNameFormat="FirstLetter"
+                                    Font-Italic="False" Font-Names="Verdana" Font-Size="9pt" Font-Underline="True"
+                                    ForeColor="Black" NextPrevFormat="ShortMonth">
+                                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
+                                    <DayStyle BackColor="#CCCCCC" />
+                                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
+                                    <OtherMonthDayStyle ForeColor="#999999" />
+                                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                                    <TitleStyle BackColor="#333399" BorderStyle="Solid" Font-Bold="True" Font-Size="12pt"
+                                        ForeColor="White" Height="12pt" />
+                                    <TodayDayStyle BackColor="#999999" ForeColor="White" />
+                                </asp:Calendar>
+                                <asp:Button ID="btnGo" runat="server" TabIndex="2" Text="Go" OnClick="btnGo_Click1" />
+                            </td>
+                        </tr>
+                    </table>
             </div>
-            <table >
+            <table>
                 <tr>
                     <td class="NavBarLeft">
                         <div style="margin-top: 20px">
                             <asp:Image ID="img1" runat="server" src="Assets/1.jpg" Height="200px" Width="200px" />
                         </div>
                         <div class="SiteMap">
-                       <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" 
-                            ExpandDepth="0" Font-Names="Charlemagne Std" ImageSet="Msdn" NodeIndent="15" 
-                            Width="150px">
-                           <HoverNodeStyle BackColor="White" BorderColor="#888888" BorderStyle="Solid" 
-                               BorderWidth="1px" Font-Underline="True" />
-                           <NodeStyle Font-Names="Charlemagne Std" Font-Size="8pt" ForeColor="Black" 
-                               HorizontalPadding="5px" NodeSpacing="1px" VerticalPadding="2px" 
-                               BackColor="White" />
-                           <ParentNodeStyle Font-Bold="False" />
-                           <RootNodeStyle BackColor="White" Font-Size="Medium" />
-                           <SelectedNodeStyle BackColor="#CCCCCC" BorderColor="#888888" BorderStyle="Solid" 
-                               BorderWidth="1px" Font-Underline="False" HorizontalPadding="3px" 
-                               VerticalPadding="1px" ForeColor="White" />
-                        </asp:TreeView>
+                            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0"
+                                Font-Names="Charlemagne Std" ImageSet="Msdn" NodeIndent="15" Width="150px">
+                                <HoverNodeStyle BackColor="White" BorderColor="#888888" BorderStyle="Solid" BorderWidth="1px"
+                                    Font-Underline="True" />
+                                <NodeStyle Font-Names="Charlemagne Std" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px"
+                                    NodeSpacing="1px" VerticalPadding="2px" BackColor="White" />
+                                <ParentNodeStyle Font-Bold="False" />
+                                <RootNodeStyle BackColor="White" Font-Size="Medium" />
+                                <SelectedNodeStyle BackColor="#CCCCCC" BorderColor="#888888" BorderStyle="Solid"
+                                    BorderWidth="1px" Font-Underline="False" HorizontalPadding="3px" VerticalPadding="1px"
+                                    ForeColor="White" />
+                            </asp:TreeView>
                         </div>
                     </td>
                     <td class="AlignTop">
-                    <div class="ContentPlaceHolder"> 
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
+                        <div class="ContentPlaceHolder">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
                         </div>
                     </td>
                 </tr>

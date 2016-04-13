@@ -46,7 +46,7 @@
 .RegisterBtn
 {
     float:left;
-    margin-left:135px;
+    margin-left:110px;
     background: #FFBF00;
     border-radius: 8px;
     font-weight: 700;
@@ -142,7 +142,8 @@
 .BookMovieContent
 {
     margin-right: auto;
-    margin-left: 250px;
+    margin-left: auto;
+    padding-left:210px;
 }
 
 
