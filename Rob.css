@@ -1,0 +1,38 @@
+﻿/* Transfer all of this to the main style sheet, then delete this file and the link to it in Movie.aspx */
+.content-container
+{
+    background-color: #07b0df;
+}
+.flex-container
+{
+    display: flex;
+}
+.flex-fixed60p
+{
+    width: 60%;
+}
+.flex-fixed30p
+{
+    width: 30%;
+}
+.flex-fixed20p
+{
+    width: 20%;
+}
+.flex-fixed40p
+{
+    width: 40%;
+}
+.flex-item
+{
+    flex-grow: 1;
+}
+ div.MovieTitle{
+    background-color:#069cc6;
+}
+.MovieTitle{
+
+}
+.DetailsViewField {
+    text-align: left;
+}

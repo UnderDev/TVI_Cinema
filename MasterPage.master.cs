@@ -9,15 +9,17 @@ using System.Text;
 public partial class MasterPage : System.Web.UI.MasterPage
 {
     public List<Movie> movieList;
+    public List<DateTime> datesList;
     protected void Page_Load(object sender, EventArgs e)
     {
         //int i;
 
         //i = movieList.Count();// Use as a breakpoint if bindings dont work.
-        
+
         //this code only needs to run when its not a postBack
 
         movieList = MovieDB.GetMovieList();
+        datesList = new List<DateTime>();
         //i = movieList.Count();// Use as a breakpoint if bindings dont work.
 
         if (!IsPostBack)
@@ -46,14 +48,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         //dateTime and list of dateTime objects created
         DateTime dt = DateTime.Now;
-        List<String>dates = new List<string>();
+        List<String> dates = new List<string>();
         //looping 7 times to accomodate a week's worth of dateTime objects
         for (int dateLoop = 0; dateLoop < 7; dateLoop++)
         {
+            datesList.Add(dt);
             //current date is added to the list
             dates.Add(dateTimeToString(dt));
             //date is incremented by 1 day
             dt = dt.AddDays(1);
+            
         }
         //after the list is complete, return it
         return dates;
@@ -61,6 +65,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
     public String dateTimeToString(DateTime dt)
     {
         //converts dateTime object to a string
+        return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
+    }
+
+    public String dateTimeFromString(DateTime dt)
+    {
+        //converts String to a DateTime Object
         return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
     }
 
@@ -74,12 +84,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
         else
         {
             Calendar1.Visible = false;
-        }   
+        }
+    }
+    //search function for movies based on their name
+    public Movie findMovie(String movieName)
+    {
+        foreach (Movie m in movieList)
+        {
+            if (m.Name.Equals(movieName))
+            {
+                return m;
+            }
+        }
+        return null;
     }
     protected void Calendar1_SelectionChanged(object sender, EventArgs e)
     {
         //list of dates is taken from genDates
-        List<String>dates = genDates();
+        List<String> dates = genDates();
         //get the selected date the user entered to the calendar
         DateTime dt = Calendar1.SelectedDate;
         //selctdDate refers to the location of the user selected date in the dates list
@@ -105,7 +127,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //simple search to see if dt is in the list dates
         for (int datesLoop = 0; datesLoop < dates.Count(); datesLoop++)
         {
-            if(dt.Equals(dates[datesLoop]))
+            if (dt.Equals(dates[datesLoop]))
             {
                 //if found, the position in dates is returned
                 return datesLoop;
@@ -114,5 +136,26 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //if loop exits with no value found
         //-1 is returned
         return -1;
+    }
+
+    protected void btnGo_Click(object sender, EventArgs e)
+    {
+        
+    }
+    protected void ddlSelectTimes_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        genDates();
+        Session["SelectedDate"] = datesList[ddlSelectTimes.SelectedIndex-1];
+    }
+    protected void ddlSelectFilm_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        Session["SelectedMovie"] = ddlSelectFilm.SelectedValue;
+    }
+    protected void btnGo_Click1(object sender, EventArgs e)
+    {
+        if (ddlSelectFilm.SelectedIndex > 0 && ddlSelectTimes.SelectedIndex > 0)
+        {
+            Response.Redirect("Movie.aspx");
+        }
     }
 }

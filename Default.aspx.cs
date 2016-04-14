@@ -28,7 +28,7 @@ public partial class _Default : System.Web.UI.Page
     {
         
         DataList2.SelectedIndex = e.Item.ItemIndex;
-        Session["SelectedMovie"] = DataList2.SelectedItem.FindControl("NameLabel").ToString();
+        Session["SelectedMovie"] = ((Label)DataList2.SelectedItem.FindControl("NameLabel")).Text;
         Response.Redirect("Movie.aspx", true);
         
     }
