@@ -4,17 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
-        </asp:ListView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" SelectCommand="SELECT * FROM [ComingSoon]"></asp:SqlDataSource>
         <br />
+        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="403px">
+        </asp:DetailsView>
     </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" SelectCommand="SELECT * FROM [ComingSoon]"></asp:SqlDataSource>
     <p>
     </p>
 </asp:Content>
