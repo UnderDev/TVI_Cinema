@@ -40,8 +40,7 @@ public partial class Default2 : System.Web.UI.Page
         Session["MovieCategory"] = "ComingSoon";
         Session["SelectedMovie"] =word;
 
-        //NOT WORKING YET
-       // Response.Redirect("Movie.aspx");      
+       Response.Redirect("Movie.aspx");      
     }
 
 
