@@ -29,6 +29,7 @@ public partial class _Default : System.Web.UI.Page
         
         DataList2.SelectedIndex = e.Item.ItemIndex;
         Session["SelectedMovie"] = ((Label)DataList2.SelectedItem.FindControl("NameLabel")).Text;
+        Session["MovieCategory"] = "Regular";
         Response.Redirect("Movie.aspx", true);
         
     }
