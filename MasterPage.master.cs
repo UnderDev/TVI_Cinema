@@ -88,7 +88,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
         return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
     }
 
-
     //search function for movies based on their name
     public Movie findMovie(String movieName)
     {
