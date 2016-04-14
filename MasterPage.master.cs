@@ -87,25 +87,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //converts dateTime object to a string
         return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
     }
-
-    public String dateTimeFromString(DateTime dt)
-    {
-        //converts String to a DateTime Object
-        return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
-    }
-
-    protected void btnShowCal_Click(object sender, EventArgs e)
-    {
-        //button switches visibility based on state of calendar
-        if (Calendar1.Visible == false)
-        {
-            Calendar1.Visible = true;
-        }
-        else
-        {
-            Calendar1.Visible = false;
-        }
-    }
     //search function for movies based on their name
     public Movie findMovie(String movieName)
     {
