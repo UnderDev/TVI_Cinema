@@ -65,8 +65,8 @@ public class MovieDB
         {
             while (reader.Read())
             {
-                byte[] poster = new byte[25000];//byte array size = file limit in bytes
-                reader.GetBytes(4, 0, poster, 0, 25000);//fill the poster byte array for use later 
+                byte[] poster = new byte[75000];//byte array size = file limit in bytes
+                reader.GetBytes(4, 0, poster, 0, 75000);//fill the poster byte array for use later 
                                                         //name                  //description       //length            //duh   //director          //trailerURL            //rating            //screen            //actors
                 newMovie = new Movie(reader.GetString(1), reader.GetString(2), reader.GetInt32(3), poster, reader.GetString(5), reader.GetString(6), reader.GetString(8), reader.GetInt32(0), reader.GetString(7));
                 movieList.Add(newMovie);
@@ -105,8 +105,8 @@ public class MovieDB
         {
             while (reader.Read())
             {
-                byte[] poster = new byte[25000];//byte array size = file limit in bytes
-                reader.GetBytes(1, 0, poster, 0, 25000);//fill the poster byte array for use later 
+                byte[] poster = new byte[75000];//byte array size = file limit in bytes
+                reader.GetBytes(1, 0, poster, 0, 75000);//fill the poster byte array for use later 
                                       //name              //...  //description       //length              //director          //trailerURL                            
                 newMovie = new Movie(reader.GetString(0), poster, reader.GetString(2),  reader.GetString(3), reader.GetString(4), reader.GetInt32(5));
                 movieList.Add(newMovie);
@@ -147,8 +147,8 @@ public class MovieDB
         if (reader.HasRows)
         {
             reader.Read();
-            byte[] poster = new byte[25000];//byte array size = file limit in bytes
-            reader.GetBytes(4, 0, poster, 0, 25000);//fill the poster byte array for use later 
+            byte[] poster = new byte[75000];//byte array size = file limit in bytes
+            reader.GetBytes(4, 0, poster, 0, 75000);//fill the poster byte array for use later 
                                                    //name                  //description       //length            //duh   //director          //trailerURL            //rating            //screen            //actors
             movie = new Movie(reader.GetString(1), reader.GetString(2), reader.GetInt32(3), poster, reader.GetString(5), reader.GetString(6), reader.GetString(8), reader.GetInt32(0), reader.GetString(7));
 
@@ -187,8 +187,8 @@ public class MovieDB
         if (reader.HasRows)
         {
             reader.Read();
-            byte[] poster = new byte[25000];//byte array size = file limit in bytes
-            reader.GetBytes(4, 0, poster, 0, 25000);//fill the poster byte array for use later 
+            byte[] poster = new byte[75000];//byte array size = file limit in bytes
+            reader.GetBytes(1, 0, poster, 0, 75000);//fill the poster byte array for use later 
             movie = new Movie(reader.GetString(0), poster, reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5));
 
         }
