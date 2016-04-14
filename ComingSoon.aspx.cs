@@ -26,10 +26,11 @@ public partial class Default2 : System.Web.UI.Page
 
     void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
-        HttpCookie cookie = new HttpCookie("CommandArgument");
-        cookie.Value = e.CommandArgument.ToString();
+
+        HttpCookie cookie = new HttpCookie("CommandArgument");        
+        cookie.Value =  e.CommandArgument.ToString();
         Response.Cookies.Add(cookie);
-        Response.Redirect("ComingSoonInfo.aspx");
+        Response.Redirect("ComingSoonInfo.aspx");      
     }
 
 
