@@ -84,10 +84,10 @@
 
         </div>
         <iframe id="ifrmTrailerEmbed" runat="server" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-        <div>
+        <div style="">
             <h3><asp:Label runat="server" ID="lblDate" /></h3>
-            <div style="align-items:center, stretch">
-               <asp:GridView ID="gvTimes" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None">
+            <div>
+               <asp:GridView ID="gvTimes" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None" HorizontalAlign="Center">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

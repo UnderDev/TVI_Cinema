@@ -1,7 +1,7 @@
 ﻿/* Transfer all of this to the main style sheet, then delete this file and the link to it in Movie.aspx */
 .content-container
 {
-    background-color: #07b0df;
+
 }
 .flex-container
 {
@@ -28,7 +28,7 @@
     flex-grow: 1;
 }
  div.MovieTitle{
-    background-color:#069cc6;
+
 }
 .MovieTitle{
 
