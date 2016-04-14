@@ -21,11 +21,7 @@ public partial class Default2 : System.Web.UI.Page
         if (movieType == "ComingSoon")
         {
             selected = MovieDB.GetComingSoonMovie((string)Session["SelectedMovie"]);//change to comingsoon
-            odsSingleMovie.SelectMethod = "GetComingSoonMovie";
-            
-            //disable all unnecessary labels/fields
-            lblMovieTitle.Text = selected.Name;
-            ImgPoster.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(selected.Poster);
+            odsSingleMovie.SelectMethod = "GetComingSoonMovie";          
 
             dvMovieInfo.Rows[5].Visible = false;
             dvMovieInfo.Rows[4].Visible = false;
@@ -35,29 +31,28 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            selected = MovieDB.GetMovie((string)Session["SelectedMovie"]);
-            //set data sources to the MovieDB
-
+            selected = MovieDB.GetMovie((string)Session["SelectedMovie"]);       
 
             if (Session["SelectedDate"] != null)
                 date = (DateTime)Session["SelectedDate"];
             else
                 date = DateTime.Now;
-            lblMovieTitle.Text = selected.Name;
+            
             lblDate.Text = string.Format("{0:dddd} the {0:dd}{1} of {0:MMMM yyyy}", DateTime.Now, ((DateTime.Now.Day % 10 == 1 && DateTime.Now.Day != 11) ? "st"
                                                                                         : (DateTime.Now.Day % 10 == 2 && DateTime.Now.Day != 12) ? "nd"
                                                                                         : (DateTime.Now.Day % 10 == 3 && DateTime.Now.Day != 13) ? "rd"
                                                                                         : "th"));
-            ImgPoster.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(selected.Poster);
+            
         }
-
-
+        lblMovieTitle.Text = selected.Name;
+        ImgPoster.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(selected.Poster);
+        ifrmTrailerEmbed.Attributes.Add("src", "https://www.youtube.com/embed/" +selected.TrailerURL);
         //if coming soon
 
-        
-       
 
-        
+
+
+
     }
 
 
