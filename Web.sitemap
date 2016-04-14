@@ -3,6 +3,8 @@
   <siteMapNode title="Site Map">
     <siteMapNode url="~/Default.aspx" title="Home"  description="Home Page"/>
     <siteMapNode url="~/ComingSoon.aspx" title="Coming Soon"  description="Coming Soon!" />
-    <siteMapNode url="~/Contact.aspx" title="Contact"  description="Contact Us!" />
+    <siteMapNode url="~/Contact.aspx" title="Contact"  description="Contact Us" />
+    <siteMapNode url="~/LogIn.aspx" title="Log In Page"  description="Log In Page" />
+    <siteMapNode url="~/Registration.aspx" title="New User Log In"  description="New User Log In" />
   </siteMapNode>   
 </siteMap>
