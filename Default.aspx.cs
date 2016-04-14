@@ -26,13 +26,16 @@ public partial class _Default : System.Web.UI.Page
     
     protected void DataList2_ItemCommand(object source, DataListCommandEventArgs e)
     {
+
         if (!User.IsInRole("Admin"))
         {
             DataList dl = (DataList)LoginView1.FindControl("DataList2");
 
             dl.SelectedIndex = e.Item.ItemIndex;
             Session["SelectedMovie"] = ((Label)dl.SelectedItem.FindControl("NameLabel")).Text;
+            Session["MovieCategory"] = "Regular";
             Response.Redirect("Movie.aspx", true);
         }
+
     }
 }
