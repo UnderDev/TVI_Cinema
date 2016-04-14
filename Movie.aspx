@@ -15,7 +15,7 @@
     <div class="content-container">
         <div class="MovieTitle">
             <h1>
-                <asp:Label CssClass="MovieTitle" runat="server" ID="lblMovieTitle" Text="Deadpla"></asp:Label></h1>
+                <asp:Label CssClass="MovieTitle" runat="server" ID="lblMovieTitle"></asp:Label></h1>
         </div>
         <div class="flex-container">
             <div class="flex-fixed60p">
@@ -53,14 +53,14 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <div class="DetailsViewField">
-                                    Starring
+                                    <asp:Label ID="lblStarringPrefix" runat="server" Text="Starring"></asp:Label>
                                     <asp:Label CssClass="DetailsViewField" ID="Label7" runat="server" Text='<%# Bind("Starring") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <div class="DetailsViewField">
-                                    Rated
+                                    <asp:Label ID="lblRatedPrefix" runat="server" Text="Rated"></asp:Label>
                                     <asp:Label CssClass="DetailsViewField" ID="Label6" runat="server" Text='<%# Bind("Rating") %>'></asp:Label>
                                 </div>
                             </ItemTemplate>
@@ -68,7 +68,7 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <div class="DetailsViewField">
-                                    Playing on Screen
+                                    <asp:Label ID="lblScreenPrefix" runat="server" Text="Playing on Screen"></asp:Label>
                                     <asp:Label CssClass="DetailsViewField" ID="lblScreen" runat="server" Text='<%# Bind("Screen") %>'></asp:Label>
                                 </div>
                             </ItemTemplate>
@@ -83,10 +83,11 @@
             </div>
 
         </div>
-        <div>
-            <h3>Showings for <asp:Label runat="server" ID="lblDate" /></h3>
-            <div style="align-items:center, stretch">
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None">
+        <iframe id="ifrmTrailerEmbed" runat="server" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        <div style="">
+            <h3><asp:Label runat="server" ID="lblDate" /></h3>
+            <div>
+               <asp:GridView ID="gvTimes" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None" HorizontalAlign="Center">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

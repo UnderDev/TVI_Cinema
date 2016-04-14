@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -152,13 +150,19 @@ public class Movie
         this.director = director;
         this.trailerURL = trailerURL;
         this.rating = rating;
-        this.starring = actors;
+        starring = actors;
     }
 
-    public Image GetPoster()
+    public Movie(string name, byte[] poster, string url, string description, string director, int length)
     {
-        MemoryStream ms = new MemoryStream(this.poster);
-        Image poster = Image.FromStream(ms);
-        return poster;
+        Name = name;
+        Poster = poster;
+        TrailerURL = url;
+        Description = description;
+        Director = director;
+        Length = length;
+        Starring = null;
+        Screen = 0;
+        Rating = null;
     }
 }
