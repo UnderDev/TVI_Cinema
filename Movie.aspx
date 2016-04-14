@@ -15,7 +15,7 @@
     <div class="content-container">
         <div class="MovieTitle">
             <h1>
-                <asp:Label CssClass="MovieTitle" runat="server" ID="lblMovieTitle" Text="Deadpla"></asp:Label></h1>
+                <asp:Label CssClass="MovieTitle" runat="server" ID="lblMovieTitle"></asp:Label></h1>
         </div>
         <div class="flex-container">
             <div class="flex-fixed60p">
