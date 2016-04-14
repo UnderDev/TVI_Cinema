@@ -86,7 +86,7 @@
         <div>
             <h3>Showings for <asp:Label runat="server" ID="lblDate" /></h3>
             <div style="align-items:center, stretch">
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None">
+               <asp:GridView ID="gvTimes" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

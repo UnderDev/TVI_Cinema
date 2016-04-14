@@ -12,31 +12,47 @@ public partial class Default2 : System.Web.UI.Page
     bool comingsoon = false;
     protected void Page_Load(object sender, EventArgs e)
     {
-        ViewState["PreviousPageUrl"] = Request.UrlReferrer.ToString();
-
-        if(ViewState["PreviousPageUrl"] != null)
-        {
-            if(ViewState["PreviousPageUrl"].ToString().Contains("ComingSoon"))
-            {
-                comingsoon = true;
-            }
-        }
-
         if (Session["SelectedMovie"] == null)
             Response.Redirect("Default.aspx", true);
-        selected = MovieDB.GetMovie((string)Session["SelectedMovie"]);
-
-        if (Session["SelectedDate"] != null)
-            date = (DateTime)Session["SelectedDate"];
-        else
-            date = DateTime.Now;
         
-        lblMovieTitle.Text = selected.Name;
-        lblDate.Text = string.Format("{0:dddd} the {0:dd}{1} of {0:MMMM yyyy}", DateTime.Now, ((DateTime.Now.Day % 10 == 1 && DateTime.Now.Day != 11) ? "st"
-                                                                                    : (DateTime.Now.Day % 10 == 2 && DateTime.Now.Day != 12) ? "nd"
-                                                                                    : (DateTime.Now.Day % 10 == 3 && DateTime.Now.Day != 13) ? "rd"
-                                                                                    : "th"));
-        ImgPoster.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(selected.Poster);
+
+        string movieType = (string)Session["MovieCategory"];
+        if (movieType == "ComingSoon")
+        {
+            selected = MovieDB.GetMovie((string)Session["SelectedMovie"]);//change to comingsoon
+
+            //set the data sources to the coming soon data sources
+            lblMovieTitle.Text = selected.Name;
+            ImgPoster.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(selected.Poster);
+            dvMovieInfo.Rows[5].Enabled = false;
+            lblDate.Enabled = false;
+            gvTimes.Enabled = false;
+        }
+        else
+        {
+            selected = MovieDB.GetMovie((string)Session["SelectedMovie"]);
+            //set data sources to the MovieDB
+
+
+            if (Session["SelectedDate"] != null)
+                date = (DateTime)Session["SelectedDate"];
+            else
+                date = DateTime.Now;
+            lblMovieTitle.Text = selected.Name;
+            lblDate.Text = string.Format("{0:dddd} the {0:dd}{1} of {0:MMMM yyyy}", DateTime.Now, ((DateTime.Now.Day % 10 == 1 && DateTime.Now.Day != 11) ? "st"
+                                                                                        : (DateTime.Now.Day % 10 == 2 && DateTime.Now.Day != 12) ? "nd"
+                                                                                        : (DateTime.Now.Day % 10 == 3 && DateTime.Now.Day != 13) ? "rd"
+                                                                                        : "th"));
+            ImgPoster.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(selected.Poster);
+        }
+
+
+        //if coming soon
+
+        
+       
+
+        
     }
 
 
