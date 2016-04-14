@@ -120,4 +120,37 @@ public class MovieDB
         con.Close();
         return movie;
     }
+    [DataObjectMethod(DataObjectMethodType.Select)]
+    public static int DeletePrice(String type, int dimension)
+    {
+        SqlConnectionStringBuilder builder =
+            new SqlConnectionStringBuilder();
+        builder["Data Source"] = "localhost\\sqlexpress";
+        builder["integrated Security"] = true;
+        builder["Initial Catalog"] = "MovieDB";
+
+
+        String delStatement = "DELETE FROM Prices AS p WHERE p.Type = @PriceType AND p.dimension = @Dimension";
+
+        SqlConnection con = new SqlConnection(builder.ConnectionString);
+        SqlCommand cmd = new SqlCommand(delStatement, con);
+        cmd.Parameters.AddWithValue("PriceType", type);
+        cmd.Parameters.AddWithValue("Dimension", dimension);
+        con.Open();
+
+        int rowChange = cmd.ExecuteNonQuery();
+        int returnStmnt;
+
+        if (rowChange<1)
+        {
+            returnStmnt = -1;
+        }
+        else
+        {
+            returnStmnt = 0;
+        }
+        con.Close();
+        return returnStmnt;
+    }
+
 }

@@ -100,13 +100,6 @@ public class Booking
         get { return cardNum; }
         set { cardNum = value; }
     }
-    double total;
-
-    public double Total
-    {
-        get { return total; }
-        set { total = value; }
-    }
 
     string movieName;
 

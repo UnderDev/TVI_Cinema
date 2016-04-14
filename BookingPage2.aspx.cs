@@ -17,6 +17,7 @@ public partial class BookingPage2 : System.Web.UI.Page
         if ((Booking)Session["booking"] != null)
         {
             booking = (Booking)Session["booking"];
+
         }
         else
         {
