@@ -88,23 +88,5 @@
     <p>
         <asp:Button ID="btnInsert" runat="server" Text="Insert" />
     </p>
-    <p>
-        &nbsp;</p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
 </asp:Content>
 

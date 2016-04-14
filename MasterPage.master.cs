@@ -87,6 +87,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //converts dateTime object to a string
         return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
     }
+
     //search function for movies based on their name
     public Movie findMovie(String movieName)
     {
