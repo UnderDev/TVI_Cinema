@@ -13,7 +13,12 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Init(object sender, EventArgs e)
     {
-        ListView1.ItemCommand += new EventHandler<ListViewCommandEventArgs>(ListView1_ItemCommand);
+        if (User.IsInRole("Admin"))
+        {
+            ListView lvComingsoon = (ListView)LoginView1.FindControl("ListView1");
+
+            //lvComingsoon.ItemCommand += new EventHandler<ListViewCommandEventArgs>(ListView1_ItemCommand);
+        }
     }
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -25,11 +30,8 @@ public partial class Default2 : System.Web.UI.Page
     }
 
     void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
-    {
-        
-        
-            Response.Redirect("ComingSoonAdmin.aspx");
-        
+    {            
+            Response.Redirect("ComingSoonAdmin.aspx");    
     }
     
 
