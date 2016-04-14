@@ -33,6 +33,7 @@ public partial class _Default : System.Web.UI.Page
 
             dl.SelectedIndex = e.Item.ItemIndex;
             Session["SelectedMovie"] = ((Label)dl.SelectedItem.FindControl("NameLabel")).Text;
+            Session["MovieCategory"] = "Regular";
             Response.Redirect("Movie.aspx", true);
         }
 
