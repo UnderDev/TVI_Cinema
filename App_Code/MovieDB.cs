@@ -67,7 +67,7 @@ public class MovieDB
             {
                 byte[] poster = new byte[25000];//byte array size = file limit in bytes
                 reader.GetBytes(4, 0, poster, 0, 25000);//fill the poster byte array for use later 
-                                                        //name                  //description       //length            //duh   //director          //trailerURL            //rating            //screen            //actors
+                //name                  //description       //length            //duh   //director          //trailerURL            //rating            //screen            //actors
                 newMovie = new Movie(reader.GetString(1), reader.GetString(2), reader.GetInt32(3), poster, reader.GetString(5), reader.GetString(6), reader.GetString(8), reader.GetInt32(0), reader.GetString(7));
                 movieList.Add(newMovie);
             }
@@ -108,7 +108,7 @@ public class MovieDB
             reader.Read();
             byte[] poster = new byte[25000];//byte array size = file limit in bytes
             reader.GetBytes(4, 0, poster, 0, 25000);//fill the poster byte array for use later 
-                                                   //name                  //description       //length            //duh   //director          //trailerURL            //rating            //screen            //actors
+            //name                  //description       //length            //duh   //director          //trailerURL            //rating            //screen            //actors
             movie = new Movie(reader.GetString(1), reader.GetString(2), reader.GetInt32(3), poster, reader.GetString(5), reader.GetString(6), reader.GetString(8), reader.GetInt32(0), reader.GetString(7));
 
         }
@@ -120,37 +120,4 @@ public class MovieDB
         con.Close();
         return movie;
     }
-    [DataObjectMethod(DataObjectMethodType.Select)]
-    public static int DeletePrice(String type, int dimension)
-    {
-        SqlConnectionStringBuilder builder =
-            new SqlConnectionStringBuilder();
-        builder["Data Source"] = "localhost\\sqlexpress";
-        builder["integrated Security"] = true;
-        builder["Initial Catalog"] = "MovieDB";
-
-
-        String delStatement = "DELETE FROM Prices AS p WHERE p.Type = @PriceType AND p.dimension = @Dimension";
-
-        SqlConnection con = new SqlConnection(builder.ConnectionString);
-        SqlCommand cmd = new SqlCommand(delStatement, con);
-        cmd.Parameters.AddWithValue("PriceType", type);
-        cmd.Parameters.AddWithValue("Dimension", dimension);
-        con.Open();
-
-        int rowChange = cmd.ExecuteNonQuery();
-        int returnStmnt;
-
-        if (rowChange<1)
-        {
-            returnStmnt = -1;
-        }
-        else
-        {
-            returnStmnt = 0;
-        }
-        con.Close();
-        return returnStmnt;
-    }
-
 }

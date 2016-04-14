@@ -44,15 +44,31 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
+
+    public String dateTimeFromString(DateTime dt)
+    {
+        //converts String to a DateTime Object
+        return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
+    }
+
+    protected void btnShowCal_Click(object sender, EventArgs e)
+    {
+        //button switches visibility based on state of calendar
+        if (Calendar1.Visible == false)
+        {
+            Calendar1.Visible = true;
+        }
+        else
+        {
+            Calendar1.Visible = false;
+        }
+    }
+
     public List<String> genDates()
     {
         //dateTime and list of dateTime objects created
         DateTime dt = DateTime.Now;
         List<String> dates = new List<string>();
-        if (datesList == null)
-        {
-            datesList = new List<DateTime>();
-        }
         //looping 7 times to accomodate a week's worth of dateTime objects
         for (int dateLoop = 0; dateLoop < 7; dateLoop++)
         {
@@ -142,6 +158,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         return -1;
     }
 
+
     protected void ddlSelectTimes_SelectedIndexChanged1(object sender, EventArgs e)
     {
         genDates();
@@ -149,7 +166,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
     protected void ddlSelectFilm_SelectedIndexChanged1(object sender, EventArgs e)
     {
-        String s = ddlSelectFilm.SelectedValue;
         Session["SelectedMovie"] = ddlSelectFilm.SelectedValue;
     }
     protected void btnGo_Click1(object sender, EventArgs e)

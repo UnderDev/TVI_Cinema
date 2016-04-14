@@ -10,6 +10,7 @@ public partial class BookingPage2 : System.Web.UI.Page
     public Booking booking;
     protected void Page_Load(object sender, EventArgs e)
     {
+
         //redirect statement
 
         //should the user try to access this page without there being a session object
@@ -17,7 +18,6 @@ public partial class BookingPage2 : System.Web.UI.Page
         if ((Booking)Session["booking"] != null)
         {
             booking = (Booking)Session["booking"];
-
         }
         else
         {
@@ -35,6 +35,7 @@ public partial class BookingPage2 : System.Web.UI.Page
     {
         //custom validator checks the state of the check box
         //sets the validity property appropriately
+
         if (!chkBxTerms.Checked)
         {
             args.IsValid = false;
@@ -45,6 +46,7 @@ public partial class BookingPage2 : System.Web.UI.Page
         }
     }
     //when the user has passed all the validators, they can proceed to the summary page
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         if (Page.IsValid)
@@ -79,7 +81,11 @@ public partial class BookingPage2 : System.Web.UI.Page
         tempDdl.DataBind();
         /*
          * needs fixing
-         */ 
+         * 
+         * 
+         * CHANGE SCOPE OF NAVBAR DATE DROPDOWN
+         */
+
         //tempDdl.SelectedValue = (DateTime)Session["SelectedDate"]; 
     }
 }

@@ -52,6 +52,7 @@
                     <asp:RegularExpressionValidator ID="revEmail" runat="server" 
                         ControlToValidate="txtEmail" ValidationGroup="vGroupBasicInfo" ErrorMessage="Invalid email address" 
                         ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic">*</asp:RegularExpressionValidator>
+
                 </td>
                 <td width="120px">
                     <asp:Label ID="lblEmailC" runat="server" Text="Confirm Email: "></asp:Label>
@@ -133,8 +134,9 @@
                     <asp:TextBox ID="txtCVV" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvCVV" runat="server" ErrorMessage="CVV field is required"
                         ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCVV" Display="Dynamic">*</asp:RequiredFieldValidator>
+
                     <asp:RangeValidator ID="rvCVV" runat="server" ErrorMessage="CVV value out of range"
-                        ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCVV" MinimumValue="100"
+                       ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCVV" MinimumValue="100"
                         MaximumValue="9999" Type="Integer">*</asp:RangeValidator>
                 </td>
             </tr>
@@ -192,6 +194,7 @@
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" 
             ValidationGroup="vGroupBasicInfo" onclick="btnSubmit_Click" />
     </p>
+
     <asp:ValidationSummary ID="vsBookingPage2" ValidationGroup="vGroupBasicInfo" 
         runat="server" DisplayMode="List" ForeColor="Red" />
 </asp:Content>
