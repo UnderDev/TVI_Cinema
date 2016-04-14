@@ -53,6 +53,7 @@ public class MovieDB
         builder["integrated Security"] = true;
         builder["Initial Catalog"] = "MovieDB";
         String selStatement = "select distinct m.screen, m.name, m.description, m.length, m.poster, m.director, m.trailer_URL, m.stars, m.rating from movies as m;";
+        String selectComingSoon = "select distinct m.screen, m.name, m.description, m.length, m.poster, m.director, m.trailer_URL, from ComingSoon as m;";
         SqlConnection con = new SqlConnection(builder.ConnectionString);
         SqlCommand cmd = new SqlCommand(selStatement, con);
         SqlDataReader reader;
