@@ -20,14 +20,14 @@ public partial class Default2 : System.Web.UI.Page
         MailMessage mailMessage = new MailMessage("thevillageidiot.cinema@gmail.com", "thevillageidiot.cinema@gmail.com"); 
         // Specify the email body 
 
-        string emailbody = "\nFrom: " + YourName.Text + "\n";
-        emailbody += "Email: " + YourEmail.Text + "\n";
-        emailbody += "Subject: " + YourSubject.Text + "\n\n";
-        emailbody += "Question: \n\t\t" + Comments.Text + "\n";
+        string emailBody = "\nFrom: " + txtboxYourName.Text + "\n";
+        emailBody += "Email: " + txtboxYourEmail.Text + "\n";
+        emailBody += "Subject: " + txtboxYourSubject.Text + "\n\n";
+        emailBody += "Question: \n\t\t" + txtboxComments.Text + "\n";
 
-        mailMessage.Body = emailbody;
+        mailMessage.Body = emailBody;
         // Specify the email Subject 
-        mailMessage.Subject = YourSubject.Text;
+        mailMessage.Subject = txtboxYourSubject.Text;
         //mailMessage.From = YourEmail.Text;
         // No need to specify the SMTP settings as these 
         // are already specified in web.config
@@ -43,12 +43,12 @@ public partial class Default2 : System.Web.UI.Page
         {
             //here on button click what will done 
             SendMail();
-            DisplayMessage.Text = "Your Comments after sending the mail";
-            DisplayMessage.Visible = true;
-            YourSubject.Text = "";
-            YourEmail.Text = "";
-            YourName.Text = "";
-            Comments.Text = "";
+            lblDisplayMessage.Text = "Your Comments after sending the mail";
+            lblDisplayMessage.Visible = true;
+            txtboxYourSubject.Text = "";
+            txtboxYourEmail.Text = "";
+            txtboxYourName.Text = "";
+            txtboxComments.Text = "";
         }
         catch (Exception) { }
     }

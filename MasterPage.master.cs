@@ -44,29 +44,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-    public List<String> genDates()
-    {
-        //dateTime and list of dateTime objects created
-        DateTime dt = DateTime.Now;
-        List<String> dates = new List<string>();
-        //looping 7 times to accomodate a week's worth of dateTime objects
-        for (int dateLoop = 0; dateLoop < 7; dateLoop++)
-        {
-            datesList.Add(dt);
-            //current date is added to the list
-            dates.Add(dateTimeToString(dt));
-            //date is incremented by 1 day
-            dt = dt.AddDays(1);
-            
-        }
-        //after the list is complete, return it
-        return dates;
-    }
-    public String dateTimeToString(DateTime dt)
-    {
-        //converts dateTime object to a string
-        return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
-    }
 
     public String dateTimeFromString(DateTime dt)
     {
@@ -86,6 +63,31 @@ public partial class MasterPage : System.Web.UI.MasterPage
             Calendar1.Visible = false;
         }
     }
+
+    public List<String> genDates()
+    {
+        //dateTime and list of dateTime objects created
+        DateTime dt = DateTime.Now;
+        List<String> dates = new List<string>();
+        //looping 7 times to accomodate a week's worth of dateTime objects
+        for (int dateLoop = 0; dateLoop < 7; dateLoop++)
+        {
+            datesList.Add(dt);
+            //current date is added to the list
+            dates.Add(dateTimeToString(dt));
+            //date is incremented by 1 day
+            dt = dt.AddDays(1);
+
+        }
+        //after the list is complete, return it
+        return dates;
+    }
+    public String dateTimeToString(DateTime dt)
+    {
+        //converts dateTime object to a string
+        return (dt.DayOfWeek.ToString() + ", " + dt.Day + " " + dt.ToString("MMMM"));
+    }
+
     //search function for movies based on their name
     public Movie findMovie(String movieName)
     {
@@ -138,14 +140,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         return -1;
     }
 
-    protected void btnGo_Click(object sender, EventArgs e)
-    {
-        
-    }
+
     protected void ddlSelectTimes_SelectedIndexChanged1(object sender, EventArgs e)
     {
         genDates();
-        Session["SelectedDate"] = datesList[ddlSelectTimes.SelectedIndex-1];
+        Session["SelectedDate"] = datesList[ddlSelectTimes.SelectedIndex - 1];
     }
     protected void ddlSelectFilm_SelectedIndexChanged1(object sender, EventArgs e)
     {
