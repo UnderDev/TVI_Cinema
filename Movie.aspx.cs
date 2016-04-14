@@ -12,6 +12,7 @@ public partial class Default2 : System.Web.UI.Page
     bool comingsoon = false;
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (Session["SelectedMovie"] == null)
             Response.Redirect("Default.aspx", true);
         
@@ -19,12 +20,16 @@ public partial class Default2 : System.Web.UI.Page
         string movieType = (string)Session["MovieCategory"];
         if (movieType == "ComingSoon")
         {
-            selected = MovieDB.GetMovie((string)Session["SelectedMovie"]);//change to comingsoon
-
-            //set the data sources to the coming soon data sources
+            selected = MovieDB.GetComingSoonMovie((string)Session["SelectedMovie"]);//change to comingsoon
+            odsSingleMovie.SelectMethod = "GetComingSoonMovie";
+            
+            //disable all unnecessary labels/fields
             lblMovieTitle.Text = selected.Name;
             ImgPoster.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(selected.Poster);
-            dvMovieInfo.Rows[5].Enabled = false;
+
+            dvMovieInfo.Rows[5].Visible = false;
+            dvMovieInfo.Rows[4].Visible = false;
+            dvMovieInfo.Rows[3].Visible = false;
             lblDate.Enabled = false;
             gvTimes.Enabled = false;
         }
