@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+        <asp:SqlDataSource ID="CSAdminSqlDataSource" runat="server" 
             ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" 
             SelectCommand="SELECT * FROM [ComingSoon]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [ComingSoon] WHERE [Number] = @original_Number AND [Name] = @original_Name AND [Poster] = @original_Poster AND [Trailer_url] = @original_Trailer_url AND [Description] = @original_Description AND [Director] = @original_Director AND [Length] = @original_Length" InsertCommand="INSERT INTO [ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (@Number, @Name, @Poster, @Trailer_url, @Description, @Director, @Length)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [ComingSoon] SET [Name] = @Name, [Poster] = @Poster, [Trailer_url] = @Trailer_url, [Description] = @Description, [Director] = @Director, [Length] = @Length WHERE [Number] = @original_Number AND [Name] = @original_Name AND [Poster] = @original_Poster AND [Trailer_url] = @original_Trailer_url AND [Description] = @original_Description AND [Director] = @original_Director AND [Length] = @original_Length">
             <DeleteParameters>
@@ -42,7 +42,7 @@
                 <asp:Parameter Name="original_Length" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Number" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="gvwCSAdmin" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Number" DataSourceID="CSAdminSqlDataSource" OnRowDeleted="gvwCSAdmin_RowDeleted" PageSize="5">
             <Columns>
                 <asp:BoundField DataField="Number" HeaderText="Number" ReadOnly="True" SortExpression="Number" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -52,12 +52,10 @@
                 <asp:BoundField DataField="Length" HeaderText="Length" SortExpression="Length" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>' />
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>'  />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" >
-                <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
-                </asp:CommandField>
+                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>
     </p>
@@ -67,29 +65,46 @@
 &nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label2" runat="server" Text="Name"></asp:Label>
         <asp:TextBox ID="txtName" runat="server" ValidationGroup="requiredText" Width="174px"></asp:TextBox>
-    </p>
-    <p>
         <asp:Label ID="Label4" runat="server" Text="Trailer URL"></asp:Label>
         <asp:TextBox ID="txtTrailerURL" runat="server" style="margin-left: 0px" ValidationGroup="requiredText"></asp:TextBox>
-&nbsp;<asp:Label ID="Label3" runat="server" Text="Director"></asp:Label>
-        <asp:TextBox ID="txtDirector" runat="server" ValidationGroup="requiredText"></asp:TextBox>
     </p>
     <p>
+&nbsp;<asp:Label ID="Label3" runat="server" Text="Director"></asp:Label>
+        <asp:TextBox ID="txtDirector" runat="server" ValidationGroup="requiredText"></asp:TextBox>
         <asp:Label ID="Label5" runat="server" Text="Length"></asp:Label>
         <asp:TextBox ID="txtLength" runat="server" ValidationGroup="requiredText"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label6" runat="server" Text="Poster"></asp:Label>
-        <asp:TextBox ID="txtPoster" runat="server" ValidationGroup="requiredText" Width="164px"></asp:TextBox>
-    </p>
+&nbsp;&nbsp;&nbsp;<asp:Label ID="Poster" runat="server" Text="Label"></asp:Label>
+        &nbsp;&nbsp;<asp:FileUpload ID="fpPoster" runat="server" />
+        &nbsp;</p>
     <p>
         &nbsp;<asp:Label ID="Label8" runat="server" Text="Description"></asp:Label>
         <asp:TextBox ID="txtDescription" runat="server" Height="115px" ValidationGroup="requiredText" Width="231px"></asp:TextBox>
     </p>
     <p>
-        <asp:Button ID="btnInsert" runat="server" Text="Insert" />
+        <asp:Button ID="btnInsert" runat="server" Text="Insert" OnClick="btnInsert_Click" ValidationGroup="requiredText" />
     </p>
     <p>
-        &nbsp;</p>
+        <asp:Label ID="lblErrorMessage" runat="server"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server"></asp:Label>
+    </p>
+    <p>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNumber" ErrorMessage="Number Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+    </p>
+    <p>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtName" ErrorMessage="Name Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+    </p>
+    <p>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtTrailerURL" ErrorMessage="Trailer URL Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+    </p>
+    <p>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtDirector" ErrorMessage="Director Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+    </p>
+    <p>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtLength" ErrorMessage="Length field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+    </p>
+    <p>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtDescription" ErrorMessage="Description Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+    </p>
     <p>
     </p>
     <p>
