@@ -1,16 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="BookingPage.aspx.cs" Inherits="BookingPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .style1
-        {
-            width: 347px;
-        }
-        .style2
-        {
-            height: 23px;
-        }
-    </style>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:SqlDataSource ID="dsPrices" runat="server" 
@@ -24,6 +15,7 @@
     <asp:ObjectDataSource ID="dsQuantity" runat="server"></asp:ObjectDataSource>
     <h1>Booking Page</h1>
     <div>
+    
         <asp:GridView ID="gvwBooking" runat="server" DataSourceID="dsPrices" 
             AutoGenerateColumns="False" DataKeyNames="Type,dimension" CellPadding="4" 
             ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Width="347px">
@@ -95,24 +87,20 @@
                 <td>
                     &nbsp;</td>
                 <td align="right">
-                    <asp:CustomValidator ID="cvTotal" runat="server" 
-                        ErrorMessage="Must select a ticket" 
-                        onservervalidate="cvTotal_ServerValidate" 
-                        ValidationGroup="vGroupBookTicket" ForeColor="Red">*</asp:CustomValidator>
                     Total:</td>
                 <td align="center">
                     <asp:Label ID="lblTotal" runat="server" >0.00</asp:Label>
                 </td>
             </tr>
             <tr>
-                <td class="style2">
-                    </td>
-                <td class="style2">
-                    </td>
-                <td align="right" class="style2">
-                    </td>
-                <td class="style2">
-                    </td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+                <td align="right">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td>
@@ -123,16 +111,12 @@
                     &nbsp;</td>
                 <td align=right width="50">
                     <asp:Button ID="btnContinue" runat="server" Text="Continue" 
-                        onclick="btnContinue_Click" ValidationGroup="vGroupBookTicket" />
+                        onclick="btnContinue_Click" />
                 </td>
             </tr>
         </table>
         <br />
-
-    <asp:ValidationSummary ID="vsBookingPage" ValidationGroup="vGroupBookTicket" 
-        runat="server" DisplayMode="List" ForeColor="Red" />
         <br />
-
     </div>
 </asp:Content>
 
