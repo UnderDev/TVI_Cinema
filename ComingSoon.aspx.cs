@@ -8,33 +8,32 @@ using System.Data.SqlClient;
 using System.Data;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
+using System.Configuration;
 
 public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Init(object sender, EventArgs e)
     {
 
+        //If the user is the Admin, redirect them to the ComingSoonAdmin page, otherwise Display the listview
         if (User.IsInRole("Admin"))
-        {
-            Label lvComingsoon = (Label)LoginView1.FindControl("Label1");
-        }
+            Server.Transfer("ComingSoonAdmin.aspx", true);          
         else
         {
             ListView lvComingsoon = (ListView)LoginView1.FindControl("lvwComingSoon");
             lvComingsoon.ItemCommand += new EventHandler<ListViewCommandEventArgs>(lvwComingSoon_ItemCommand);
         }
     }
-    protected void Page_Load(object sender, EventArgs e)
-    {
 
-
-
-
-
-    }
     public string GetImage(object img)
     {
         return "data:image/jpg;base64," + Convert.ToBase64String((byte[])img);
+    }
+
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
     }
 
     void lvwComingSoon_ItemCommand(object sender, ListViewCommandEventArgs e)
@@ -46,6 +45,4 @@ public partial class Default2 : System.Web.UI.Page
 
        Response.Redirect("Movie.aspx");      
     }
-
-
 }
