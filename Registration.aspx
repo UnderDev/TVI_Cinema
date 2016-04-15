@@ -5,11 +5,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <br />
-<div class="CenterRegister">
+<div class="CenterRegister" >
         <asp:CreateUserWizard ID="vgRegistration" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8"
             BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
             Font-Size="0.8em" 
-            InvalidPasswordErrorMessage="Password length minimum: {0}. <br /> Non-alphanumeric characters required: {1}.">
+            
+            
+            InvalidPasswordErrorMessage="Password length minimum: {0}. <br /> Non-alphanumeric characters required: {1}." 
+            oncreatinguser="vgRegistration_CreatingUser">
             <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid"
                 BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
             <CreateUserButtonStyle CssClass="RegisterBtn" Width="200px" Height="50px" />

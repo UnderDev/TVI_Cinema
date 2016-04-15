@@ -21,7 +21,6 @@ public partial class ComingSoon2 : System.Web.UI.Page
     }
 
 
-
     protected void btnInsert_Click(object sender, EventArgs e)
     {
         // Read the file and convert it to Byte Array
@@ -30,17 +29,15 @@ public partial class ComingSoon2 : System.Web.UI.Page
         string ext = Path.GetExtension(filename);
         string contenttype = String.Empty;
 
-        //Set the contenttype based on File Extension
+        //Set the content type based on File Extension
         switch (ext)
         {
-
             case ".jpg":
                 contenttype = "image/jpg";
                 break;
             case ".png":
                 contenttype = "image/png";
                 break;
-
         }
         if (contenttype != String.Empty)
         {
@@ -76,7 +73,6 @@ public partial class ComingSoon2 : System.Web.UI.Page
             cmd.Parameters.AddWithValue("Length", length);
 
 
-
             InsertUpdateData(cmd);
             lblMessage.ForeColor = System.Drawing.Color.Green;
             lblMessage.Text = "File Uploaded Successfully";
@@ -95,11 +91,6 @@ public partial class ComingSoon2 : System.Web.UI.Page
         }
 
 
-    }
-
-    protected void btnUpload_Click(object sender, EventArgs e)
-    {
-        
     }
 
     private Boolean InsertUpdateData(SqlCommand cmd)
@@ -127,7 +118,7 @@ public partial class ComingSoon2 : System.Web.UI.Page
         }
     }
          
-        protected void gvwCSAdmin_RowDeleted(object sender, GridViewDeletedEventArgs e)
+    protected void gvwCSAdmin_RowDeleted(object sender, GridViewDeletedEventArgs e)
     {
         if (e.Exception != null)
         {
@@ -141,11 +132,6 @@ public partial class ComingSoon2 : System.Web.UI.Page
     }
 
 
-
-    protected void gvwCSAdmin_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-
-    }
 }
 
    
