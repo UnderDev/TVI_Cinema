@@ -121,6 +121,7 @@ public partial class ComingSoon2 : System.Web.UI.Page
         }
         finally
         {
+            gvwCSAdmin.DataBind();
             con.Close();
             con.Dispose();
         }
@@ -130,13 +131,20 @@ public partial class ComingSoon2 : System.Web.UI.Page
     {
         if (e.Exception != null)
         {
-            lblMessage.Text = "A database error has occurred.<br /><br />" +
+            lblErrorMessage.Text = "A database error has occurred.<br /><br />" +
                 "Message: " + e.Exception.Message;
             e.ExceptionHandled = true;
         }
         else if (e.AffectedRows == 0)
-            lblMessage.Text = "Another user may have updated that category." +
+            lblErrorMessage.Text = "Another user may have updated that category." +
                 "<br />Please try again.";
+    }
+
+
+
+    protected void gvwCSAdmin_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+
     }
 }
 
