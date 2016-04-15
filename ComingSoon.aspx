@@ -5,12 +5,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <p>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>"
+        <asp:SqlDataSource ID="dsComingSoon" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>"
             SelectCommand="SELECT [Name], [Poster] FROM [ComingSoon] ORDER BY [Name]"></asp:SqlDataSource>
         <br />
         <asp:LoginView ID="LoginView1" runat="server">
             <LoggedInTemplate>
-                <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="3">
+                <asp:ListView ID="lvwComingSoon" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="3">
                     <EditItemTemplate>
                         <td id="Td1" runat="server" style="">
                             Name:
@@ -104,7 +104,7 @@
                 </asp:ListView>
             </LoggedInTemplate>
             <AnonymousTemplate>
-                <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="3">
+                <asp:ListView ID="lvwComingSoon" runat="server" DataSourceID="dsComingSoon" GroupItemCount="3">
                     <EditItemTemplate>
                         <td id="Td1" runat="server" style="">
                             Name:
