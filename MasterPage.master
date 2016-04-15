@@ -31,13 +31,15 @@
                             <asp:LoginStatus ID="LoginStatus" runat="server" LogoutPageUrl="~/LogIn.aspx" />
                         </td>
                         <td>
-                            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="NavMenu" RenderingMode="Table"
+                            <asp:Menu ID="mNavHeader" runat="server" Orientation="Horizontal" CssClass="NavMenu" RenderingMode="Table"
                                 StaticEnableDefaultPopOutImage="False">
                                 <Items>
                                     <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
                                     <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
                                     <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon">
                                     </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/ScreenAdmin.aspx" Text="Screen Config" 
+                                        Value="ScreenConfig"></asp:MenuItem>
                                 </Items>
                                 <StaticMenuItemStyle CssClass="MenuBoxDesign" ItemSpacing="50px" Width="100px" />
                                 <StaticHoverStyle CssClass="MenuBoxHover" />
@@ -91,7 +93,7 @@
                             <asp:Image ID="img1" runat="server" src="Assets/1.jpg" Height="200px" Width="200px" />
                         </div>
                         <div class="SiteMap">
-                            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0"
+                            <asp:TreeView ID="tvSiteMap" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0"
                                 Font-Names="Charlemagne Std" ImageSet="Msdn" NodeIndent="15" Width="150px">
                                 <HoverNodeStyle BackColor="White" BorderColor="#888888" BorderStyle="Solid" BorderWidth="1px"
                                     Font-Underline="True" />
