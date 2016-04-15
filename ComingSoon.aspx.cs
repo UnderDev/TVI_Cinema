@@ -20,8 +20,8 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            ListView lvComingsoon = (ListView)LoginView1.FindControl("ListView1");
-            lvComingsoon.ItemCommand += new EventHandler<ListViewCommandEventArgs>(ListView1_ItemCommand);
+            ListView lvComingsoon = (ListView)LoginView1.FindControl("lvwComingSoon");
+            lvComingsoon.ItemCommand += new EventHandler<ListViewCommandEventArgs>(lvwComingSoon_ItemCommand);
         }
     }
     protected void Page_Load(object sender, EventArgs e)
@@ -33,7 +33,7 @@ public partial class Default2 : System.Web.UI.Page
         return "data:image/jpg;base64," + Convert.ToBase64String((byte[])img);
     }
 
-    void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
+    void lvwComingSoon_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
         string word = e.CommandArgument.ToString();
 
