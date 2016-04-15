@@ -95,13 +95,13 @@
                 <td>
                     &nbsp;</td>
                 <td align="right">
-                    Total:</td>
-                <td align="center">
-                    <asp:Label ID="lblTotal" runat="server" >0.00</asp:Label>
                     <asp:CustomValidator ID="cvTotal" runat="server" 
                         ErrorMessage="Must select a ticket" 
                         onservervalidate="cvTotal_ServerValidate" 
                         ValidationGroup="vGroupBookTicket" ForeColor="Red">*</asp:CustomValidator>
+                    Total:</td>
+                <td align="center">
+                    <asp:Label ID="lblTotal" runat="server" >0.00</asp:Label>
                 </td>
             </tr>
             <tr>

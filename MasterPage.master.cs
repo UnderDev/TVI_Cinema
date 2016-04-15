@@ -64,6 +64,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         else
         {
             Calendar1.Visible = false;
+            
         }
     }
 
@@ -163,5 +164,20 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             Response.Redirect("Movie.aspx");
         }
+    }
+    protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+    {
+        genDates();
+        for (int i = 0; i < datesList.Count; i++)
+        {
+            if (e.Day.Date == datesList[i].Date)
+            {
+                e.Cell.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+    }
+    protected void Calendar1_Init(object sender, EventArgs e)
+    {
+        
     }
 }

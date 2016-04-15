@@ -53,6 +53,9 @@
     <p>
         &nbsp;</p>
     <p>
+        <asp:Button ID="btnConfirm" runat="server" Text="Confirm Booking" 
+            onclick="btnConfirm_Click" />
+        <br/>
     <asp:Button ID="btnReturn" runat="server" Text="Return" 
         onclick="btnReturn_Click" />
     </p>

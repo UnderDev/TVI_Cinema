@@ -73,21 +73,23 @@ public partial class BookingPage : System.Web.UI.Page
     }
     protected void btnContinue_Click(object sender, EventArgs e)
     {
-        String total = lblTotal.Text.Substring(1);
-        HttpCookie dimension = new HttpCookie("ticketTotal");
-        dimension.Value = total;
-        Response.Cookies.Add(dimension);
-        Session["Booking"] = booking;
-        Response.Redirect("BookingPage2.aspx");
+        if (Page.IsValid)
+        {
+            String total = lblTotal.Text.Substring(1);
+            HttpCookie dimension = new HttpCookie("ticketTotal");
+            dimension.Value = total;
+            Response.Cookies.Add(dimension);
+            Session["Booking"] = booking;
+            Response.Redirect("BookingPage2.aspx");
+        }
     }
     protected void cvTotal_ServerValidate(object source, ServerValidateEventArgs args)
     {
-        try
+        if(!lblTotal.Text.Equals("0.00"))
         {
-            Convert.ToDouble(lblTotal.Text);
             args.IsValid = true;
         }
-        catch
+        else
         {
             args.IsValid = false;
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Net.Mail;
 using System.Web.UI.WebControls;
 
 public partial class SummaryPage : System.Web.UI.Page
@@ -22,6 +23,24 @@ public partial class SummaryPage : System.Web.UI.Page
         {
             Response.Redirect("BookingPage.aspx");
         }
+    }
+    public void sendConfirmation()
+    {
+        // Specify the from and to email address 
+        MailMessage mailMessage = new MailMessage("thevillageidiot.cinema@gmail.com", booking.Email);
+        // Specify the email body 
+        String name = booking.FirstName + " " + booking.LastName;
+        //String 
+        string emailBody = "boop";
+        mailMessage.Body = emailBody;
+        // Specify the email Subject 
+        mailMessage.Subject = "boop";
+        //mailMessage.From = YourEmail.Text;
+        // No need to specify the SMTP settings as these 
+        // are already specified in web.config
+        SmtpClient smtpClient = new SmtpClient();
+        // Finall send the email message using Send() method
+        smtpClient.Send(mailMessage);
     }
     public void display()
     {
@@ -43,4 +62,8 @@ public partial class SummaryPage : System.Web.UI.Page
         Response.Redirect("Default.aspx");
     }
 
+    protected void btnConfirm_Click(object sender, EventArgs e)
+    {
+        sendConfirmation();
+    }
 }
