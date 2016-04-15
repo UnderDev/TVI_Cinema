@@ -19,7 +19,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //this code only needs to run when its not a postBack
 
         movieList = MovieDB.GetMovieList();
-        datesList = new List<DateTime>();
+        if (datesList == null)
+        {
+            datesList = new List<DateTime>();
+        }
         //i = movieList.Count();// Use as a breakpoint if bindings dont work.
 
         if (!IsPostBack)
@@ -69,6 +72,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //dateTime and list of dateTime objects created
         DateTime dt = DateTime.Now;
         List<String> dates = new List<string>();
+        if (datesList == null)
+        {
+            datesList = new List<DateTime>();
+        }
         //looping 7 times to accomodate a week's worth of dateTime objects
         for (int dateLoop = 0; dateLoop < 7; dateLoop++)
         {

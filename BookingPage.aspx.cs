@@ -80,4 +80,16 @@ public partial class BookingPage : System.Web.UI.Page
         Session["Booking"] = booking;
         Response.Redirect("BookingPage2.aspx");
     }
+    protected void cvTotal_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        try
+        {
+            Convert.ToDouble(lblTotal.Text);
+            args.IsValid = true;
+        }
+        catch
+        {
+            args.IsValid = false;
+        }
+    }
 }

@@ -92,12 +92,7 @@
             <asp:RoleGroup Roles="Admin">
                 <ContentTemplate>
                     <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False"
-                        DataKeyNames="Screen" DataSourceID="dsMoviesDetail" Height="50px" 
-                        Width="125px" CellPadding="4" ForeColor="#333333" GridLines="None">
-                        <AlternatingRowStyle BackColor="White" />
-                        <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                        DataKeyNames="Screen" DataSourceID="dsMoviesDetail" Height="50px" Width="125px">
                         <Fields>
                             <asp:BoundField DataField="Screen" HeaderText="Screen" ReadOnly="True" SortExpression="Screen" />
                             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -110,10 +105,6 @@
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
                                 ShowInsertButton="True" ButtonType="Button" />
                         </Fields>
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
                     </asp:DetailsView>
                 </ContentTemplate>
             </asp:RoleGroup>
