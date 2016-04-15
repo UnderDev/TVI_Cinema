@@ -14,9 +14,17 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void vgRegistration_CreatingUser(object sender, LoginCancelEventArgs e)
     {
+        //Find the textbox control UserName.
         TextBox username = vgRegistration.CreateUserStep.ContentTemplateContainer.FindControl("UserName") as TextBox;
 
-        Roles.CreateRole("Client");
+        //Make sure the role dosnt exsist
+        if (!Roles.RoleExists("Client"))
+        {
+            //Create a new Roll called Client
+            Roles.CreateRole("Client");
+        }
+        
+
         Roles.AddUserToRole(username.Text, "Client");
     }
 }
