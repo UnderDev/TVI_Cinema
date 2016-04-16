@@ -5,13 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
+using System.Web.Security;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
     public List<Movie> movieList;
     public List<DateTime> datesList;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        disableNonAdminOptions();
         //int i;
 
         //i = movieList.Count();// Use as a breakpoint if bindings dont work.
@@ -46,6 +49,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
             ddlSelectTimes.DataBind();
         }
     }
+
+    //If the user is not in the Role Admin, Remove the Button Screen Config from the user
+    public void disableNonAdminOptions()
+    {
+        if (!Roles.IsUserInRole("Admin"))
+        {
+            MenuItemCollection menuItems = mNavHeader.Items;
+            MenuItem adminItem = new MenuItem();
+            foreach (MenuItem menuItem in menuItems)
+            {
+                if (menuItem.Text == "Screen Config")
+                    adminItem = menuItem;
+            }
+            menuItems.Remove(adminItem);
+        }
+    }
+
+
 
 
     public String dateTimeFromString(DateTime dt)
