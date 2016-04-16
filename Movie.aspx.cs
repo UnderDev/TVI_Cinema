@@ -82,7 +82,7 @@ public partial class Default2 : System.Web.UI.Page
 
         //create the booking object and send it to session
         Booking booking = new Booking((String)Session["SelectedMovie"]);
-        booking.ScreenNo = Convert.ToInt32(ddlShowings.SelectedItem.Value);
+        booking.ScreenNo = selected.Screen;
         booking.SelctdDateTime = showing;            
         booking.Dimension = Convert.ToInt32(dimLabel.Text);
         Session["Booking"] = booking;
