@@ -24,7 +24,7 @@
                     SortExpression="Type" />
                 <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" 
                     DataFormatString="{0:c}" />
-                <asp:BoundField DataField="dimension" HeaderText="Dimension" ReadOnly="True" 
+                <asp:BoundField DataField="dimension" HeaderText="Screen Type" ReadOnly="True" 
                     SortExpression="dimension" DataFormatString="{0}D" />
                 <asp:TemplateField HeaderText="Amount">
                     <ItemTemplate> 
