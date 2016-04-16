@@ -4,10 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h1>
-        Booking Page</h1>
-    <h4>
-        Please Enter Youur Information:</h4>
+    <h2>
+        Please Enter Your Information:</h2>
     <div style="text-align: left; margin-left: 20px;">
         <br />
         <table class="style1">

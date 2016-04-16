@@ -11,8 +11,7 @@
                 SessionField="dimension" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:ObjectDataSource ID="dsQuantity" runat="server"></asp:ObjectDataSource>
-    <h1>Booking Page</h1>
+    <h1>Select Tickets: </h1>
     <div>
     
         <asp:GridView ID="gvwBooking" runat="server" DataSourceID="dsPrices" 
@@ -26,7 +25,7 @@
                 <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" 
                     DataFormatString="{0:c}" />
                 <asp:BoundField DataField="dimension" HeaderText="Dimension" ReadOnly="True" 
-                    SortExpression="dimension" />
+                    SortExpression="dimension" DataFormatString="{0}D" />
                 <asp:TemplateField HeaderText="Amount">
                     <ItemTemplate> 
                          <asp:DropDownList ID="dllAmount" Runat="Server" oninit="dllAmount_Init" 
@@ -49,29 +48,29 @@
 
         <br />
         <br />
-        <table align="center" class="style1" Style:"box-shadow: 10px 10px 5px #888888;">
+        <table align="center" class="style1" style="border-collapse: collapse; empty-cells: show; table-layout: fixed; " 
+            width="500px">
             <tr >
-                <td class="style2">
+                <td style="border-top-style: groove; border-right-style: inherit; border-bottom-style: inherit; border-width: .1px; border-left-style: groove; border-color: #EFF3FB;">
                     </td>
-                <td class="style2">
+                <td style="border-bottom:1pt solid black; border-bottom-style: inherit; border-top-style: groove; border-width: .1px; border-color: #EFF3FB; border-right-style: inherit;">
                     </td>
-                <td class="style3">
+                <td style="border-bottom:1pt solid black; border-bottom-style: inherit; border-top-style: groove; border-width: .1px; border-color: #EFF3FB; border-right-style: inherit;">
                     </td>
-                <td class="style2">
+                <td style="border-bottom:1pt solid black; border-bottom-style: inherit; border-top-style: groove; border-width: .1px; border-color: #EFF3FB; border-right-style: inherit;">
                     </td>
             </tr>
-            <tr style="border-bottom:1pt solid black; border-bottom-style: inherit; border-top-style: groove; border-width: 1px; border-color: #000000;">
-                <td>
-                    </td>
-                <td>
-                    </td>
-                <td align="right"> Booking Fee:</td>
+            <tr style="padding: 400px">
+                <td style="border-width: .1px; border-color: #EFF3FB; border-left-style: groove"></td>
+                <td> </td>
                 <td align="center">
+                 Booking Fee:</td>
+                <td align="center" >
                     <asp:Label ID="lblBookingFee" runat="server" Text="0.00"></asp:Label>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="border-width: .1px; border-color: #EFF3FB; border-left-style: groove">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
@@ -81,18 +80,18 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td>
+                <td style="border-width: .1px; border-color: #EFF3FB; border-left-style: groove">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
-                <td align="right" class="style1">
+                <td align="center" class="style1">
                     Total:</td>
                 <td align="center">
                     <asp:Label ID="lblTotal" runat="server" >0.00</asp:Label>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="border-width: .1px; border-color: #EFF3FB; border-left-style: groove">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
@@ -102,7 +101,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td>
+                <td style="border-width: .1px; border-color: #EFF3FB; border-left-style: groove">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>

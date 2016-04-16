@@ -1,21 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="SummaryPage.aspx.cs" Inherits="SummaryPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            text-align: center;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1>
-    Summary</h1>
-    <table class="style1">
+    <h1>Summary</h1>
+    <div align="center">
+    <table class="style1" style="table-layout: fixed" width="400px">
         <tr>
             <td class="style2">
                 <asp:Label ID="lblName" runat="server"></asp:Label>
@@ -49,7 +39,7 @@
             </td>
         </tr>
     </table>
-   
+   </div>
     <p>
         &nbsp;</p>
     <p>
