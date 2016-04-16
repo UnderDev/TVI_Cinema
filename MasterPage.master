@@ -101,7 +101,11 @@
                         <div style="margin-top: 20px">
                             <asp:Image ID="img1" runat="server" src="Assets/1.jpg" Height="200px" Width="200px" />
                         </div>
-                        <div class="SiteMap">
+
+                        <div style="margin-top: 20px">
+                            <asp:Image ID="csImg1" runat="server" src="Assets/cs1.jpg" Height="600px" Width="200px" />
+                        </div>
+                                                <div class="SiteMap">
                             <asp:TreeView ID="tvSiteMap" runat="server" DataSourceID="SiteMapDataSource" ExpandDepth="0"
                                 Font-Names="Charlemagne Std" ImageSet="Msdn" NodeIndent="15" Width="150px">
                                 <HoverNodeStyle BackColor="White" BorderColor="#888888" BorderStyle="Solid" BorderWidth="1px"
@@ -114,9 +118,6 @@
                                     BorderWidth="1px" Font-Underline="False" HorizontalPadding="3px" VerticalPadding="1px"
                                     ForeColor="White" />
                             </asp:TreeView>
-                        </div>
-                        <div style="margin-top: 20px">
-                            <asp:Image ID="csImg1" runat="server" src="Assets/cs1.jpg" Height="800px" Width="200px" />
                         </div>
                     </td>
                     <td class="AlignTop">
