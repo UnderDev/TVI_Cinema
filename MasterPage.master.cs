@@ -141,6 +141,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             //1 is added to the selected date as the first value in the ddl 
             //says "choose a date"
             ddlSelectTimes.SelectedIndex = selctdDate + 1;
+            setDateSession();
         }
         else
         {
@@ -168,6 +169,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
 
     protected void ddlSelectTimes_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        setDateSession();
+    }
+
+    private void setDateSession()
     {
         genDates();
         Session["SelectedDate"] = datesList[ddlSelectTimes.SelectedIndex - 1];
