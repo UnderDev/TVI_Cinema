@@ -62,4 +62,9 @@ public partial class Default2 : System.Web.UI.Page
         Label lblScreen = (Label)dvMovieInfo.Rows[5].FindControl("lblScreen");
         e.Command.Parameters["@Screen"].Value = lblScreen.Text;
     }
+
+    protected void btnBooking_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("BookingPage.aspx", true);
+    }
 }
