@@ -11,7 +11,7 @@ public partial class BookingPage : System.Web.UI.Page
     public Booking booking;
     protected void Page_Load(object sender, EventArgs e)
     {
-        booking = new Booking(2, DateTime.Now, 2);
+        booking = (Booking)Session["Booking"];
         Session["dimension"] = booking.Dimension;
     }
     protected void dllAmount_Init(object sender, EventArgs e)
@@ -73,11 +73,25 @@ public partial class BookingPage : System.Web.UI.Page
     }
     protected void btnContinue_Click(object sender, EventArgs e)
     {
-        String total = lblTotal.Text.Substring(1);
-        HttpCookie dimension = new HttpCookie("ticketTotal");
-        dimension.Value = total;
-        Response.Cookies.Add(dimension);
-        Session["Booking"] = booking;
-        Response.Redirect("BookingPage2.aspx");
+        if (Page.IsValid)
+        {
+            String total = lblTotal.Text.Substring(1);
+            HttpCookie dimension = new HttpCookie("ticketTotal");
+            dimension.Value = total;
+            Response.Cookies.Add(dimension);
+            Session["Booking"] = booking;
+            Response.Redirect("BookingPage2.aspx");
+        }
+    }
+    protected void cvTotal_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        if(!lblTotal.Text.Equals("0.00"))
+        {
+            args.IsValid = true;
+        }
+        else
+        {
+            args.IsValid = false;
+        }
     }
 }

@@ -29,8 +29,12 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     <div align="center">
+        <br />
+        <br />
+        <br />
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Type,dimension" 
-        DataSourceID="dsPrices" style="text-align: left" AllowPaging="True">
+        DataSourceID="dsPrices" style="text-align: left" AllowPaging="True" 
+            CellPadding="4" ForeColor="#333333">
         <EditItemTemplate>
             Type:
             <asp:Label ID="TypeLabel1" runat="server" Text='<%# Eval("Type") %>' />
@@ -47,6 +51,9 @@
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" 
                 CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <InsertItemTemplate>
             Type:
             <asp:TextBox ID="TypeTextBox" runat="server" Text='<%# Bind("Type") %>' />
@@ -82,6 +89,8 @@
                 CommandName="Delete" Text="Delete" />
            
         </ItemTemplate>
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
     </asp:FormView>
     </div>
     <br />

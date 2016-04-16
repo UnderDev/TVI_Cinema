@@ -2,23 +2,10 @@
     CodeFile="BookingPage2.aspx.cs" Inherits="BookingPage2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            height: 26px;
-            margin-left: 40px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h1>
-        Booking Page</h1>
-    <h4>
-        Please Enter Youur Information:</h4>
+    <h2>
+        Please Enter Your Information:</h2>
     <div style="text-align: left; margin-left: 20px;">
         <br />
         <table class="style1">

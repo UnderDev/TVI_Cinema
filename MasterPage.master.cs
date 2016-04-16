@@ -22,7 +22,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //this code only needs to run when its not a postBack
 
         movieList = MovieDB.GetMovieList();
-        datesList = new List<DateTime>();
+        if (datesList == null)
+        {
+            datesList = new List<DateTime>();
+        }
         //i = movieList.Count();// Use as a breakpoint if bindings dont work.
 
         if (!IsPostBack)
@@ -63,9 +66,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-
-
-
     public String dateTimeFromString(DateTime dt)
     {
         //converts String to a DateTime Object
@@ -82,6 +82,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         else
         {
             Calendar1.Visible = false;
+            
         }
     }
 
@@ -90,6 +91,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //dateTime and list of dateTime objects created
         DateTime dt = DateTime.Now;
         List<String> dates = new List<string>();
+        if (datesList == null)
+        {
+            datesList = new List<DateTime>();
+        }
         //looping 7 times to accomodate a week's worth of dateTime objects
         for (int dateLoop = 0; dateLoop < 7; dateLoop++)
         {
@@ -177,5 +182,20 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             Response.Redirect("Movie.aspx");
         }
+    }
+    protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+    {
+        genDates();
+        for (int i = 0; i < datesList.Count; i++)
+        {
+            if (e.Day.Date == datesList[i].Date)
+            {
+                e.Cell.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+    }
+    protected void Calendar1_Init(object sender, EventArgs e)
+    {
+        
     }
 }
