@@ -66,9 +66,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-
-
-
     public String dateTimeFromString(DateTime dt)
     {
         //converts String to a DateTime Object

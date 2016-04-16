@@ -29,17 +29,17 @@ public partial class SummaryPage : System.Web.UI.Page
         // Specify the from and to email address 
         MailMessage mailMessage = new MailMessage("thevillageidiot.cinema@gmail.com", booking.Email);
         // Specify the email body 
-        String name = booking.FirstName + " " + booking.LastName;
-        //String 
-        string emailBody = "boop";
+        String emailBody = "Dear "+booking.FirstName+" "+booking.LastName+"\n"+
+            "\nYou are going to see: "+booking.MovieName+"\nDate: "+booking.ShowingDate+booking.SelctdDateTime.TimeOfDay+
+            "\nScreen number: Screen "+booking.ScreenNo+"\nScreening type: "+booking.Dimension+"D\n"+"Tickets:\n (incl. VAT): "+totalPrice;
+
         mailMessage.Body = emailBody;
         // Specify the email Subject 
         mailMessage.Subject = "boop";
-        //mailMessage.From = YourEmail.Text;
         // No need to specify the SMTP settings as these 
         // are already specified in web.config
         SmtpClient smtpClient = new SmtpClient();
-        // Finall send the email message using Send() method
+        // Finally send the email message using Send() method
         smtpClient.Send(mailMessage);
     }
     public void display()

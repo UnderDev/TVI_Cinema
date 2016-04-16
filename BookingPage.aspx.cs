@@ -12,6 +12,7 @@ public partial class BookingPage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         booking = new Booking(2, DateTime.Now, 2);
+        //booking = (Booking)Session["Booking"];    - Uncomment when rob is linked in
         Session["dimension"] = booking.Dimension;
     }
     protected void dllAmount_Init(object sender, EventArgs e)

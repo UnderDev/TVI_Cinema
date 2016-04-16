@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="BookingPage.aspx.cs" Inherits="BookingPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:SqlDataSource ID="dsPrices" runat="server" 
@@ -18,7 +17,8 @@
     
         <asp:GridView ID="gvwBooking" runat="server" DataSourceID="dsPrices" 
             AutoGenerateColumns="False" DataKeyNames="Type,dimension" CellPadding="4" 
-            ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Width="347px">
+            ForeColor="#333333" GridLines="None" HorizontalAlign="Center" 
+            Width="500px" Height="250px">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="Type" HeaderText="Type" ReadOnly="True" 
@@ -49,25 +49,24 @@
 
         <br />
         <br />
-        <table align="center" class="style1">
-            <tr>
+        <table align="center" class="style1" Style:"box-shadow: 10px 10px 5px #888888;">
+            <tr >
                 <td class="style2">
                     </td>
                 <td class="style2">
                     </td>
-                <td class="style2">
+                <td class="style3">
                     </td>
                 <td class="style2">
                     </td>
             </tr>
-            <tr >
-                <td >
-                    &nbsp;</td>
+            <tr style="border-bottom:1pt solid black; border-bottom-style: inherit; border-top-style: groove; border-width: 1px; border-color: #000000;">
                 <td>
-                    &nbsp;</td>
-                <td align="right" width="100">
-                    Booking Fee:</td>
-                <td align="center" >
+                    </td>
+                <td>
+                    </td>
+                <td align="right"> Booking Fee:</td>
+                <td align="center">
                     <asp:Label ID="lblBookingFee" runat="server" Text="0.00"></asp:Label>
                 </td>
             </tr>
@@ -76,7 +75,7 @@
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
-                <td>
+                <td class="style1">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
@@ -86,7 +85,7 @@
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
-                <td align="right">
+                <td align="right" class="style1">
                     Total:</td>
                 <td align="center">
                     <asp:Label ID="lblTotal" runat="server" >0.00</asp:Label>
@@ -97,7 +96,7 @@
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
-                <td align="right">
+                <td align="right" class="style1">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
@@ -107,7 +106,7 @@
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
-                <td align="right">
+                <td align="right" class="style1">
                     &nbsp;</td>
                 <td align=right width="50">
                     <asp:Button ID="btnContinue" runat="server" Text="Continue" 
