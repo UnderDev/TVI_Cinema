@@ -13,6 +13,15 @@
             { i = 0; }
         }
         setInterval("fun()", 3000);
+
+        var j = 1;
+        function csFun() {
+            j++;
+            document.getElementById("csImg1").src = "Assets/" + "cs" + j + ".jpg";
+            if (j == 4) //number of images to display in the slide show
+            { j = 0; }
+        }
+        setInterval("csFun()", 4000);
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -105,6 +114,9 @@
                                     BorderWidth="1px" Font-Underline="False" HorizontalPadding="3px" VerticalPadding="1px"
                                     ForeColor="White" />
                             </asp:TreeView>
+                        </div>
+                        <div style="margin-top: 20px">
+                            <asp:Image ID="csImg1" runat="server" src="Assets/cs1.jpg" Height="800px" Width="200px" />
                         </div>
                     </td>
                     <td class="AlignTop">
