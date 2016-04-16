@@ -52,7 +52,7 @@
             width="500px">
             <tr >
                 <td style="border-top-style: groove; border-right-style: inherit; border-bottom-style: inherit; border-width: .1px; border-left-style: groove; border-color: #EFF3FB;">
-                    </td>
+                    &nbsp;</td>
                 <td style="border-bottom:1pt solid black; border-bottom-style: inherit; border-top-style: groove; border-width: .1px; border-color: #EFF3FB; border-right-style: inherit;">
                     </td>
                 <td style="border-bottom:1pt solid black; border-bottom-style: inherit; border-top-style: groove; border-width: .1px; border-color: #EFF3FB; border-right-style: inherit;">
@@ -60,7 +60,7 @@
                 <td style="border-bottom:1pt solid black; border-bottom-style: inherit; border-top-style: groove; border-width: .1px; border-color: #EFF3FB; border-right-style: inherit;">
                     </td>
             </tr>
-            <tr style="padding: 400px">
+            <tr>
                 <td style="border-width: .1px; border-color: #EFF3FB; border-left-style: groove"></td>
                 <td> </td>
                 <td align="center">
@@ -107,13 +107,19 @@
                     &nbsp;</td>
                 <td align="right" class="style1">
                     &nbsp;</td>
-                <td align=right width="50">
+                <td align=center>
                     <asp:Button ID="btnContinue" runat="server" Text="Continue" 
-                        onclick="btnContinue_Click" />
+                        onclick="btnContinue_Click" ValidationGroup="vGroupTotal" />
+                    <asp:CustomValidator ID="cvTotal" runat="server" 
+                        ErrorMessage="No Tickets Selected" 
+                        onservervalidate="cvTotal_ServerValidate" ValidationGroup="vGroupTotal">*</asp:CustomValidator>
                 </td>
             </tr>
         </table>
         <br />
+
+    <asp:ValidationSummary ID="vsBookingPage1" ValidationGroup="vGroupTotal" 
+        runat="server" DisplayMode="List" ForeColor="Red" />
         <br />
     </div>
 </asp:Content>
