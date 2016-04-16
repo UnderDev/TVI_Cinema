@@ -50,11 +50,9 @@ public partial class SummaryPage : System.Web.UI.Page
         lblMovieName.Text = "Movie: ";
         lblPrice.Text = "Price: ";
         lblScreen.Text = "Screen: ";
-        //lblMovieNmDisplay.Text = booking.MovieName.ToString();
+        lblMovieNmDisplay.Text = booking.MovieName.ToString();
         lblPriceDisplay.Text = totalPrice.ToString();
         lblScreenDisplay.Text = booking.ScreenNo.ToString();
-
-
     }
     protected void btnReturn_Click(object sender, EventArgs e)
     {
@@ -65,5 +63,7 @@ public partial class SummaryPage : System.Web.UI.Page
     protected void btnConfirm_Click(object sender, EventArgs e)
     {
         sendConfirmation();
+        Session.Clear();
+        Response.Redirect("Default.aspx");
     }
 }
