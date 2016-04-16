@@ -104,7 +104,7 @@
                     </Columns>
                 </asp:GridView>
                 <br />
-                <asp:DropDownList runat="server" DataSourceID="sdsShowTimes" ID="ddlShowings" DataValueField="Screen" DataTextField="Showtime" ></asp:DropDownList>
+                <asp:DropDownList runat="server" DataSourceID="sdsShowTimes" ID="ddlShowings" DataValueField="Showtime" DataTextField="Showtime" ></asp:DropDownList>
                 <asp:Button  Text="Book a Ticket" runat="server" ID="btnBooking" OnClick="btnBooking_Click"/>
             </div>
         </div>
