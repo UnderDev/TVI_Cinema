@@ -17,7 +17,8 @@
             DeleteCommand="DELETE FROM [Showtimes] WHERE [Screen] = @original_Screen AND [Showtime] = @original_Showtime AND [dimension] = @original_dimension" 
             InsertCommand="INSERT INTO [Showtimes] ([Screen], [Showtime], [dimension]) VALUES (@Screen, @Showtime, @dimension)" 
             OldValuesParameterFormatString="original_{0}" 
-            SelectCommand="SELECT * FROM [Showtimes]" 
+            SelectCommand="SELECT Showtimes.Screen, Showtimes.Showtime, Showtimes.dimension, Movies.Name FROM Showtimes INNER JOIN Movies ON Showtimes.Screen = Movies.Screen" 
+            
             
             
             
@@ -33,7 +34,6 @@
                 <asp:Parameter Name="dimension" Type="Int32" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="dimension" Type="Int32" />
                 <asp:Parameter Name="original_Screen" Type="Int32" />
                 <asp:Parameter Name="original_Showtime" Type="String" />
                 <asp:Parameter Name="original_dimension" Type="Int32" />
@@ -63,6 +63,9 @@
                     <td>
                         <asp:Label ID="dimensionLabel" runat="server" Text='<%# Eval("dimension") %>' />
                     </td>
+                    <td>
+                        <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
+                    </td>
                 </tr>
             </AlternatingItemTemplate>
             <EditItemTemplate>
@@ -83,6 +86,9 @@
                         <asp:TextBox ID="dimensionTextBox" runat="server" 
                             Text='<%# Bind("dimension") %>' />
                     </td>
+                    <td>
+                        <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
+                    </td>
                 </tr>
             </EditItemTemplate>
             <EmptyDataTemplate>
@@ -99,7 +105,7 @@
                     <td>
                         <asp:Button ID="InsertButton" runat="server" CommandName="Insert" 
                             Text="Insert" />
-                        <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" 
+                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" 
                             Text="Clear" />
                     </td>
                     <td>
@@ -110,25 +116,29 @@
                             Text='<%# Bind("Showtime") %>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="dimensionTextBox0" runat="server" 
+                        <asp:TextBox ID="dimensionTextBox" runat="server" 
                             Text='<%# Bind("dimension") %>' />
                     </td>
+                    
                 </tr>
             </InsertItemTemplate>
             <ItemTemplate>
                 <tr style="background-color:#DCDCDC;color: #000000;">
                     <td>
-                        <asp:Button ID="EditButton0" runat="server" CommandName="Edit" Text="Edit" />
+                        <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                     </td>
                     <td>
-                        <asp:Label ID="ScreenLabel2" runat="server" Text='<%# Eval("Screen") %>' />
+                        <asp:Label ID="ScreenLabel" runat="server" Text='<%# Eval("Screen") %>' />
                     </td>
                     <td>
-                        <asp:Label ID="ShowtimeLabel2" runat="server" Text='<%# Eval("Showtime") %>' />
+                        <asp:Label ID="ShowtimeLabel" runat="server" Text='<%# Eval("Showtime") %>' />
                     </td>
                     <td>
-                        <asp:Label ID="dimensionLabel0" runat="server" 
+                        <asp:Label ID="dimensionLabel" runat="server" 
                             Text='<%# Eval("dimension") %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                     </td>
                 </tr>
             </ItemTemplate>
@@ -142,15 +152,17 @@
                                     <th runat="server">
                                     </th>
                                     <th runat="server">
-                                        <asp:LinkButton ID="lnkScreen" runat="server" CommandName="Sort" CommandArgument="Screen">Screen
+                                    <asp:LinkButton ID="lnkScreen" runat="server" CommandName="Sort" CommandArgument="Screen">Screen
                                         </asp:LinkButton>
-                                       </th>
+                                        </th>
                                     <th runat="server">
-                                        <asp:LinkButton ID="lnkTime" runat="server" CommandName="Sort" CommandArgument="Showtime">Showtime
+                                    <asp:LinkButton ID="lnkTime" runat="server" CommandName="Sort" CommandArgument="Showtime">Showtime
                                         </asp:LinkButton>
                                         </th>
                                     <th runat="server">
                                         dimension</th>
+                                    <th runat="server">
+                                        Name</th>
                                 </tr>
                                 <tr ID="itemPlaceholder" runat="server">
                                 </tr>
@@ -173,17 +185,20 @@
             <SelectedItemTemplate>
                 <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
                     <td>
-                        <asp:Button ID="EditButton1" runat="server" CommandName="Edit" Text="Edit" />
+                        <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                     </td>
                     <td>
-                        <asp:Label ID="ScreenLabel3" runat="server" Text='<%# Eval("Screen") %>' />
+                        <asp:Label ID="ScreenLabel" runat="server" Text='<%# Eval("Screen") %>' />
                     </td>
                     <td>
-                        <asp:Label ID="ShowtimeLabel3" runat="server" Text='<%# Eval("Showtime") %>' />
+                        <asp:Label ID="ShowtimeLabel" runat="server" Text='<%# Eval("Showtime") %>' />
                     </td>
                     <td>
-                        <asp:Label ID="dimensionLabel1" runat="server" 
+                        <asp:Label ID="dimensionLabel" runat="server" 
                             Text='<%# Eval("dimension") %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                     </td>
                 </tr>
             </SelectedItemTemplate>
