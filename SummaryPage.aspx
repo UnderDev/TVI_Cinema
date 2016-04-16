@@ -35,7 +35,7 @@
                 <asp:Label ID="lblPrice" runat="server"  ></asp:Label>
             </td>
             <td>
-                <asp:Label ID="lblPriceDisplay" runat="server"  ></asp:Label>
+                <asp:Label ID="lblPriceDisplay" runat="server"></asp:Label>
             </td>
         </tr>
     </table>

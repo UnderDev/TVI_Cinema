@@ -11,9 +11,8 @@ public partial class BookingPage : System.Web.UI.Page
     public Booking booking;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //booking = new Booking(2, DateTime.Now, 2);
         booking = (Booking)Session["Booking"];
-        //Session["dimension"] = booking.Dimension;
+        Session["dimension"] = booking.Dimension;
     }
     protected void dllAmount_Init(object sender, EventArgs e)
     {

@@ -51,7 +51,7 @@ public partial class SummaryPage : System.Web.UI.Page
         lblPrice.Text = "Price: ";
         lblScreen.Text = "Screen: ";
         lblMovieNmDisplay.Text = booking.MovieName.ToString();
-        lblPriceDisplay.Text = totalPrice.ToString();
+        lblPriceDisplay.Text = String.Format("{0:C}", totalPrice.ToString());
         lblScreenDisplay.Text = booking.ScreenNo.ToString();
     }
     protected void btnReturn_Click(object sender, EventArgs e)
