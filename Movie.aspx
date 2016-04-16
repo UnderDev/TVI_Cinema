@@ -7,7 +7,7 @@
             <asp:SessionParameter Name="name" SessionField="SelectedMovie" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <asp:SqlDataSource ID="sdsShowTimes" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" SelectCommand="SELECT [Showtime], [Dimension] FROM [Showtimes] WHERE ([Screen] = @Screen)" OnSelecting="sdsShowTimes_Selecting">
+    <asp:SqlDataSource ID="sdsShowTimes" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" SelectCommand="SELECT [Screen], [Showtime], [Dimension] FROM [Showtimes] WHERE ([Screen] = @Screen)" OnSelecting="sdsShowTimes_Selecting">
         <SelectParameters>
             <asp:Parameter Name="Screen" Type="Int32" />
         </SelectParameters>
@@ -87,23 +87,24 @@
         </div>
 
             <div class="GroupingDiv" style="color:white; margin-left: 15px; margin-right:15px">
-                            <h3> Showtimes for
-                <asp:Label runat="server" ID="lblDate" /></h3>
+                <h3> Showtimes for<asp:Label runat="server" ID="lblDate" /></h3>
                 <asp:GridView ID="gvTimes" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None" HorizontalAlign="Center">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:Label ID="Label8" runat="server" Text='<%# Bind("Showtime") %>'>  </asp:Label>
+                                <asp:Label ID="lblShowtime" runat="server" Text='<%# Bind("Showtime") %>'>  </asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 &nbsp&nbsp&nbsp&nbsp
-                                <asp:Label ID="Label9" runat="server" Text='<%# Bind("Dimension") %>'></asp:Label>D
+                                <asp:Label ID="lblDimension" runat="server" Text='<%# Bind("Dimension") %>'></asp:Label>D
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+                <br />
+                <asp:DropDownList runat="server" DataSourceID="sdsShowTimes" ID="ddlShowings" DataValueField="Screen" DataTextField="Showtime" ></asp:DropDownList>
                 <asp:Button  Text="Book a Ticket" runat="server" ID="btnBooking" OnClick="btnBooking_Click"/>
             </div>
         </div>
