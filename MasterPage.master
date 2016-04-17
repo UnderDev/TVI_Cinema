@@ -80,7 +80,8 @@
                                     OnSelectionChanged="Calendar1_SelectionChanged" CssClass="calendarWrapper" BackColor="White"
                                     BorderColor="Black" BorderStyle="Solid" CellPadding="3" CellSpacing="2" DayNameFormat="FirstLetter"
                                     Font-Italic="False" Font-Names="Verdana" Font-Size="9pt" Font-Underline="True"
-                                    ForeColor="Black" NextPrevFormat="ShortMonth">
+                                    ForeColor="Black" NextPrevFormat="ShortMonth" 
+                                    ondayrender="Calendar1_DayRender" oninit="Calendar1_Init">
                                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
                                     <DayStyle BackColor="#CCCCCC" />
                                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />

@@ -10,14 +10,15 @@ public partial class BookingPage2 : System.Web.UI.Page
     public Booking booking;
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        //redirect statement
-
-        //should the user try to access this page without there being a session object
-        //they will be redirected back to the first booking page
+        /*  REDIRECT STATEMENT
+        
+            Should the user try to access this page without there being a session object,
+            they will be redirected back to the first booking page
+        */
         if ((Booking)Session["booking"] != null)
         {
             booking = (Booking)Session["booking"];
+            this.Form.DefaultButton = this.btnSubmit.UniqueID;
         }
         else
         {
