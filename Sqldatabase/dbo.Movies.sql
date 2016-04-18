@@ -39,7 +39,7 @@ CREATE TABLE [dbo].[Movies] (
 );
 GO
 CREATE TABLE [dbo].[ComingSoon] (
-    [Number]      INT           NOT NULL,
+    [Number]      INT           NOT NULL IDENTITY,
     [Name]        VARCHAR (50)  NOT NULL,
     [Poster]      VARBINARY(MAX) NOT NULL,
     [Trailer_url] VARCHAR (20)  NOT NULL,
@@ -76,14 +76,14 @@ INSERT INTO [dbo].[Movies] ([Screen], [Name], [Poster], [Trailer_url], [Descript
 INSERT INTO [dbo].[Movies] ([Screen], [Name], [Poster], [Trailer_url], [Description], [Director], [Length], [Stars], [Rating]) VALUES (7, N'Ride Along 2', (SELECT * FROM OPENROWSET(BULK N'c:\posters\ra2.jpg', SINGLE_BLOB) AS Poster), N'iWfmmwdCHTg', N'As his wedding day approaches, Ben heads to Miami with his soon-to-be brother-in-law James to bring down a drug dealer who''s supplying the dealers of Atlanta with product.', N'Tim Story', 102, 'Ice Cube, Kevin Hart', '12A')
 INSERT INTO [dbo].[Movies] ([Screen], [Name], [Poster], [Trailer_url], [Description], [Director], [Length], [Stars], [Rating]) VALUES (8, N'Star Wars', (SELECT * FROM OPENROWSET(BULK N'c:\posters\swtfa.jpg', SINGLE_BLOB) AS Poster), N'sGbxmsDFVnE', N'Three decades after the defeat of the Galactic Empire, a new threat arises. The First Order attempts to rule the galaxy and only a ragtag group of heroes can stop them, along with the help of the Resistance.', N'J.J. Abrams', 135,'Daisy Ridley, John Boyega', '12A')
 
-INSERT INTO [dbo].[ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (1, N'The Secret In Their Eyes',  (SELECT * FROM OPENROWSET(BULK N'C:\posters\site.jpg', SINGLE_BLOB) AS Poster), N'TftxeqCEsO4', N'A brutal murder of one of their own destroys a tight knit group of investigators fall apart', N'Billy Ray', 115)
-INSERT INTO [dbo].[ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (2, N'The Forest', (SELECT * FROM OPENROWSET(BULK N'c:\posters\TheForest.jpg', SINGLE_BLOB) AS Poster), N'6hW8hUcXR-A', N'Searching for her twin sister a woman goes into Japans suicide forest', N'Jason Zada', 100)
-INSERT INTO [dbo].[ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (3, N'London Has Fallen', (SELECT * FROM OPENROWSET(BULK N'c:\posters\lhf.jpg', SINGLE_BLOB) AS Poster), N'oQhX4JxGHtw', N'Mike Banning discovers a plot to assassinate the leaders of the world..', N'Babak Najafi', 100)
-INSERT INTO [dbo].[ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (4, N'Kung Fu Panda 3', (SELECT * FROM OPENROWSET(BULK N'c:\posters\kfp.jpg', SINGLE_BLOB) AS Poster), N'0_xY5oJori0', N'More awesome adventures with po an his pals', N'Alessandro Carloni, Jennifer Yuh
+INSERT INTO [dbo].[ComingSoon] ( [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (N'The Secret In Their Eyes',  (SELECT * FROM OPENROWSET(BULK N'C:\posters\site.jpg', SINGLE_BLOB) AS Poster), N'TftxeqCEsO4', N'A brutal murder of one of their own destroys a tight knit group of investigators fall apart', N'Billy Ray', 115)
+INSERT INTO [dbo].[ComingSoon] ( [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (N'The Forest', (SELECT * FROM OPENROWSET(BULK N'c:\posters\TheForest.jpg', SINGLE_BLOB) AS Poster), N'6hW8hUcXR-A', N'Searching for her twin sister a woman goes into Japans suicide forest', N'Jason Zada', 100)
+INSERT INTO [dbo].[ComingSoon] ( [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES ( N'London Has Fallen', (SELECT * FROM OPENROWSET(BULK N'c:\posters\lhf.jpg', SINGLE_BLOB) AS Poster), N'oQhX4JxGHtw', N'Mike Banning discovers a plot to assassinate the leaders of the world..', N'Babak Najafi', 100)
+INSERT INTO [dbo].[ComingSoon] ( [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES ( N'Kung Fu Panda 3', (SELECT * FROM OPENROWSET(BULK N'c:\posters\kfp.jpg', SINGLE_BLOB) AS Poster), N'0_xY5oJori0', N'More awesome adventures with po an his pals', N'Alessandro Carloni, Jennifer Yuh
 ', 120)
-INSERT INTO [dbo].[ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (5, N'Hail Caeser', (SELECT * FROM OPENROWSET(BULK N'c:\posters\hc.jpg', SINGLE_BLOB) AS Poster), N'kMqeoW3XRa0', N'A 1950s Hollywood Fixers tries to keep a studios stars in line', N'Ethan Coen, Joel Coen', 110)
-INSERT INTO [dbo].[ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (6, N'The Witch', (SELECT * FROM OPENROWSET(BULK N'c:\posters\tw.jpg', SINGLE_BLOB) AS Poster), N'Bcng5MX4LWQ', N'A New England Family in 1630s deal with the forces of witchcraft and black magic', N'Rob Letterman, Robert Eggers', 93)
-INSERT INTO [dbo].[ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (7, N'The Divergent Series Allegiant', (SELECT * FROM OPENROWSET(BULK N'c:\posters\tdsa.jpg', SINGLE_BLOB) AS Poster), N'PUSiFAEhq1w', N'
+INSERT INTO [dbo].[ComingSoon] ( [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES ( N'Hail Caeser', (SELECT * FROM OPENROWSET(BULK N'c:\posters\hc.jpg', SINGLE_BLOB) AS Poster), N'kMqeoW3XRa0', N'A 1950s Hollywood Fixers tries to keep a studios stars in line', N'Ethan Coen, Joel Coen', 110)
+INSERT INTO [dbo].[ComingSoon] ( [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES ( N'The Witch', (SELECT * FROM OPENROWSET(BULK N'c:\posters\tw.jpg', SINGLE_BLOB) AS Poster), N'Bcng5MX4LWQ', N'A New England Family in 1630s deal with the forces of witchcraft and black magic', N'Rob Letterman, Robert Eggers', 93)
+INSERT INTO [dbo].[ComingSoon] ( [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES ( N'The Divergent Series Allegiant', (SELECT * FROM OPENROWSET(BULK N'c:\posters\tdsa.jpg', SINGLE_BLOB) AS Poster), N'PUSiFAEhq1w', N'
 The Bureau of Genetic Welfare take Beatrice Prior and Tobias Eaton into protective custody....', N'Robert Schwentke', 120)
 
 

@@ -87,7 +87,7 @@ public partial class ComingSoon2 : System.Web.UI.Page
         {
             lblMessage.ForeColor = System.Drawing.Color.Red;
             lblMessage.Text = "File format not recognised." +
-              " Upload Image/Word/PDF/Excel formats";
+              " Upload Image formats";
         }
 
 
@@ -132,6 +132,19 @@ public partial class ComingSoon2 : System.Web.UI.Page
     }
 
 
+
+    protected void gvwCSAdmin_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            lblMessage.Text = "A database error has occurred.<br /><br />" +
+                "Message: " + e.Exception.Message;
+            e.ExceptionHandled = true;
+        }
+        else if (e.AffectedRows == 0)
+            lblMessage.Text = "Another user may have updated that category." +
+                "<br />Please try again.";
+    }
 }
 
    
