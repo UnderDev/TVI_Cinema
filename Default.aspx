@@ -57,13 +57,13 @@
             </asp:DataList>
         </LoggedInTemplate>
         <AnonymousTemplate>
-            <asp:DataList ID="DataList2" runat="server" CellPadding="20" DataSourceID="dsMovies"
+            <asp:DataList ID="dlMovies" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
                 Width="100%" CssClass="ImageBoarderStyles">
                 <ItemTemplate>
-                    &nbsp;<asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
+                    &nbsp;<asp:Label ID="lblName" runat="server" Text='<%# Eval("Name") %>' />
                     <br />
-                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>'
+                    <asp:ImageButton ID="imgBtn" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>'
                         CommandName="selectMovie" />
                     <br />
                     <br />

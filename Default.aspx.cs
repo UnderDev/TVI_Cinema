@@ -22,11 +22,11 @@ public partial class _Default : System.Web.UI.Page
         //user view
         if (!User.IsInRole("Admin"))
         {
-            DataList dl = (DataList)LoginView1.FindControl("DataList2");
+            DataList dl = (DataList)LoginView1.FindControl("dlMovies");
             //selectedIndex takes value of button clicked by user
             dl.SelectedIndex = e.Item.ItemIndex;
             //set session state "SelectedMovie" to name of movie selected
-            Session["SelectedMovie"] = ((Label)dl.SelectedItem.FindControl("NameLabel")).Text;
+            Session["SelectedMovie"] = ((Label)dl.SelectedItem.FindControl("lblName")).Text;
             //session state set to movie type
             Session["MovieCategory"] = "Regular";
             //redirect to movie page to show selected movie
