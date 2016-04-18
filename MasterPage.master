@@ -60,7 +60,7 @@
         </div>
         <div class="ContentBackGround">
             <div class="BookMovieNavBar">
-                    <table class="style1">
+                    <table>
                         <tr>
                             <td style="padding-left: 80px; font-family: 'Bernard MT Condensed'; font-size: large; font-weight: lighter; font-style: normal; font-variant: small-caps; text-transform: capitalize; letter-spacing: .2em;">
                                 <asp:LoginName ID="lnLoginName" runat="server" />
@@ -95,7 +95,7 @@
                         </tr>
                     </table>
             </div>
-            <table>
+            <table style="padding:0px; border-collapse:collapse">
                 <tr>
                     <td class="NavBarLeft">
                         <div style="margin-top: 20px">

@@ -41,6 +41,7 @@
     margin-left: auto;
     margin-right: auto;
     padding-left: 200px;
+
 }
 
 .RegisterBtn
@@ -122,17 +123,15 @@
     margin-right:auto;
 }
 
-
-
 .BookMovieNavBar
 {
-    width: 1100px;
+    //width: 1100px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    background-color: #BDC0CC;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    background-color: #0D0630;
+    //margin-bottom: 5px;
+    //margin-top: 5px;
     font-family: 'Copperplate Gothic Bold';
     font-weight: bolder;
     color: #FFFFFF;
@@ -141,6 +140,7 @@
 
 .BookMovieContent
 {
+
     margin-right: auto;
     margin-left: auto;
     padding-left:210px;
@@ -155,9 +155,10 @@
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #FFFFFF;
-    box-shadow: 0 10px 20px #000;
-    padding-top: 5px;
+    background-color: #046c8a;
+   // padding-top:10px;
+    border-collapse:collapse;
+   // box-shadow: 0 10px 20px #000;
 }
 
 /*Centers all the content and Sets the width of the Content*/
@@ -187,9 +188,10 @@
     width: 250px;
     height: 800px;
     border-collapse: collapse;
-    border-right: thin solid #000000;
+   // border-right: thin solid #000000;
     vertical-align: top;
     text-align: center;
+    background-color:#0D0630;
 }
 /* CSS FOR MASTERPAGE END*/
 
@@ -258,14 +260,20 @@
 
 .content-container
 {
+    background-color:#046C8A;
+    padding-bottom:10px;
 }
+
 .flex-container
 {
+    
     display: flex;
+    margin-left:15px;
+    margin-right: 15px;
 }
 .flex-fixed60p
 {
-    width: 60%;
+    width: 80%;
 }
 .flex-fixed30p
 {
@@ -283,7 +291,17 @@
 {
     flex-grow: 1;
 }
-
-
-
+ div.MovieTitle{
+     background-color:#222E50;
+}
+.MovieTitle{
+    background-color:#222E50;
+}
+.DetailsViewField {
+    text-align: left;
+}
+.GroupingDiv{
+    background-color:#222E50;
+    padding: 15px;
+}
 

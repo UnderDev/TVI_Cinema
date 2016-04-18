@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <p>
+    
         <asp:SqlDataSource ID="dsComingSoon" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>"
             SelectCommand="SELECT [Name], [Poster] FROM [ComingSoon] ORDER BY [Name]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="CSAdminSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>"
@@ -42,8 +42,7 @@
             <LoggedInTemplate>
                 <asp:ListView ID="lvwComingSoon" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="3">
                     <EditItemTemplate>
-                        <td id="Td1" runat="server" style="">
-                            Name:
+                        <td id="Td1" runat="server" style="">Name:
                             <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
                             <br />
                             Poster:
@@ -58,8 +57,7 @@
                     <EmptyDataTemplate>
                         <table id="Table1" runat="server" style="">
                             <tr>
-                                <td>
-                                    No data was returned.
+                                <td>No data was returned.
                                 </td>
                             </tr>
                         </table>
@@ -69,13 +67,11 @@
                     </EmptyItemTemplate>
                     <GroupTemplate>
                         <tr id="itemPlaceholderContainer" runat="server">
-                            <td id="itemPlaceholder" runat="server">
-                            </td>
+                            <td id="itemPlaceholder" runat="server"></td>
                         </tr>
                     </GroupTemplate>
                     <InsertItemTemplate>
-                        <td id="Td3" runat="server" style="">
-                            Name:
+                        <td id="Td3" runat="server" style="">Name:
                             <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
                             <br />
                             Poster:
@@ -89,7 +85,7 @@
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <td>
-                            <table>
+                            <table  style="background-color:#222E50;">
                                 <tr>
                                     <td style="font-family: Arial, Sans-Serif; font-size: 12pt; font-weight: bold" align="center"
                                         valign="top">
@@ -116,14 +112,12 @@
                                 </td>
                             </tr>
                             <tr id="Tr2" runat="server" align="center">
-                                <td id="Td2" runat="server" style="">
-                                </td>
+                                <td id="Td2" runat="server" style=""></td>
                             </tr>
                         </table>
                     </LayoutTemplate>
                     <SelectedItemTemplate>
-                        <td id="Td4" runat="server" style="">
-                            Name:
+                        <td id="Td4" runat="server" style="">Name:
                             <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                             <br />
                             Poster:
@@ -136,8 +130,7 @@
             <AnonymousTemplate>
                 <asp:ListView ID="lvwComingSoon" runat="server" DataSourceID="dsComingSoon" GroupItemCount="3">
                     <EditItemTemplate>
-                        <td id="Td1" runat="server" style="">
-                            Name:
+                        <td id="Td1" runat="server" style="">Name:
                             <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
                             <br />
                             Poster:
@@ -152,8 +145,7 @@
                     <EmptyDataTemplate>
                         <table id="Table1" runat="server" style="">
                             <tr>
-                                <td>
-                                    No data was returned.
+                                <td>No data was returned.
                                 </td>
                             </tr>
                         </table>
@@ -163,27 +155,30 @@
                     </EmptyItemTemplate>
                     <GroupTemplate>
                         <tr id="itemPlaceholderContainer" runat="server">
-                            <td id="itemPlaceholder" runat="server">
-                            </td>
+                            <td id="itemPlaceholder" runat="server"></td>
                         </tr>
                     </GroupTemplate>
                     <InsertItemTemplate>
                         <td id="Td3" runat="server" style="">
-                            Name:
+                           
+                                Name:
                             <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
-                            <br />
-                            Poster:
+                                <br />
+                                Poster:
                             <asp:TextBox ID="PosterTextBox" runat="server" Text='<%# Bind("Poster") %>' />
-                            <br />
-                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                            <br />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            <br />
+                                <br />
+                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                                <br />
+                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                                <br />
+                            
+
                         </td>
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <td>
-                            <table>
+                            <div >
+                            <table style="background-color:#222E50;">
                                 <tr>
                                     <td style="font-family: Arial, Sans-Serif; font-size: 12pt; font-weight: bold" align="center"
                                         valign="top">
@@ -197,6 +192,7 @@
                                     </td>
                                 </tr>
                             </table>
+                                </div>
                         </td>
                     </ItemTemplate>
                     <LayoutTemplate>
@@ -210,14 +206,12 @@
                                 </td>
                             </tr>
                             <tr id="Tr2" runat="server" align="center">
-                                <td id="Td2" runat="server" style="">
-                                </td>
+                                <td id="Td2" runat="server" style=""></td>
                             </tr>
                         </table>
                     </LayoutTemplate>
                     <SelectedItemTemplate>
-                        <td id="Td4" runat="server" style="">
-                            Name:
+                        <td id="Td4" runat="server" style="">Name:
                             <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                             <br />
                             Poster:

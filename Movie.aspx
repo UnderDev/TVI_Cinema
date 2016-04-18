@@ -86,7 +86,7 @@
             <iframe id="ifrmTrailerEmbed" runat="server" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
 
-            <div class="GroupingDiv" style="color:white; margin-left: 15px; margin-right:15px">
+            <div class="GroupingDiv" style="color:white; margin-left: 15px; margin-right:15px; margin-bottom:15px">
                 <h3> Showtimes for<asp:Label runat="server" ID="lblDate" /></h3>
                 <asp:GridView ID="gvTimes" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None" HorizontalAlign="Center">
                     <Columns>

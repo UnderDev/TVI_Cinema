@@ -4,8 +4,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h1>
-        Home page</h1>
+    <div  style="background-color:#222E50;">
+    <h1 style="color:white"> 
+        Now Playing</h1>
+    </div>
+
     <p>
         <asp:SqlDataSource ID="dsMovies" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>"
             SelectCommand="SELECT [Name], [Poster] FROM [Movies]"></asp:SqlDataSource>
@@ -63,7 +66,7 @@
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
                 Width="100%">
                 <ItemTemplate>
-                    &nbsp;<asp:Label ID="NameLabel" runat="server" Font-Bold="True" Font-Names="Arial"
+                    &nbsp;<asp:Label ForeColor="White" ID="NameLabel" runat="server" Font-Bold="True" Font-Names="Arial"
                         Font-Size="X-Large" Text='<%# Eval("Name") %>' />
                     <br />
                     <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>'
@@ -78,13 +81,16 @@
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
                 Width="100%">
                 <ItemTemplate>
-                    &nbsp;<asp:Label ID="NameLabel" runat="server" Font-Bold="True" Font-Names="Arial"
+                    <div  style="background-color:#222E50;">
+                    &nbsp;<asp:Label ForeColor="White" ID="NameLabel" runat="server" Font-Bold="True" Font-Names="Arial"
                         Font-Size="X-Large" Text='<%# Eval("Name") %>' />
                     <br />
                     <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>'
                         CommandName="selectMovie" />
                     <br />
                     <br />
+                    </div>
+
                 </ItemTemplate>
             </asp:DataList>
         </AnonymousTemplate>
