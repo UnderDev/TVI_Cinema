@@ -124,7 +124,9 @@
     vertical-align: middle;
     width: 100px;
     height: 50px;
-    padding-left: 25px;
+    padding-left: 20px;
+    padding-right: 15px;
+    font-size: large;
 }
 
 
