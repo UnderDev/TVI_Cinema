@@ -47,7 +47,7 @@
                                     <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
                                     <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon">
                                     </asp:MenuItem>
-                                    <asp:MenuItem NavigateUrl="~/ScreenAdmin.aspx" Text="Screen Config" 
+                                    <asp:MenuItem NavigateUrl="~/ScreenAdmin.aspx" Text="Administration" 
                                         Value="ScreenConfig"></asp:MenuItem>
                                 </Items>
                                 <StaticMenuItemStyle CssClass="MenuBoxDesign" ItemSpacing="50px" Width="100px" />
