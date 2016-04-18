@@ -8,7 +8,7 @@
         Please Enter Your Information:</h2>
     <div style="text-align: left; margin-left: 20px;">
         <br />
-        <table class="style1">
+        <table>
             <tr>
                 <td width="75px">
                     <asp:Label ID="lblFName" runat="server" Text="First Name: "></asp:Label>
