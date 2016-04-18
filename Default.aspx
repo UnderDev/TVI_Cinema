@@ -43,13 +43,13 @@
     </p>
     <asp:LoginView ID="LoginView1" runat="server">
         <LoggedInTemplate>
-            <asp:DataList ID="DataList2" runat="server" CellPadding="20" DataSourceID="dsMovies"
+            <asp:DataList ID="dlMovies" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
-                Width="100%">
+                Width="100%" CssClass="HomePageImages">
                 <ItemTemplate>
-                    &nbsp;<asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
+                    &nbsp;<asp:Label ID="lblName" runat="server" Text='<%# Eval("Name") %>' />
                     <br />
-                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>'
+                    <asp:ImageButton ID="imgBtn" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>'
                         CommandName="selectMovie" />
                     <br />
                     <br />
@@ -59,7 +59,7 @@
         <AnonymousTemplate>
             <asp:DataList ID="dlMovies" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
-                Width="100%" CssClass="ImageBoarderStyles">
+                Width="100%" CssClass="HomePageImages">
                 <ItemTemplate>
                     &nbsp;<asp:Label ID="lblName" runat="server" Text='<%# Eval("Name") %>' />
                     <br />
@@ -116,7 +116,7 @@
                                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>' />
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
-                                    <asp:FileUpload ID="fpPoster" filebytes='<%# Bind("Poster") %>' runat="server"  />
+                                    <asp:FileUpload ID="fpPoster" filebytes='<%# Bind("Poster") %>' runat="server" />
                                 </InsertItemTemplate>
                             </asp:TemplateField>
                             <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True"
