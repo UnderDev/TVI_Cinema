@@ -66,6 +66,7 @@
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
                 Width="100%">
                 <ItemTemplate>
+                    <div  style="background-color:#222E50;">
                     &nbsp;<asp:Label ForeColor="White" ID="NameLabel" runat="server" Font-Bold="True" Font-Names="Arial"
                         Font-Size="X-Large" Text='<%# Eval("Name") %>' />
                     <br />
@@ -73,6 +74,7 @@
                         CommandName="selectMovie" />
                     <br />
                     <br />
+                        </div>
                 </ItemTemplate>
             </asp:DataList>
         </LoggedInTemplate>
