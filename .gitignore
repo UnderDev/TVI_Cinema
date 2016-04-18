@@ -281,3 +281,5 @@ $RECYCLE.BIN/
 *.lnk
 App_Data/ASPNETDB.MDF
 App_Data/aspnetdb_log.ldf
+*.MDF
+App_Data/aspnetdb_log.ldf
