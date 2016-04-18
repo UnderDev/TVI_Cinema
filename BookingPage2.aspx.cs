@@ -93,15 +93,22 @@ public partial class BookingPage2 : System.Web.UI.Page
     {
         //custom validator checks the state of the check box
         //sets the validity property appropriately
-        Int64 cNum = Convert.ToInt64(txtCardNo);
-        
-        if (cNum<9999999999999999)
+        try
         {
-            args.IsValid = true;
+            Int64 cNum = Convert.ToInt64(txtCardNo.Text);
+            if (cNum < 9999999999999999)
+            {
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+            }
         }
-        else
+        catch(Exception e)
         {
             args.IsValid = false;
         }
+        
     }
 }
