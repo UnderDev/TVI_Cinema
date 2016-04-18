@@ -3,9 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h1>
-        Home page</h1>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">  
     <p>
         <asp:SqlDataSource ID="dsMovies" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>"
             SelectCommand="SELECT [Name], [Poster] FROM [Movies]"></asp:SqlDataSource>
@@ -43,6 +41,7 @@
     </p>
     <asp:LoginView ID="LoginView1" runat="server">
         <LoggedInTemplate>
+         <h1> Home Page</h1>
             <asp:DataList ID="dlMovies" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
                 Width="100%" CssClass="HomePageImages">
@@ -57,6 +56,7 @@
             </asp:DataList>
         </LoggedInTemplate>
         <AnonymousTemplate>
+        <h1> Home Page</h1>
             <asp:DataList ID="dlMovies" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
                 Width="100%" CssClass="HomePageImages">
@@ -73,11 +73,14 @@
         <RoleGroups>
             <asp:RoleGroup Roles="Admin">
                 <ContentTemplate>
+                <h1> Home Page Admin</h1>
                     <asp:DetailsView ID="dvwComingSoon" runat="server" AllowPaging="True" AutoGenerateRows="False"
-                        CellPadding="4" DataKeyNames="Number" DataSourceID="dsMoviesDetail" ForeColor="#333333"
-                        GridLines="None" HorizontalAlign="Center" OnItemUpdated="dvwComingSoon_ItemUpdated"
-                        OnItemDeleted="dvwComingSoon_ItemDeleted" OnItemInserted="dvwComingSoon_ItemInserted">
-                        <AlternatingRowStyle BackColor="White" />
+                        CellPadding="4" DataKeyNames="Number" DataSourceID="dsMoviesDetail" 
+                        ForeColor="#333333" HorizontalAlign="Center" OnItemUpdated="dvwComingSoon_ItemUpdated"
+                        OnItemDeleted="dvwComingSoon_ItemDeleted" 
+                        OnItemInserted="dvwComingSoon_ItemInserted" BorderColor="White" 
+                        BorderStyle="Solid" BorderWidth="2px" Font-Names="Rockwell" Width="100%">
+                        <AlternatingRowStyle BackColor="#ECF5FF" ForeColor="#284775" />
                         <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
                         <EditRowStyle BackColor="#2461BF" />
                         <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
@@ -94,7 +97,8 @@
                                     <asp:Label ID="lblNewNumber" runat="server" Text=" "></asp:Label>
                                 </InsertItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField DataField="Trailer_url" HeaderText="Trailer_url" SortExpression="Trailer_url" />
+                            <asp:BoundField DataField="Trailer_url" HeaderText="Trailer URL" 
+                                SortExpression="Trailer_url" />
                             <asp:TemplateField HeaderText="Description" SortExpression="Description">
                                 <ItemTemplate>
                                     <asp:Label ID="lblDescription" TextMode="MultiLine" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
@@ -123,8 +127,9 @@
                                 ShowInsertButton="True" />
                         </Fields>
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerSettings FirstPageText="&lt;&lt;" LastPageText="&gt;&gt;" Mode="NextPreviousFirstLast"
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" 
+                            BorderColor="White" BorderStyle="Solid" BorderWidth="2px" />
+                        <PagerSettings FirstPageText="&lt;&lt;" LastPageText="&gt;&gt;"
                             NextPageText="&gt;" PreviousPageText="&lt;" />
                         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                         <RowStyle BackColor="#EFF3FB" />
