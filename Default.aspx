@@ -45,7 +45,7 @@
         <LoggedInTemplate>
             <asp:DataList ID="DataList2" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
-                Width="100%">
+                Width="100%" CssClass="HomePageImages">
                 <ItemTemplate>
                     &nbsp;<asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                     <br />
@@ -56,10 +56,13 @@
                 </ItemTemplate>
             </asp:DataList>
         </LoggedInTemplate>
+
+
+
         <AnonymousTemplate>
             <asp:DataList ID="DataList2" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
-                Width="100%" CssClass="ImageBoarderStyles">
+                Width="100%" CssClass="HomePageImages">
                 <ItemTemplate>
                     &nbsp;<asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                     <br />
