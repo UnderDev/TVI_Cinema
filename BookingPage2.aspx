@@ -2,23 +2,10 @@
     CodeFile="BookingPage2.aspx.cs" Inherits="BookingPage2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            height: 26px;
-            margin-left: 40px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h1>
-        Booking Page</h1>
-    <h4>
-        Please Enter Youur Information:</h4>
+    <h2>
+        Please Enter Your Information:</h2>
     <div style="text-align: left; margin-left: 20px;">
         <br />
         <table class="style1">
@@ -47,11 +34,12 @@
                 <td>
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="Email Address is required"
-                        ValidationGroup="vGroupBasicInfo" ControlToValidate="txtEmail">*</asp:RequiredFieldValidator>
+                        ValidationGroup="vGroupBasicInfo" ControlToValidate="txtEmail" Display="Dynamic">*</asp:RequiredFieldValidator>
 
                     <asp:RegularExpressionValidator ID="revEmail" runat="server" 
                         ControlToValidate="txtEmail" ValidationGroup="vGroupBasicInfo" ErrorMessage="Invalid email address" 
-                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
+                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic">*</asp:RegularExpressionValidator>
+
                 </td>
                 <td width="120px">
                     <asp:Label ID="lblEmailC" runat="server" Text="Confirm Email: "></asp:Label>
@@ -133,8 +121,9 @@
                     <asp:TextBox ID="txtCVV" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvCVV" runat="server" ErrorMessage="CVV field is required"
                         ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCVV" Display="Dynamic">*</asp:RequiredFieldValidator>
-                    <asp:RangeValidator ID="rvCVV" runat="server" ErrorMessage="Out of range"
-                        ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCVV" MinimumValue="100"
+
+                    <asp:RangeValidator ID="rvCVV" runat="server" ErrorMessage="CVV value out of range"
+                       ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCVV" MinimumValue="100"
                         MaximumValue="9999" Type="Integer">*</asp:RangeValidator>
                 </td>
             </tr>
@@ -144,12 +133,15 @@
                 </td>
                 <td class="style2">
                     <asp:TextBox ID="txtCardNo" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvCardNo" runat="server" ErrorMessage="Card Number is required"
+                    <asp:RequiredFieldValidator ID="rfvCardNo" runat="server" Display="Dynamic" ErrorMessage="Card Number is required"
                         ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCardNo">*</asp:RequiredFieldValidator>
                         
                     <asp:RegularExpressionValidator ID="revCardNo" ValidationGroup="vGroupBasicInfo"
                         runat="server" ErrorMessage="Must be a number" Display="Dynamic" ControlToValidate="txtCardNo"
                         ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
+                    <asp:CustomValidator ID="cvNumLegnth" runat="server" Display="Dynamic" ValidationGroup="vGroupBasicInfo"
+                        ErrorMessage="Card Number cannot be greater than 16 digits long" 
+                        onservervalidate="cvNumLegnth_ServerValidate">*</asp:CustomValidator>
                 </td>
             </tr>
             <tr>
@@ -192,4 +184,7 @@
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" 
             ValidationGroup="vGroupBasicInfo" onclick="btnSubmit_Click" />
     </p>
+
+    <asp:ValidationSummary ID="vsBookingPage2" ValidationGroup="vGroupBasicInfo" 
+        runat="server" DisplayMode="List" ForeColor="Red" />
 </asp:Content>

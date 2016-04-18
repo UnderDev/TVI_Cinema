@@ -10,9 +10,16 @@ public partial class BookingPage2 : System.Web.UI.Page
     public Booking booking;
     protected void Page_Load(object sender, EventArgs e)
     {
+        /*  REDIRECT STATEMENT
+        
+            Should the user try to access this page without there being a session object,
+            they will be redirected back to the first booking page
+        */
         if ((Booking)Session["booking"] != null)
         {
             booking = (Booking)Session["booking"];
+            this.Form.DefaultButton = this.btnSubmit.UniqueID;
+            txtFName.Focus();
         }
         else
         {
@@ -28,6 +35,9 @@ public partial class BookingPage2 : System.Web.UI.Page
     }
     protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
     {
+        //custom validator checks the state of the check box
+        //sets the validity property appropriately
+
         if (!chkBxTerms.Checked)
         {
             args.IsValid = false;
@@ -37,6 +47,8 @@ public partial class BookingPage2 : System.Web.UI.Page
             args.IsValid = true;
         }
     }
+    //when the user has passed all the validators, they can proceed to the summary page
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         if (Page.IsValid)
@@ -46,6 +58,8 @@ public partial class BookingPage2 : System.Web.UI.Page
         }
     }
 
+
+    //set properties based on user provided data from the form controls
     private void setBooking()
     {
         booking.FirstName = txtFName.Text;
@@ -53,10 +67,11 @@ public partial class BookingPage2 : System.Web.UI.Page
         booking.Email = txtEmail.Text;
         booking.Address = txtAddress.Text;
         booking.CardCVV = Convert.ToInt32(txtCVV.Text);
-        booking.CardNum = Convert.ToInt32(txtCardNo.Text);
+        booking.CardNum = Convert.ToInt64(txtCardNo.Text);
         booking.CardType = ddlCardType.SelectedValue;
         booking.LastName = txtLName.Text;
         booking.PhoneNum = txtPhoneNo.Text;
+        //store the booking object in the session state
         Session["Booking"] = booking;
     }
 
@@ -67,8 +82,34 @@ public partial class BookingPage2 : System.Web.UI.Page
         tempDdl.DataSource = dates;
         tempDdl.DataBind();
         /*
+         * needs fixing
+         * 
          * 
          * CHANGE SCOPE OF NAVBAR DATE DROPDOWN
          */
+
+        //tempDdl.SelectedValue = (DateTime)Session["SelectedDate"]; 
+    }
+    protected void cvNumLegnth_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        //custom validator checks the state of the check box
+        //sets the validity property appropriately
+        try
+        {
+            Int64 cNum = Convert.ToInt64(txtCardNo.Text);
+            if (cNum < 9999999999999999)
+            {
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+            }
+        }
+        catch(Exception e)
+        {
+            args.IsValid = false;
+        }
+        
     }
 }

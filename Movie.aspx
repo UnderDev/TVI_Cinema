@@ -7,7 +7,7 @@
             <asp:SessionParameter Name="name" SessionField="SelectedMovie" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <asp:SqlDataSource ID="sdsShowTimes" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" SelectCommand="SELECT [Showtime], [Dimension] FROM [Showtimes] WHERE ([Screen] = @Screen)" OnSelecting="sdsShowTimes_Selecting">
+    <asp:SqlDataSource ID="sdsShowTimes" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" SelectCommand="SELECT [Screen], [Showtime], [Dimension] FROM [Showtimes] WHERE ([Screen] = @Screen)" OnSelecting="sdsShowTimes_Selecting">
         <SelectParameters>
             <asp:Parameter Name="Screen" Type="Int32" />
         </SelectParameters>
@@ -15,96 +15,99 @@
     <div class="content-container">
         <div class="MovieTitle">
             <h1>
-                <asp:Label CssClass="MovieTitle" runat="server" ID="lblMovieTitle" Text="Deadpla"></asp:Label></h1>
+                <asp:Label ForeColor="White" CssClass="MovieTitle" runat="server" ID="lblMovieTitle"></asp:Label></h1>
         </div>
-        <div class="flex-container">
-            <div class="flex-fixed60p">
-                <asp:DetailsView ID="dvMovieInfo" runat="server" AutoGenerateRows="False" DataSourceID="odsSingleMovie" GridLines="None">
-                    <Fields>
+        <div class="flex-container" >
+            <div class="flex-fixed60p" style="background-color:#222E50">
+                <div class="GroupingDiv" style="width=100%">
+                    <asp:DetailsView ID="dvMovieInfo" runat="server" AutoGenerateRows="False" DataSourceID="odsSingleMovie" GridLines="None" Font-Size="Large">
+                        <Fields>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <div class="DetailsViewField">
+                                        <asp:Label ForeColor="White" CssClass="DetailsViewField" ID="Label2" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+                                        <br></br>
+                                        <br></br>
+                                        <br></br>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <div class="DetailsViewField" style="color:white">
+                                        <asp:Label ForeColor="White" ID="Label3" runat="server" Text='<%# Bind("Length") %>'></asp:Label>
+                                        minutes long
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <div class="DetailsViewField" style="color:white">
+                                        Directed by
+                                    <asp:Label ForeColor="White" CssClass="DetailsViewField" ID="Label4" runat="server" Text='<%# Bind("Director") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <div class="DetailsViewField">
+                                        <asp:Label ForeColor="White" ID="lblStarringPrefix" runat="server" Text="Starring"></asp:Label>
+                                        <asp:Label ForeColor="White" CssClass="DetailsViewField" ID="Label7" runat="server" Text='<%# Bind("Starring") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <div class="DetailsViewField">
+                                        <asp:Label ForeColor="White" ID="lblRatedPrefix" runat="server" Text="Rated"></asp:Label>
+                                        <asp:Label ForeColor="White" CssClass="DetailsViewField" ID="Label6" runat="server" Text='<%# Bind("Rating") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <div class="DetailsViewField">
+                                        <asp:Label ForeColor="White" ID="lblScreenPrefix" runat="server" Text="Playing on Screen"></asp:Label>
+                                        <asp:Label ForeColor="White" CssClass="DetailsViewField" ID="lblScreen" runat="server" Text='<%# Bind("Screen") %>'></asp:Label>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Fields>
+                    </asp:DetailsView>
+                </div>
+            </div>
+            <div class="flex-item" style="margin-left:15px; align-content:center">
+                <div class="GroupingDiv" style=" width: 192px; height:278px; ">
+                    <asp:Image ID="ImgPoster" runat="server" />
+                </div>
+            </div>
+
+        </div>
+        <div style="margin: 15px" class="GroupingDiv">
+            <iframe id="ifrmTrailerEmbed" runat="server" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+            <div class="GroupingDiv" style="color:white; margin-left: 15px; margin-right:15px">
+                <h3> Showtimes for<asp:Label runat="server" ID="lblDate" /></h3>
+                <asp:GridView ID="gvTimes" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None" HorizontalAlign="Center">
+                    <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <div class="DetailsViewField">
-                                    <asp:Label CssClass="DetailsViewField" ID="Label2" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
-                                    <br>
-                                    </br>
-                                    <br>
-                                    </br>
-                                    <br>
-                                    </br>
-                                </div>
+                                <asp:Label ID="lblShowtime" runat="server" Text='<%# Bind("Showtime") %>'>  </asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <div class="DetailsViewField">
-                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Length") %>'></asp:Label>
-                                    minutes long
-                                </div>
+                                &nbsp&nbsp&nbsp&nbsp
+                                <asp:Label ID="lblDimension" runat="server" Text='<%# Bind("Dimension") %>'></asp:Label>D
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <div class="DetailsViewField">
-                                    Directed by
-                                    <asp:Label CssClass="DetailsViewField" ID="Label4" runat="server" Text='<%# Bind("Director") %>'></asp:Label>
-                                </div>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <div class="DetailsViewField">
-                                    Starring
-                                    <asp:Label CssClass="DetailsViewField" ID="Label7" runat="server" Text='<%# Bind("Starring") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <div class="DetailsViewField">
-                                    Rated
-                                    <asp:Label CssClass="DetailsViewField" ID="Label6" runat="server" Text='<%# Bind("Rating") %>'></asp:Label>
-                                </div>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <div class="DetailsViewField">
-                                    Playing on Screen
-                                    <asp:Label CssClass="DetailsViewField" ID="lblScreen" runat="server" Text='<%# Bind("Screen") %>'></asp:Label>
-                                </div>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Fields>
-                </asp:DetailsView>
+                    </Columns>
+                </asp:GridView>
                 <br />
-                <br />
-            </div>
-            <div class="flex-item" style="text-align: center; margin-left: 10px">
-                <asp:Image ID="ImgPoster" runat="server" />
-            </div>
-
-        </div>
-        <div>
-            <h3>Showings for <asp:Label runat="server" ID="lblDate" /></h3>
-            <div style="align-items:center, stretch">
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None">
-                <Columns>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("Showtime") %>' >  </asp:Label>   
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            &nbsp&nbsp&nbsp&nbsp <asp:Label ID="Label9" runat="server" Text='<%# Bind("Dimension") %>'></asp:Label>D
-                        </ItemTemplate>                
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+                <asp:DropDownList runat="server" DataSourceID="sdsShowTimes" ID="ddlShowings" DataValueField="Showtime" DataTextField="Showtime" ></asp:DropDownList>
+                <asp:Button  Text="Book a Ticket" runat="server" ID="btnBooking" OnClick="btnBooking_Click"/>
             </div>
         </div>
-
-
-    </div>
 </asp:Content>
 
 
