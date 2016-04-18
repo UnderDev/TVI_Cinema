@@ -254,9 +254,9 @@
             <asp:Label ID="dimensionLabel1" runat="server" 
                 Text='<%# Eval("dimension") %>' />
             <br />
-            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" 
+            <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" 
                 CommandName="Update" Text="Update" />
-            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" 
+            &nbsp;<asp:Button ID="UpdateCancelButton" runat="server" 
                 CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
         <EditRowStyle BackColor="#2461BF" />
@@ -273,9 +273,9 @@
             <asp:TextBox ID="dimensionTextBox" runat="server" 
                 Text='<%# Bind("dimension") %>' />
             <br />
-            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" 
+            <asp:Button ID="InsertButton" runat="server" CausesValidation="True" 
                 CommandName="Insert" Text="Insert" />
-            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" 
+            &nbsp;<asp:Button ID="InsertCancelButton" runat="server" 
                 CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
