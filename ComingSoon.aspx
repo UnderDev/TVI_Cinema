@@ -4,43 +4,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<h1>
+        Coming Soon</h1>
     <p>
         <asp:SqlDataSource ID="dsComingSoon" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>"
             SelectCommand="SELECT [Name], [Poster] FROM [ComingSoon] ORDER BY [Name]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="CSAdminSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>"
-            SelectCommand="SELECT * FROM [ComingSoon]" ConflictDetection="CompareAllValues"
-            DeleteCommand="DELETE FROM [ComingSoon] WHERE [Number] = @original_Number" InsertCommand="INSERT INTO [ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (@Number, @Name, @Poster, @Trailer_url, @Description, @Director, @Length)"
-            OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [ComingSoon] SET [Name] =@Name,  [Trailer_url] = @Trailer_url, [Description] = @Description, [Director] = @Director, [Length] = @Length WHERE [Number] = @original_Number AND [Name] = @original_Name AND [Trailer_url] = @original_Trailer_url AND [Description] = @original_Description AND [Director] = @original_Director AND [Length] = @original_Length">
-            <DeleteParameters>
-                <asp:Parameter Name="original_Number" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="Number" Type="Int32" />
-                <asp:Parameter Name="Name" Type="String" />
-                <asp:Parameter Name="Poster" Type="Object" />
-                <asp:Parameter Name="Trailer_url" Type="String" />
-                <asp:Parameter Name="Description" Type="String" />
-                <asp:Parameter Name="Director" Type="String" />
-                <asp:Parameter Name="Length" Type="Int32" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Name" />
-                <asp:Parameter Name="Trailer_url" Type="String" />
-                <asp:Parameter Name="Description" Type="String" />
-                <asp:Parameter Name="Director" Type="String" />
-                <asp:Parameter Name="Length" Type="Int32" />
-                <asp:Parameter Name="original_Number" Type="Int32" />
-                <asp:Parameter Name="original_Name" Type="String" />
-                <asp:Parameter Name="original_Trailer_url" Type="String" />
-                <asp:Parameter Name="original_Description" Type="String" />
-                <asp:Parameter Name="original_Director" Type="String" />
-                <asp:Parameter Name="original_Length" Type="Int32" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
         <br />
         <asp:LoginView ID="LoginView1" runat="server">
             <LoggedInTemplate>
-                <asp:ListView ID="lvwComingSoon" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="3">
+                <asp:ListView ID="lvwComingSoon" runat="server" DataSourceID="dsComingSoon" 
+                    GroupItemCount="3">
                     <EditItemTemplate>
                         <td id="Td1" runat="server" style="">
                             Name:
