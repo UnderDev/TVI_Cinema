@@ -11,7 +11,7 @@
             SelectCommand="SELECT [Name], [Poster] FROM [Movies]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="dsMoviesDetail" runat="server" ConflictDetection="CompareAllValues"
             ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" DeleteCommand="DELETE FROM [ComingSoon] WHERE [Number] = @original_Number "
-            InsertCommand="INSERT INTO [ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (@Number, @Name, @Poster, @Trailer_url, @Description, @Director, @Length)"
+            InsertCommand="INSERT INTO [ComingSoon] ([Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (@Name, @Poster, @Trailer_url, @Description, @Director, @Length)"
             OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [ComingSoon]"
             UpdateCommand="UPDATE [ComingSoon] SET [Name] = @Name, [Trailer_url] = @Trailer_url, [Description] = @Description, [Director] = @Director, [Length] = @Length WHERE [Number] = @original_Number AND [Name] = @original_Name AND [Trailer_url] = @original_Trailer_url AND [Description] = @original_Description AND [Director] = @original_Director AND [Length] = @original_Length">
             <DeleteParameters>
