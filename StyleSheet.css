@@ -45,8 +45,8 @@
 
 .RegisterBtn
 {
-    float:left;
-    margin-left:110px;
+    float: left;
+    margin-left: 110px;
     background: #FFBF00;
     border-radius: 8px;
     font-weight: 700;
@@ -56,9 +56,9 @@
 }
 
 
-.CenterRegister 
+.CenterRegister
 {
-    margin-left:200px;    
+    margin-left: 200px;
 }
 
 .ContactUsContainer
@@ -84,15 +84,15 @@
 
 
 
-.ImageBoarderStyles input
+.HomePageImages input
 {
-    margin-top:10px;
     border: thin solid #000000;
     border: thin solid #000000;
-    box-shadow: 0 0 20px #000;      
+    box-shadow: 0 0 20px #000;
+    margin-top: 10px;
 }
 
-.ImageBoarderStyles span
+.HomePageImages span
 {
     letter-spacing: .2em;
     font-family: Rockwell;
@@ -100,8 +100,32 @@
     font-variant: small-caps;
     color: #BCAB79;
     text-align: center;
-    white-space: nowrap;
+    font-size: large;
 }
+
+.ImageBoarderStyles input
+{
+    border: thin solid #000000;
+    border: thin solid #000000;
+    box-shadow: 0 0 20px #000;
+}
+
+.ImageBoarderStyles td
+{
+    letter-spacing: .2em;
+    font-family: Rockwell;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    color: #BCAB79;
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 15px;
+    font-size: large;
+}
+
 
 
 
@@ -158,10 +182,10 @@
 
 .HomePageMovies
 {
-    width:100%;
-    height:100%;
-    margin-left:auto;
-    margin-right:auto;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -185,7 +209,7 @@
 {
     margin-right: auto;
     margin-left: auto;
-    padding-left:210px;
+    padding-left: 210px;
 }
 
 
@@ -207,13 +231,13 @@
 {
     text-align: center;
     margin-left: auto;
-    margin-right: auto;   
+    margin-right: auto;
     width: 900px;
 }
 /*Tag is on the tables td in masterpage for content*/
 .AlignTop
 {
-    vertical-align:top;
+    vertical-align: top;
 }
 
 
@@ -298,34 +322,47 @@
 
 /* LOG IN Page CSS End */
 
-.content-container
-{
-}
+/* Transfer all of this to the main style sheet, then delete this file and the link to it in Movie.aspx */
+
+
 .flex-container
 {
+    
     display: flex;
+    margin-left:15px;
+    margin-right: 15px;
 }
 .flex-fixed60p
 {
-    width: 60%;
-}
-.flex-fixed30p
-{
-    width: 30%;
-}
-.flex-fixed20p
-{
-    width: 20%;
-}
-.flex-fixed40p
-{
-    width: 40%;
+    width: 80%;
 }
 .flex-item
 {
     flex-grow: 1;
 }
+ div.MovieTitle{
 
+}
+.MovieTitle{
+    letter-spacing: .2em;
+    font-family: Rockwell;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    color: #BCAB79;
+    text-align: center;
+    font-size: xx-large;
+}
+.DetailsViewField {
+    text-align: left;
+}
+.GroupingDiv{
+
+    padding: 15px;
+    border: thin solid #000000;
+    border: thin solid #000000;
+    box-shadow: 0 0 20px #000;
+
+}
 
 
 

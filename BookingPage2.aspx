@@ -2,10 +2,23 @@
     CodeFile="BookingPage2.aspx.cs" Inherits="BookingPage2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            height: 26px;
+            margin-left: 40px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h2>
-        Please Enter Your Information:</h2>
+    <h1>
+        Booking Page</h1>
+    <h4>
+        Please Enter Youur Information:</h4>
     <div style="text-align: left; margin-left: 20px;">
         <br />
         <table class="style1">
@@ -133,15 +146,12 @@
                 </td>
                 <td class="style2">
                     <asp:TextBox ID="txtCardNo" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvCardNo" runat="server" Display="Dynamic" ErrorMessage="Card Number is required"
+                    <asp:RequiredFieldValidator ID="rfvCardNo" runat="server" ErrorMessage="Card Number is required"
                         ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCardNo">*</asp:RequiredFieldValidator>
                         
                     <asp:RegularExpressionValidator ID="revCardNo" ValidationGroup="vGroupBasicInfo"
                         runat="server" ErrorMessage="Must be a number" Display="Dynamic" ControlToValidate="txtCardNo"
                         ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
-                    <asp:CustomValidator ID="cvNumLegnth" runat="server" Display="Dynamic" ValidationGroup="vGroupBasicInfo"
-                        ErrorMessage="Card Number cannot be greater than 16 digits long" 
-                        onservervalidate="cvNumLegnth_ServerValidate">*</asp:CustomValidator>
                 </td>
             </tr>
             <tr>

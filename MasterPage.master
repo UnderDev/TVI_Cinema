@@ -43,11 +43,10 @@
                             <asp:Menu ID="mNavHeader" runat="server" Orientation="Horizontal" CssClass="NavMenu" RenderingMode="Table"
                                 StaticEnableDefaultPopOutImage="False">
                                 <Items>
-                                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>                       
+                                    <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon"></asp:MenuItem>
                                     <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact Us" Value="Contact"></asp:MenuItem>
-                                    <asp:MenuItem NavigateUrl="~/ComingSoon.aspx" Text="Coming Soon" Value="ComingSoon">
-                                    </asp:MenuItem>
-                                    <asp:MenuItem NavigateUrl="~/ScreenAdmin.aspx" Text="Screen Config" 
+                                    <asp:MenuItem NavigateUrl="~/ScreenAdmin.aspx" Text="Administration" 
                                         Value="ScreenConfig"></asp:MenuItem>
                                 </Items>
                                 <StaticMenuItemStyle CssClass="MenuBoxDesign" ItemSpacing="50px" Width="100px" />
@@ -60,7 +59,7 @@
         </div>
         <div class="ContentBackGround">
             <div class="BookMovieNavBar">
-                    <table class="style1">
+                    <table>
                         <tr>
                             <td style="padding-left: 80px; font-family: 'Bernard MT Condensed'; font-size: large; font-weight: lighter; font-style: normal; font-variant: small-caps; text-transform: capitalize; letter-spacing: .2em;">
                                 <asp:LoginName ID="lnLoginName" runat="server" />
@@ -76,7 +75,7 @@
                                     <asp:ListItem Text="CHOOSE A DATE" Value="" />
                                 </asp:DropDownList>
                                 <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
-                                <asp:Calendar ID="Calendar1" runat="server" Visible="False" Style="position: absolute;"
+                                <asp:Calendar ID="clnMasterDate" runat="server" Visible="False" Style="position: absolute;"
                                     OnSelectionChanged="Calendar1_SelectionChanged" CssClass="calendarWrapper" BackColor="White"
                                     BorderColor="Black" BorderStyle="Solid" CellPadding="3" CellSpacing="2" DayNameFormat="FirstLetter"
                                     Font-Italic="False" Font-Names="Verdana" Font-Size="9pt" Font-Underline="True"
