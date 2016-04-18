@@ -75,13 +75,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void btnShowCal_Click(object sender, EventArgs e)
     {
         //button switches visibility based on state of calendar
-        if (Calendar1.Visible == false)
+        if (clnMasterDate.Visible == false)
         {
-            Calendar1.Visible = true;
+            clnMasterDate.Visible = true;
         }
         else
         {
-            Calendar1.Visible = false;
+            clnMasterDate.Visible = false;
             
         }
     }
@@ -131,7 +131,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //list of dates is taken from genDates
         List<String> dates = genDates();
         //get the selected date the user entered to the calendar
-        DateTime dt = Calendar1.SelectedDate;
+        DateTime dt = clnMasterDate.SelectedDate;
         //selctdDate refers to the location of the user selected date in the dates list
         int selctdDate = srchDates(dateTimeToString(dt), dates);
         //srchDates returns a -1 if the date wasnt in the list
@@ -148,7 +148,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             //send error message to user saying invalid date
         }
         //date selected, calendar no longer needed 
-        Calendar1.Visible = false;
+        clnMasterDate.Visible = false;
     }
 
     public int srchDates(String dt, List<String> dates)
