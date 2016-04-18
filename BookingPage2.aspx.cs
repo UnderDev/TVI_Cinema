@@ -19,6 +19,7 @@ public partial class BookingPage2 : System.Web.UI.Page
         {
             booking = (Booking)Session["booking"];
             this.Form.DefaultButton = this.btnSubmit.UniqueID;
+            txtFName.Focus();
         }
         else
         {
