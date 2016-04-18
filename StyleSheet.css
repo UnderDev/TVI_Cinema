@@ -322,34 +322,47 @@
 
 /* LOG IN Page CSS End */
 
-.content-container
-{
-}
+/* Transfer all of this to the main style sheet, then delete this file and the link to it in Movie.aspx */
+
+
 .flex-container
 {
+    
     display: flex;
+    margin-left:15px;
+    margin-right: 15px;
 }
 .flex-fixed60p
 {
-    width: 60%;
-}
-.flex-fixed30p
-{
-    width: 30%;
-}
-.flex-fixed20p
-{
-    width: 20%;
-}
-.flex-fixed40p
-{
-    width: 40%;
+    width: 80%;
 }
 .flex-item
 {
     flex-grow: 1;
 }
+ div.MovieTitle{
 
+}
+.MovieTitle{
+    letter-spacing: .2em;
+    font-family: Rockwell;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    color: #BCAB79;
+    text-align: center;
+    font-size: xx-large;
+}
+.DetailsViewField {
+    text-align: left;
+}
+.GroupingDiv{
+
+    padding: 15px;
+    border: thin solid #000000;
+    border: thin solid #000000;
+    box-shadow: 0 0 20px #000;
+
+}
 
 
 
