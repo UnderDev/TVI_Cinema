@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
         <br />
-        <asp:SqlDataSource ID="CSAdminSqlDataSource" runat="server" 
+        <asp:SqlDataSource ID="dsCSASqlDataSource" runat="server" 
             ConnectionString="<%$ ConnectionStrings:MovieDBConnectionString %>" 
             SelectCommand="SELECT * FROM [ComingSoon]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [ComingSoon] WHERE [Number] = @original_Number" InsertCommand="INSERT INTO [ComingSoon] ([Number], [Name], [Poster], [Trailer_url], [Description], [Director], [Length]) VALUES (@Number, @Name, @Poster, @Trailer_url, @Description, @Director, @Length)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [ComingSoon] SET [Name] =@Name,  [Trailer_url] = @Trailer_url, [Description] = @Description, [Director] = @Director, [Length] = @Length WHERE [Number] = @original_Number AND [Name] = @original_Name AND [Trailer_url] = @original_Trailer_url AND [Description] = @original_Description AND [Director] = @original_Director AND [Length] = @original_Length">
             <DeleteParameters>
@@ -36,14 +36,58 @@
         </asp:SqlDataSource>
 
 
-        <asp:GridView ID="gvwCSAdmin" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Number" DataSourceID="CSAdminSqlDataSource" OnRowDeleted="gvwCSAdmin_RowDeleted" PageSize="5" OnRowUpdated="gvwCSAdmin_RowUpdated" Width="800px">
+        <asp:GridView ID="gvwCSAdmin" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Number" DataSourceID="dsCSASqlDataSource" OnRowDeleted="gvwCSAdmin_RowDeleted" PageSize="5" OnRowUpdated="gvwCSAdmin_RowUpdated">
             <Columns>
-                <asp:BoundField DataField="Number" HeaderText="Number" ReadOnly="True" SortExpression="Number"  />
-                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"   />
-                <asp:BoundField DataField="Trailer_url" HeaderText="Trailer_url" SortExpression="Trailer_url" />
-                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-                <asp:BoundField DataField="Director" HeaderText="Director" SortExpression="Director" />
-                <asp:BoundField DataField="Length" HeaderText="Length" SortExpression="Length" />
+                <asp:TemplateField HeaderText="Number" SortExpression="Number">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Number") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Number") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Name" SortExpression="Name">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1"  TextMode="multiline" Height="100"  Width="100" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Trailer_url" SortExpression="Trailer_url">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" Width="100" Height="100" TextMode="multiline" runat="server" Text='<%# Bind("Trailer_url") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Trailer_url") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Description" SortExpression="Description">
+                    <EditItemTemplate>
+
+                        <asp:TextBox ID="TextBox5" TextMode="multiline" Height="100" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Director" SortExpression="Director">
+                    <EditItemTemplate>
+                   
+                        <asp:TextBox ID="TextBox3" TextMode="multiline" Height="100" Width="100" runat="server" Text='<%# Bind("Director") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Director") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Length" SortExpression="Length">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox4" TextMode="multiline" Height="100" Width="50" runat="server" Text='<%# Bind("Length") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Length") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:Image ID="Image1" runat="server" HeaderText="Poster" ImageUrl='<%# GetImage(Eval("Poster")) %>' />
