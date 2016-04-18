@@ -32,7 +32,7 @@
         <br />
         <br />
         <br />
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="Type,dimension" 
+    <asp:FormView ID="fvwPrices" runat="server" DataKeyNames="Type,dimension" 
         DataSourceID="dsPrices" style="text-align: left" AllowPaging="True" 
             CellPadding="4" ForeColor="#333333">
         <EditItemTemplate>
