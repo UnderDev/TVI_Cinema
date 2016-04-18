@@ -133,13 +133,13 @@
                 </td>
                 <td class="style2">
                     <asp:TextBox ID="txtCardNo" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvCardNo" runat="server" ErrorMessage="Card Number is required"
+                    <asp:RequiredFieldValidator ID="rfvCardNo" runat="server" Display="Dynamic" ErrorMessage="Card Number is required"
                         ValidationGroup="vGroupBasicInfo" ControlToValidate="txtCardNo">*</asp:RequiredFieldValidator>
                         
                     <asp:RegularExpressionValidator ID="revCardNo" ValidationGroup="vGroupBasicInfo"
                         runat="server" ErrorMessage="Must be a number" Display="Dynamic" ControlToValidate="txtCardNo"
                         ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
-                    <asp:CustomValidator ID="cvNumLegnth" runat="server" ValidationGroup="vGroupBasicInfo"
+                    <asp:CustomValidator ID="cvNumLegnth" runat="server" Display="Dynamic" ValidationGroup="vGroupBasicInfo"
                         ErrorMessage="Card Number cannot be greater than 16 digits long" 
                         onservervalidate="cvNumLegnth_ServerValidate">*</asp:CustomValidator>
                 </td>
