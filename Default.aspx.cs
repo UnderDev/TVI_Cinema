@@ -13,19 +13,23 @@ public partial class _Default : System.Web.UI.Page
 
     public string GetImage(object img)
     {
+        //convert binary image array to string and return to Imagebutton image url
         return "data:image/jpg;base64," + Convert.ToBase64String((byte[])img);
     }
 
-    //when photo is clicked, event object should set statesession="name_of_movie" and send to movie page   
     protected void DataList2_ItemCommand(object source, DataListCommandEventArgs e)
     {
+        //user view
         if (!User.IsInRole("Admin"))
         {
             DataList dl = (DataList)LoginView1.FindControl("DataList2");
-
+            //selectedIndex takes value of button clicked by user
             dl.SelectedIndex = e.Item.ItemIndex;
+            //set session state "SelectedMovie" to name of movie selected
             Session["SelectedMovie"] = ((Label)dl.SelectedItem.FindControl("NameLabel")).Text;
+            //session state set to movie type
             Session["MovieCategory"] = "Regular";
+            //redirect to movie page to show selected movie
             Response.Redirect("Movie.aspx", true);
         }
     }
