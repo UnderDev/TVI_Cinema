@@ -76,7 +76,7 @@
                                     <asp:ListItem Text="CHOOSE A DATE" Value="" />
                                 </asp:DropDownList>
                                 <asp:Button ID="btnShowCal" runat="server" OnClick="btnShowCal_Click" Text="Calendar" />
-                                <asp:Calendar ID="Calendar1" runat="server" Visible="False" Style="position: absolute;"
+                                <asp:Calendar ID="clnMasterDate" runat="server" Visible="False" Style="position: absolute;"
                                     OnSelectionChanged="Calendar1_SelectionChanged" CssClass="calendarWrapper" BackColor="White"
                                     BorderColor="Black" BorderStyle="Solid" CellPadding="3" CellSpacing="2" DayNameFormat="FirstLetter"
                                     Font-Italic="False" Font-Names="Verdana" Font-Size="9pt" Font-Underline="True"
