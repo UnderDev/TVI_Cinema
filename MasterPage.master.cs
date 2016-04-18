@@ -59,7 +59,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             MenuItem adminItem = new MenuItem();
             foreach (MenuItem menuItem in menuItems)
             {
-                if (menuItem.Text == "Screen Config")
+                if (menuItem.Text == "Administration")
                     adminItem = menuItem;
             }
             menuItems.Remove(adminItem);
