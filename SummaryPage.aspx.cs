@@ -35,7 +35,7 @@ public partial class SummaryPage : System.Web.UI.Page
 
         mailMessage.Body = emailBody;
         // Specify the email Subject 
-        mailMessage.Subject = "boop";
+        mailMessage.Subject = "Booking Confirmed";
         // No need to specify the SMTP settings as these 
         // are already specified in web.config
         SmtpClient smtpClient = new SmtpClient();
@@ -51,6 +51,7 @@ public partial class SummaryPage : System.Web.UI.Page
         lblPrice.Text = "Price: ";
         lblScreen.Text = "Screen: ";
         lblMovieNmDisplay.Text = booking.MovieName.ToString();
+        String s = String.Format("{0:C}", totalPrice.ToString());
         lblPriceDisplay.Text = String.Format("{0:C}", totalPrice.ToString());
         lblScreenDisplay.Text = booking.ScreenNo.ToString();
     }

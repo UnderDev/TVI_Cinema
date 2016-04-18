@@ -66,7 +66,7 @@ public partial class BookingPage2 : System.Web.UI.Page
         booking.Email = txtEmail.Text;
         booking.Address = txtAddress.Text;
         booking.CardCVV = Convert.ToInt32(txtCVV.Text);
-        booking.CardNum = Convert.ToInt32(txtCardNo.Text);
+        booking.CardNum = Convert.ToInt64(txtCardNo.Text);
         booking.CardType = ddlCardType.SelectedValue;
         booking.LastName = txtLName.Text;
         booking.PhoneNum = txtPhoneNo.Text;
@@ -88,5 +88,20 @@ public partial class BookingPage2 : System.Web.UI.Page
          */
 
         //tempDdl.SelectedValue = (DateTime)Session["SelectedDate"]; 
+    }
+    protected void cvNumLegnth_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        //custom validator checks the state of the check box
+        //sets the validity property appropriately
+        Int64 cNum = Convert.ToInt64(txtCardNo);
+        
+        if (cNum<9999999999999999)
+        {
+            args.IsValid = true;
+        }
+        else
+        {
+            args.IsValid = false;
+        }
     }
 }

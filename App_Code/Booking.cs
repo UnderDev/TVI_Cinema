@@ -93,9 +93,9 @@ public class Booking
         get { return cardCVV; }
         set { cardCVV = value; }
     }
-    int cardNum;
+    Int64 cardNum;
 
-    public int CardNum
+    public Int64 CardNum
     {
         get { return cardNum; }
         set { cardNum = value; }

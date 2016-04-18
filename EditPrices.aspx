@@ -34,7 +34,7 @@
         <br />
     <asp:FormView ID="fvwPrices" runat="server" DataKeyNames="Type,dimension" 
         DataSourceID="dsPrices" style="text-align: left" AllowPaging="True" 
-            CellPadding="4" ForeColor="#333333">
+            CellPadding="4" ForeColor="#333333" HorizontalAlign="Center" Width="500px">
         <EditItemTemplate>
             Type:
             <asp:Label ID="TypeLabel1" runat="server" Text='<%# Eval("Type") %>' />
