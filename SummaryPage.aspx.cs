@@ -35,7 +35,7 @@ public partial class SummaryPage : System.Web.UI.Page
 
         mailMessage.Body = emailBody;
         // Specify the email Subject 
-        mailMessage.Subject = "boop";
+        mailMessage.Subject = "Booking Confirmed";
         // No need to specify the SMTP settings as these 
         // are already specified in web.config
         SmtpClient smtpClient = new SmtpClient();
