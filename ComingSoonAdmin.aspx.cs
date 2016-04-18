@@ -47,12 +47,9 @@ public partial class ComingSoon2 : System.Web.UI.Page
             Byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
             //insert the file into database
-            string strQuery = "INSERT into ComingSoon(Number, Name, Poster, Trailer_url, Description, Director, Length)" +
-               " values (@Number, @Name, @Poster, @Trailer_url, @Description, @Director, @Length)";
-            SqlCommand cmd = new SqlCommand(strQuery);
-
-            string number = txtNumber.Text;
-            cmd.Parameters.AddWithValue("Number", number);
+            string strQuery = "INSERT into ComingSoon(Name, Poster, Trailer_url, Description, Director, Length)" +
+               " values ( @Name, @Poster, @Trailer_url, @Description, @Director, @Length)";
+            SqlCommand cmd = new SqlCommand(strQuery);            
 
             string name = txtName.Text;
             cmd.Parameters.AddWithValue("Name", name);
@@ -76,7 +73,6 @@ public partial class ComingSoon2 : System.Web.UI.Page
             InsertUpdateData(cmd);
             lblMessage.ForeColor = System.Drawing.Color.Green;
             lblMessage.Text = "File Uploaded Successfully";
-            txtNumber.Text = "";
             txtName.Text = "";
             txtTrailerURL.Text = "";
             txtDescription.Text = "";
