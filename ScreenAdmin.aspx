@@ -44,7 +44,7 @@
         &nbsp;</p>
     <table class="style1">
         <tr>
-            <td>
+            <td align="center">
         <asp:ListView ID="lvwScreen" runat="server" DataKeyNames="Screen,Showtime" 
             DataSourceID="dsScreen" InsertItemPosition="LastItem" 
             onitemdeleted="lvScreen_ItemDeleted" oniteminserted="lvScreen_ItemInserted" 
@@ -101,7 +101,7 @@
                 </table>
             </EmptyDataTemplate>
             <InsertItemTemplate>
-                <tr style="">
+                <tr >
                     <td>
                         <asp:Button ID="InsertButton" runat="server" CommandName="Insert" 
                             Text="Insert" />
@@ -236,7 +236,7 @@
             <asp:Parameter Name="original_Price" Type="Decimal" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <div align="center">
+    <div align="center" style="text-align: center">
         <br />
         <br />
         <br />
@@ -262,6 +262,11 @@
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderTemplate>
+        <div style="text-align: center">
+            <asp:Label ID="Label1" runat="server"  Text="Ticket Prices"></asp:Label>
+        </div>
+        </HeaderTemplate>
         <InsertItemTemplate>
             Type:
             <asp:TextBox ID="TypeTextBox" runat="server" Text='<%# Bind("Type") %>' />
@@ -279,13 +284,16 @@
                 CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
-            Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <div style="text-align: center"  >
+            Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="TypeLabel" runat="server" Text='<%# Eval("Type") %>' />
             <br />
-            Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-            <asp:Label ID="PriceLabel" runat="server" Text='<%# Bind("Price") %>' />
+            
+                Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="PriceLabel" runat="server" Text='<%# Bind("Price") %>' />
+            
             <br />
-            Dimension: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                  
+            Dimension:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               
             <asp:Label ID="dimensionLabel" runat="server" Text='<%# Eval("dimension") %>' />
             <br />
             <asp:Button ID="NewButton" runat="server" CausesValidation="False" 
