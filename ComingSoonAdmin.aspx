@@ -54,50 +54,51 @@
         </asp:GridView>
     </p>
     <p>
-        <asp:Label ID="Label1" runat="server" Text="Number"></asp:Label>
-        <asp:TextBox ID="txtNumber" runat="server" ValidationGroup="requiredText"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label2" runat="server" Text="Name"></asp:Label>
+        <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
         <asp:TextBox ID="txtName" runat="server" ValidationGroup="requiredText" Width="174px"></asp:TextBox>
-        <asp:Label ID="Label4" runat="server" Text="Trailer URL"></asp:Label>
+        <asp:Label ID="lblTrailer" runat="server" Text="Trailer URL"></asp:Label>
         <asp:TextBox ID="txtTrailerURL" runat="server" style="margin-left: 0px" ValidationGroup="requiredText"></asp:TextBox>
     </p>
     <p>
-&nbsp;<asp:Label ID="Label3" runat="server" Text="Director"></asp:Label>
+&nbsp;<asp:Label ID="lblDirector" runat="server" Text="Director"></asp:Label>
         <asp:TextBox ID="txtDirector" runat="server" ValidationGroup="requiredText"></asp:TextBox>
-        <asp:Label ID="Label5" runat="server" Text="Length"></asp:Label>
+        <asp:Label ID="lblLength" runat="server" Text="Length"></asp:Label>
         <asp:TextBox ID="txtLength" runat="server" ValidationGroup="requiredText"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;<asp:Label ID="Poster" runat="server" Text="Label"></asp:Label>
+&nbsp;&nbsp;&nbsp;</p>
+    <p>
+        <asp:Label ID="lblPoster" runat="server" Text=" Insert Poster"></asp:Label>
         &nbsp;&nbsp;<asp:FileUpload ID="fpPoster" runat="server" />
         &nbsp;</p>
     <p>
-        &nbsp;<asp:Label ID="Label8" runat="server" Text="Description"></asp:Label>
+        &nbsp;<asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label>
         <asp:TextBox ID="txtDescription" runat="server" Height="115px" ValidationGroup="requiredText" Width="231px"></asp:TextBox>
     </p>
     <p>
         <asp:Button ID="btnInsert" runat="server" Text="Insert" OnClick="btnInsert_Click" ValidationGroup="requiredText" />
     </p>
     <p>
+        <asp:RegularExpressionValidator ID="revLength" runat="server" ControlToValidate="txtLength" ErrorMessage="Length needs to be a number " ValidationGroup="requiredText" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+    </p>
+    <p>
         <asp:Label ID="lblErrorMessage" runat="server"></asp:Label>
         <asp:Label ID="lblMessage" runat="server"></asp:Label>
     </p>
     <p>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNumber" ErrorMessage="Number Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+  
+        <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName" ErrorMessage="Name Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
     </p>
     <p>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtName" ErrorMessage="Name Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfvTrailer" runat="server" ControlToValidate="txtTrailerURL" ErrorMessage="Trailer URL Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
     </p>
     <p>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtTrailerURL" ErrorMessage="Trailer URL Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfvDirector" runat="server" ControlToValidate="txtDirector" ErrorMessage="Director Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
     </p>
     <p>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtDirector" ErrorMessage="Director Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfvLength" runat="server" ControlToValidate="txtLength" ErrorMessage="Length field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
     </p>
     <p>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtLength" ErrorMessage="Length field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
-    </p>
-    <p>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtDescription" ErrorMessage="Description Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfvDescription" runat="server" ControlToValidate="txtDescription" ErrorMessage="Description Field can't be empty" ValidationGroup="requiredText"></asp:RequiredFieldValidator>
     </p>
     <p>
     </p>
