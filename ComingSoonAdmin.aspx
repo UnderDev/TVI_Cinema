@@ -26,7 +26,7 @@
                 <asp:Parameter Name="Description" Type="String" />
                 <asp:Parameter Name="Director" Type="String" />
                 <asp:Parameter Name="Length" Type="Int32" />
-                <asp:Parameter Name="original_Number" Type="Int32" />
+                <asp:Parameter Name="original_Number" Type="Int32"/>
                 <asp:Parameter Name="original_Name" Type="String" />
                 <asp:Parameter Name="original_Trailer_url" Type="String" />
                 <asp:Parameter Name="original_Description" Type="String" />
@@ -36,17 +36,17 @@
         </asp:SqlDataSource>
 
 
-        <asp:GridView ID="gvwCSAdmin" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Number" DataSourceID="CSAdminSqlDataSource" OnRowDeleted="gvwCSAdmin_RowDeleted" PageSize="5">
+        <asp:GridView ID="gvwCSAdmin" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Number" DataSourceID="CSAdminSqlDataSource" OnRowDeleted="gvwCSAdmin_RowDeleted" PageSize="5" OnRowUpdated="gvwCSAdmin_RowUpdated" Width="800px">
             <Columns>
-                <asp:BoundField DataField="Number" HeaderText="Number" ReadOnly="True" SortExpression="Number" />
-                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                <asp:BoundField DataField="Number" HeaderText="Number" ReadOnly="True" SortExpression="Number"  />
+                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"   />
                 <asp:BoundField DataField="Trailer_url" HeaderText="Trailer_url" SortExpression="Trailer_url" />
                 <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                 <asp:BoundField DataField="Director" HeaderText="Director" SortExpression="Director" />
                 <asp:BoundField DataField="Length" HeaderText="Length" SortExpression="Length" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# GetImage(Eval("Poster")) %>' />
+                        <asp:Image ID="Image1" runat="server" HeaderText="Poster" ImageUrl='<%# GetImage(Eval("Poster")) %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" />
