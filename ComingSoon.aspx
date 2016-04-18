@@ -107,6 +107,8 @@
                 </asp:ListView>
             </LoggedInTemplate>
             <AnonymousTemplate>
+              
+            <div class="ImageBoarderStyles">
                 <asp:ListView ID="lvwComingSoon" runat="server" DataSourceID="dsComingSoon" GroupItemCount="3">
                     <EditItemTemplate>
                         <td id="Td1" runat="server" style="">
@@ -198,7 +200,10 @@
                             <br />
                         </td>
                     </SelectedItemTemplate>
+
                 </asp:ListView>
+            </div>
+
             </AnonymousTemplate>
         </asp:LoginView>
     </p>

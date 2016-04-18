@@ -28,6 +28,7 @@
                     <br>
                     <asp:Button Cssclass="btn" ID="btnLogin" runat="server" CommandName="Login" Text="Log In"
                         ValidationGroup="vgLogin" Width="150"></asp:Button>
+                        <br>
                     <asp:Button Cssclass="btn" ID="btnRegister" runat="server" CommandName="Login" Text="Register"
                                 PostBackUrl="~/Registration.aspx" Width="150"></asp:Button>
                     <br>
