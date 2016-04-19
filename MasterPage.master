@@ -27,13 +27,14 @@
     </asp:ContentPlaceHolder>
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body style="background: #E0EAFC;">
     <form id="form1" runat="server">
     <div class="BackGround">
         <div class="BannerBoarder">
             <img class="BannerImage" alt="TVI Cinema" src="Assets/TVI_Logo.png" />
             <div class="Header">
                 <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+                <asp:SiteMapDataSource ID="dsSiteMapPath" runat="server" />
                 <table>
                     <tr>
                         <td style="padding-left: 60px">
@@ -129,9 +130,19 @@
                 </tr>
             </table>
         </div>
-        <div class="Footer">
-        </div>
+        
     </div>
+
+          <div style="margin-top:35px;  background: #E0EAFC; text-align:center" class="Footer">
+            © Copyright TVI Cinemas | <a href="<%= Page.ResolveUrl("~/login.aspx") %>">Login</a> | 
+              <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Verdana" Font-Size="0.8em" PathSeparator=" : ">
+                  <CurrentNodeStyle ForeColor="#333333" />
+                  <NodeStyle Font-Bold="True" ForeColor="#666666" />
+                  <PathSeparatorStyle Font-Bold="True" ForeColor="#1C5E55" />
+                  <RootNodeStyle Font-Bold="True" ForeColor="#1C5E55" />
+              </asp:SiteMapPath>
+        </div>
+
     </form>
-</body>
+          </body>
 </html>
