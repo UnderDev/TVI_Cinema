@@ -30,7 +30,7 @@ public partial class SummaryPage : System.Web.UI.Page
         MailMessage mailMessage = new MailMessage("thevillageidiot.cinema@gmail.com", booking.Email);
         // Specify the email body 
         String emailBody = "Dear "+booking.FirstName+" "+booking.LastName+"\n"+
-            "\nYou are going to see: "+booking.MovieName+"\nDate: "+booking.ShowingDate+booking.SelctdDateTime.TimeOfDay+
+            "\nYou are going to see: " + booking.MovieName + "\nDate: " + booking.SelctdDateTime.Date+
             "\nScreen number: Screen "+booking.ScreenNo+"\nScreening type: "+booking.Dimension+"D\n"+"Tickets:\n (incl. VAT): "+totalPrice;
 
         mailMessage.Body = emailBody;
