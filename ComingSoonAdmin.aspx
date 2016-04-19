@@ -1,100 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ComingSoonAdmin.aspx.cs" Inherits="ComingSoon2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            height: 23px;
-        }
-        .style3
-        {
-            width: 264px;
-        }
-        .style4
-        {
-            height: 23px;
-            width: 264px;
-        }
-        .style5
-        {
-            width: 97px;
-        }
-        .style6
-        {
-            height: 23px;
-            width: 97px;
-        }
-        .style7
-        {
-            width: 97px;
-            height: 43px;
-        }
-        .style8
-        {
-            width: 264px;
-            height: 43px;
-        }
-        .style9
-        {
-            height: 43px;
-        }
-        .style10
-        {
-            width: 97px;
-            height: 129px;
-        }
-        .style11
-        {
-            width: 264px;
-            height: 129px;
-        }
-        .style12
-        {
-            height: 129px;
-        }
-        .style13
-        {
-            width: 97px;
-            height: 48px;
-        }
-        .style14
-        {
-            width: 264px;
-            height: 48px;
-        }
-        .style15
-        {
-            height: 48px;
-        }
-        .style16
-        {
-            width: 251px;
-        }
-        .style17
-        {
-            height: 23px;
-            width: 251px;
-        }
-        .style18
-        {
-            height: 43px;
-            width: 251px;
-        }
-        .style19
-        {
-            height: 129px;
-            width: 251px;
-        }
-        .style20
-        {
-            height: 48px;
-            width: 251px;
-        }
-    </style>
+    
+        
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <h1>Coming Soon Administration</h1>
@@ -206,144 +114,117 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
     <br />
-    <table class="style1">
+    <table class="validationStyle">
         <tr>
-            <td align="left" class="style5">
-                &nbsp;</td>
-            <td align="left" class="style5">
+            <td align="left" width="140">
         <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
             </td>
-            <td align="left" class="style3">
-        <asp:TextBox ID="txtName" runat="server" ValidationGroup="vgRequiredText"></asp:TextBox>
+            <td align="left">
+        <asp:TextBox ID="txtName" runat="server" ValidationGroup="vgRequiredText" Width="231px"></asp:TextBox>
             </td>
-            <td align="left" class="style16">
+            <td align="left" style="width: 50px" >
 
         <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName" ErrorMessage="Name Field can't be empty" ValidationGroup="vgRequiredText">*</asp:RequiredFieldValidator>
             </td>
-            <td align="left">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td align="left" class="style5">
-                &nbsp;</td>
-            <td align="left" class="style5">
-        <asp:Label ID="lblTrailer" runat="server" Text="Trailer URL"></asp:Label>
+            <td align="left" width="140">
+        <asp:Label ID="lblTrailer" runat="server" Text="Trailer Url"></asp:Label>
             </td>
-            <td align="left" class="style3">
-        <asp:TextBox ID="txtTrailerURL" runat="server" style="margin-left: 0px" ValidationGroup="vgRequiredText"></asp:TextBox>
+            <td align="left">
+        <asp:TextBox ID="txtTrailerURL" runat="server" style="margin-left: 0px" 
+                    ValidationGroup="vgRequiredText" Width="231px"></asp:TextBox>
             </td>
-            <td align="left" class="style16">
+            <td align="left" style="width: 50px">
         <asp:RequiredFieldValidator ID="rfvTrailer" runat="server" ControlToValidate="txtTrailerURL" ErrorMessage="Trailer URL Field can't be empty" ValidationGroup="vgRequiredText">*</asp:RequiredFieldValidator>
             </td>
-            <td align="left">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td align="left" class="style5">
-                &nbsp;</td>
-            <td align="left" class="style5">
+            <td align="left" width="140" >
                 <asp:Label ID="lblDirector" runat="server" Text="Director"></asp:Label>
             </td>
-            <td align="left" class="style3">
-        <asp:TextBox ID="txtDirector" runat="server" ValidationGroup="vgRequiredText"></asp:TextBox>
+            <td align="left" >
+        <asp:TextBox ID="txtDirector" runat="server" ValidationGroup="vgRequiredText" 
+                    Width="231px"></asp:TextBox>
             </td>
-            <td align="left" class="style16">
+            <td align="left" style="width: 50px" >
         <asp:RequiredFieldValidator ID="rfvDirector" runat="server" ControlToValidate="txtDirector" ErrorMessage="Director Field can't be empty" ValidationGroup="vgRequiredText">*</asp:RequiredFieldValidator>
             </td>
-            <td align="left">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td align="left" class="style6">
-                &nbsp;</td>
-            <td align="left" class="style6">
+            <td align="left" width="140" >
         <asp:Label ID="lblLength" runat="server" Text="Length"></asp:Label>
             </td>
-            <td align="left" class="style4">
-        <asp:TextBox ID="txtLength" runat="server" ValidationGroup="vgRequiredText"></asp:TextBox>
+            <td align="left" >
+        <asp:TextBox ID="txtLength" runat="server" ValidationGroup="vgRequiredText" 
+                    Width="231px"></asp:TextBox>
             </td>
-            <td align="left" class="style17">
-        <asp:RequiredFieldValidator ID="rfvLength" runat="server" ControlToValidate="txtLength" ErrorMessage="Length field can't be empty" ValidationGroup="vgRequiredText">*</asp:RequiredFieldValidator>
-                <br />
+            <td align="left" style="width: 50px" >
+        <asp:RequiredFieldValidator ID="rfvLength" runat="server" ControlToValidate="txtLength" 
+                    ErrorMessage="Length field can't be empty" ValidationGroup="vgRequiredText" 
+                    Display="Dynamic">*</asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="revLength" runat="server" 
-                    ControlToValidate="txtLength" ErrorMessage="*Length needs to be a number " 
-                    ValidationGroup="vgRequiredText" ValidationExpression="\d+" ForeColor="Red"></asp:RegularExpressionValidator>
+                    ControlToValidate="txtLength" ErrorMessage="Length needs to be a number " 
+                    ValidationGroup="vgRequiredText" ValidationExpression="\d+" 
+                    ForeColor="Black" Display="Dynamic">*</asp:RegularExpressionValidator>
             </td>
-            <td align="left" class="style2">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td align="left" class="style7">
-                &nbsp;</td>
-            <td align="left" class="style7">
+            <td align="left" width="140" >
         <asp:Label ID="lblPoster" runat="server" Text=" Insert Poster"></asp:Label>
             </td>
-            <td align="left" class="style8">
-                <asp:FileUpload ID="fpPoster" runat="server" />
+            <td align="left" >
+                <asp:FileUpload ID="fpPoster" runat="server" Width="231px" />
             </td>
-            <td align="left" class="style18">
-        <asp:Label ID="lblErrorMessage" runat="server" ForeColor="Red"></asp:Label>
+            <td align="left" style="width: 50px" >
                 <br />
-        <asp:Label ID="lblMessage" runat="server"></asp:Label>
             </td>
-            <td align="left" class="style9">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td align="left" class="style10">
-                &nbsp;</td>
-            <td align="left" class="style10">
+            <td align="left" width="140" >
                 <asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label>
             </td>
-            <td align="left" class="style11">
+            <td align="left" >
         <asp:TextBox ID="txtDescription" runat="server" Height="115px" ValidationGroup="vgRequiredText" Width="231px"></asp:TextBox>
             </td>
-            <td align="left" class="style19">
-        <asp:RequiredFieldValidator ID="rfvDescription" runat="server" ControlToValidate="txtDescription" ErrorMessage="Description Field can't be empty" ValidationGroup="vgRequiredText">*</asp:RequiredFieldValidator>
+            <td align="left" style="width: 50px" >
+        <asp:RequiredFieldValidator ID="rfvDescription" runat="server" 
+                    ControlToValidate="txtDescription" 
+                    ErrorMessage="Description Field can't be empty" 
+                    ValidationGroup="vgRequiredText" Display="Dynamic">*</asp:RequiredFieldValidator>
             </td>
-            <td align="left" class="style12">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td align="center" class="style13">
-                &nbsp;</td>
-            <td align="center" class="style13">
+            <td align="center" width="140" >
             </td>
-            <td align="center" class="style14">
+            <td align="left" class="style14">
         <asp:Button ID="btnInsert" runat="server" Text="Insert" OnClick="btnInsert_Click" ValidationGroup="vgRequiredText" />
             </td>
-            <td align="center" class="style20">
-                &nbsp;</td>
-            <td align="center" class="style15">
+            <td align="center" style="width: 50px" >
                 &nbsp;</td>
         </tr>
         <tr>
-            <td align="center" class="style13">
+            <td align="center" width="140" >
                 &nbsp;</td>
-            <td align="center" class="style13">
+            <td align="left" >
+        <asp:Label ID="lblErrorMessage" runat="server" ForeColor="Red"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            </td>
+            <td align="center" style="width: 50px" >
                 &nbsp;</td>
-            <td align="center" class="style14">
+        </tr>
+        <tr>
+            <td align="center" width="140" >
+                &nbsp;</td>
+            <td align="left" >
                 <asp:ValidationSummary ID="vsComingSoon" runat="server" DisplayMode="List" 
                     ForeColor="Red" ValidationGroup="vgRequiredText" />
             </td>
-            <td align="center" class="style20">
-                &nbsp;</td>
-            <td align="center" class="style15">
+            <td align="center" style="width: 50px" >
                 &nbsp;</td>
         </tr>
     </table>
-    <p>
-        &nbsp;&nbsp;&nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-    </p>
+    
 
         </asp:Content>
 
