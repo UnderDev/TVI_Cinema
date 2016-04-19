@@ -56,9 +56,15 @@
 }
 
 
-.CenterRegister
+.RegisterStyle
 {
     margin-left: 200px;
+    width:440px;
+}
+
+.RegisterStyle input[type="submit"]:hover
+{
+    box-shadow: 0 0 10px #000;
 }
 
 .ContactUsContainer
@@ -103,6 +109,12 @@
     font-size: large;
 }
 
+.HomePageImages input:hover
+{
+    opacity: 0.6;
+}
+
+
 .ImageBoarderStyles input
 {
     border: thin solid #000000;
@@ -126,6 +138,10 @@
     font-size: large;
 }
 
+.ImageBoarderStyles input:hover
+{
+    opacity: 0.6;
+}
 
 
 
@@ -320,8 +336,8 @@
 
 .btn:hover
 {
-    background: #339933;
-    color: #333;
+    background: #B0B0B0;
+    color: #FFFFFF;
 }
 
 /* LOG IN Page CSS End */

@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <br />
-<div class="CenterRegister" >
+<div class="RegisterStyle" >
         <asp:CreateUserWizard ID="vgRegistration" runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8"
             BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
             Font-Size="0.8em" 
