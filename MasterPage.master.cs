@@ -180,6 +180,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
     protected void ddlSelectFilm_SelectedIndexChanged1(object sender, EventArgs e)
     {
+        Session["MovieCategory"] = "Showing";
         Session["SelectedMovie"] = ddlSelectFilm.SelectedValue;
     }
     protected void btnGo_Click1(object sender, EventArgs e)
