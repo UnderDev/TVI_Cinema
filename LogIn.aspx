@@ -10,9 +10,9 @@
     DestinationPageUrl="~/Default.aspx">
         <%--DestinationPageUrl="~/AdminPages/Home.aspx"--%>
 
-        <LayoutTemplate>
+        <LayoutTemplate>        
             <div class="box">
-                <div class="content">
+                <asp:Panel runat="server" class="content" DefaultButton="btnLogin">
                     <h1>Authentication Required</h1>
                     <asp:TextBox Cssclass="TxtBoxInput" placeholder="UserName" ID="UserName" 
                         runat="server" AutoCompleteType="Email"></asp:TextBox>
@@ -30,10 +30,10 @@
                         ValidationGroup="vgLogin" Width="150"></asp:Button>
                         <br>
                     <asp:Button Cssclass="btn" ID="btnRegister" runat="server" CommandName="Login" Text="Register"
-                                PostBackUrl="~/Registration.aspx" Width="150"></asp:Button>
+                                PostBackUrl="~/Registration.aspx" Width="150" ></asp:Button>
                     <br>
                     <asp:Literal ID="FailureText" runat="server" EnableViewState="False" ></asp:Literal>
-            </div>
+            </asp:Panel>
         </LayoutTemplate>
     </asp:Login>
     <br />
