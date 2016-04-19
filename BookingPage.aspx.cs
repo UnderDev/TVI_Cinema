@@ -83,9 +83,9 @@ public partial class BookingPage : System.Web.UI.Page
         if (Page.IsValid)
         {
             String total = lblTotal.Text.Substring(1);
-            HttpCookie dimension = new HttpCookie("ticketTotal");
-            dimension.Value = total;
-            Response.Cookies.Add(dimension);
+            HttpCookie cookieTotal = new HttpCookie("ticketTotal");
+            cookieTotal.Value = total;
+            Response.Cookies.Add(cookieTotal);
             Session["Booking"] = booking;
             Response.Redirect("BookingPage2.aspx");
         }

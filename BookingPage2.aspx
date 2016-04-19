@@ -18,7 +18,7 @@
     <h1>
         Booking Page</h1>
     <h4>
-        Please Enter Youur Information:</h4>
+        Please Enter Your Information:</h4>
     <div style="text-align: left; margin-left: 20px;">
         <br />
         <table class="style1">
@@ -27,7 +27,7 @@
                     <asp:Label ID="lblFName" runat="server" Text="First Name: "></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtFName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtFName" runat="server" AccessKey="n"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvFName" runat="server" ErrorMessage="First name is required"
                         ValidationGroup="vGroupBasicInfo" ControlToValidate="txtFName">*</asp:RequiredFieldValidator>
                 </td>
@@ -70,7 +70,7 @@
                     <asp:Label ID="lblPhone" runat="server" Text="Phone No: "></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPhoneNo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPhoneNo" runat="server" AccessKey="p"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvPhoneNo" runat="server" ErrorMessage="Phone Number is required"
                         ValidationGroup="vGroupBasicInfo" ControlToValidate="txtPhoneNo">*</asp:RequiredFieldValidator>
 
@@ -121,7 +121,8 @@
                     <asp:Label ID="lblCardType" runat="server" Text="Card Type: "></asp:Label>
                 </td>
                 <td width="275">
-                    <asp:DropDownList ID="ddlCardType" runat="server" OnInit="DropDownList1_Init">
+                    <asp:DropDownList ID="ddlCardType" runat="server" OnInit="DropDownList1_Init" 
+                        AccessKey="c">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvCardType" runat="server" 
                         ControlToValidate="ddlCardType" ErrorMessage="Card Type is required" 
