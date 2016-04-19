@@ -41,7 +41,7 @@
     </p>
     <asp:LoginView ID="LoginView1" runat="server">
         <LoggedInTemplate>
-         <h1> Home Page</h1>
+         <h1>Now Showing</h1>
             <asp:DataList ID="dlMovies" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
                 Width="100%" CssClass="HomePageImages">
@@ -56,7 +56,7 @@
             </asp:DataList>
         </LoggedInTemplate>
         <AnonymousTemplate>
-        <h1> Home Page</h1>
+        <h1>Now Showing</h1>
             <asp:DataList ID="dlMovies" runat="server" CellPadding="20" DataSourceID="dsMovies"
                 RepeatColumns="3" OnItemCommand="DataList2_ItemCommand" HorizontalAlign="Center"
                 Width="100%" CssClass="HomePageImages">
@@ -73,7 +73,7 @@
         <RoleGroups>
             <asp:RoleGroup Roles="Admin">
                 <ContentTemplate>
-                <h1> Home Page Admin</h1>
+                <h1>Now Showing Admin</h1>
                     <asp:DetailsView ID="dvwComingSoon" runat="server" AllowPaging="True" AutoGenerateRows="False"
                         CellPadding="4" DataKeyNames="Number" DataSourceID="dsMoviesDetail" 
                         ForeColor="#333333" HorizontalAlign="Center" OnItemUpdated="dvwComingSoon_ItemUpdated"

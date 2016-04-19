@@ -85,8 +85,8 @@
         <div style="margin: 15px" class="GroupingDiv">
             <iframe id="ifrmTrailerEmbed" runat="server" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
-
-            <div class="GroupingDiv" style="margin-left: 15px; margin-right:15px">
+        
+            <asp:Panel runat="server" ID="pnlShowtimes" class="GroupingDiv" style="margin-left: 15px; margin-right:15px">
                 <h3> Showtimes for <asp:Label runat="server" ID="lblDate" /></h3>
                 <asp:GridView ID="gvTimes" runat="server" AutoGenerateColumns="False" DataSourceID="sdsShowTimes" GridLines="None" HorizontalAlign="Center">
                     <Columns>
@@ -106,7 +106,7 @@
                 <br />
                 <asp:DropDownList runat="server" DataSourceID="sdsShowTimes" ID="ddlShowings" DataValueField="Showtime" DataTextField="Showtime" ></asp:DropDownList>
                 <asp:Button  Text="Book a Ticket" runat="server" ID="btnBooking" OnClick="btnBooking_Click"/>
-            </div>
+            </asp:Panel>
         </div>
 </asp:Content>
 

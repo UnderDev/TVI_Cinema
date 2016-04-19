@@ -31,7 +31,7 @@ public partial class Default2 : System.Web.UI.Page
             dvMovieInfo.Rows[5].Visible = false;
             dvMovieInfo.Rows[4].Visible = false;
             dvMovieInfo.Rows[3].Visible = false;
-
+            pnlShowtimes.Visible = false;
             //also hide showtimes
             lblDate.Enabled = false;
             gvTimes.Enabled = false;
