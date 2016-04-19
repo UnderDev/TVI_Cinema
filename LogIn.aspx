@@ -10,17 +10,17 @@
     DestinationPageUrl="~/Default.aspx">
         <%--DestinationPageUrl="~/AdminPages/Home.aspx"--%>
 
-        <LayoutTemplate>
+        <LayoutTemplate>        
             <div class="box">
-                <div class="content">
+                <asp:Panel runat="server" class="content" DefaultButton="btnLogin">
                     <h1>Authentication Required</h1>
-                    <asp:TextBox Cssclass="TxtBoxInput" placeholder="UserName" ID="UserName" 
+                    <asp:TextBox Cssclass="TxtBoxInput" placeholder="Username" ID="UserName" 
                         runat="server" AutoCompleteType="Email"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvUserNameRequired" runat="server" ControlToValidate="UserName"
                         ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="vgLogin"
                         ForeColor="#046c8a">*</asp:RequiredFieldValidator>
                     <br>
-                    <asp:TextBox Cssclass="TxtBoxInput" placeholder="PassWord" ID="Password" runat="server"
+                    <asp:TextBox Cssclass="TxtBoxInput" placeholder="Password" ID="Password" runat="server"
                         TextMode="Password"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvPasswordRequired" runat="server" ControlToValidate="Password"
                         ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="vgLogin"
@@ -30,10 +30,10 @@
                         ValidationGroup="vgLogin" Width="150"></asp:Button>
                         <br>
                     <asp:Button Cssclass="btn" ID="btnRegister" runat="server" CommandName="Login" Text="Register"
-                                PostBackUrl="~/Registration.aspx" Width="150"></asp:Button>
+                                PostBackUrl="~/Registration.aspx" Width="150" ></asp:Button>
                     <br>
                     <asp:Literal ID="FailureText" runat="server" EnableViewState="False" ></asp:Literal>
-            </div>
+            </asp:Panel>
         </LayoutTemplate>
     </asp:Login>
     <br />
