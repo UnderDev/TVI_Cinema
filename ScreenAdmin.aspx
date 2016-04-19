@@ -220,18 +220,31 @@
                 HorizontalAlign="Center" Width="500px">
                 <EditItemTemplate>
                     <span style="color:white"> Type:</span>
-                <asp:Label ID="TypeLabel1" ForeColor="White" runat="server" Text='<%# Eval("Type") %>' />
+                <asp:Label ID="lblEditType" ForeColor="White" runat="server" Text='<%# Eval("Type") %>' />
                     <br />
                    <span style="color:white">  Price:</span>
-                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
+                <asp:TextBox ID="txtEditPrice" runat="server" Text='<%# Bind("Price") %>' />
+                    <asp:RequiredFieldValidator ID="rfvEditPrice" runat="server" 
+                        ErrorMessage="Price value is required" ControlToValidate="txtEditPrice" 
+                        ValidationGroup="vgEditTicket" Display="Dynamic">*</asp:RequiredFieldValidator>
+                  
+                    <asp:RegularExpressionValidator ID="revPrice" runat="server" 
+                        ErrorMessage="Invalid Price" ControlToValidate="txtEditPrice" 
+                        ValidationGroup="vgEditTicket" ValidationExpression="^[1-9]\d*$" 
+                        Display="Dynamic">*</asp:RegularExpressionValidator>
+                  
                     <br />
                       <span style="color:white">Dimension:</span>
-                <asp:Label ID="dimensionLabel1" ForeColor="White" runat="server" Text='<%# Eval("dimension") %>' />
+                <asp:Label ID="lblEditDim" ForeColor="White" runat="server" Text='<%# Eval("dimension") %>' />
                     <br />
-                    <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update"
-                        Text="Update" />
-                    &nbsp;<asp:Button ID="UpdateCancelButton" runat="server" CausesValidation="False"
+                    <asp:Button ID="btnUpdate" runat="server" CausesValidation="True" CommandName="Update"
+                        Text="Update" ValidationGroup="vgEditTicket" />
+                    &nbsp;<asp:Button ID="btnEditCancel" runat="server" CausesValidation="False"
                         CommandName="Cancel" Text="Cancel" />
+                    <br />
+                    <br />
+                    <asp:ValidationSummary ID="vsEditTicket" ValidationGroup="vgEditTicket"  runat="server" />
+                    <br />
                 </EditItemTemplate>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -242,41 +255,61 @@
                     </div>
                 </HeaderTemplate>
                 <InsertItemTemplate >
-                   <span style="color:white"> Type:</span>
-                <asp:TextBox ID="TypeTextBox" runat="server" Text='<%# Bind("Type") %>' />
+                   <span align="center"> Type:
+                <asp:TextBox ID="txtInsertType" runat="server" Text='<%# Bind("Type") %>' />
+                    <asp:RequiredFieldValidator ID="rfvTypeInsert" runat="server" 
+                        ErrorMessage="Type must have value" ValidationGroup="vgInsertTicket" ControlToValidate="txtInsertType">*</asp:RequiredFieldValidator>
                     <br />
-                    <span style="color:white">  Price:</span>
-                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
+                    <span>  Price:</span>
+                <asp:TextBox ID="txtInsertPrice" runat="server" Text='<%# Bind("Price") %>' />
+                    <asp:RequiredFieldValidator ID="rfvPriceInsert" runat="server" 
+                        ErrorMessage="Price must have a value" ValidationGroup="vgInsertTicket" 
+                        Display="Dynamic" ControlToValidate="txtInsertPrice">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revPrice" runat="server" 
+                        ControlToValidate="txtInsertPrice" ErrorMessage="Price must be a number" 
+                        ValidationExpression="^[1-9]\d*$" ValidationGroup="vgInsertTicket" 
+                        Display="Dynamic">*</asp:RegularExpressionValidator>
                     <br />
-                    <span style="color:white">Dimension:</span>
-                <asp:TextBox ID="dimensionTextBox" runat="server" Text='<%# Bind("dimension") %>' />
+                    <span>Dimension:</span>
+                <asp:TextBox ID="txtInsertDim" runat="server" Text='<%# Bind("dimension") %>' />
+                    <asp:RequiredFieldValidator ID="rfvInsertDim" runat="server" 
+                        ErrorMessage="Dimension field needs a value" ValidationGroup="vgInsertTicket" ControlToValidate="txtInsertDim">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revPrice0" runat="server" 
+                        ControlToValidate="txtInsertDim" Display="Dynamic" 
+                        ErrorMessage="Price must be a number" ValidationExpression="^[1-9]\d*$" 
+                        ValidationGroup="vgInsertTicket">*</asp:RegularExpressionValidator>
                     <br />
-                    <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"
-                        Text="Insert" />
+                    <asp:Button ID="btnInsert" runat="server" CausesValidation="True" CommandName="Insert"
+                        Text="Insert" ValidationGroup="vgInsertTicket" />
                     &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
                         CommandName="Cancel" Text="Cancel" />
+                    <br />
+                    <br />
+                    <asp:ValidationSummary ID="vsInsertTicket" ValidationGroup="vgInsertTicket" runat="server" />
+                    <br />
+                    </span>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <div style="text-align: center">
-                        <span style="color:white"> Type:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="TypeLabel" ForeColor="White" runat="server" Text='<%# Eval("Type") %>' />
+                        <span> Type:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="TypeLabel" runat="server" Text='<%# Eval("Type") %>' />
                         <br />
-                        <span style="color:white">  Price:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>  Price:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="PriceLabel" runat="server" Text='<%# Bind("Price") %>' />
                         <br />
-                        <span style="color:white">Dimension:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>Dimension:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="dimensionLabel" runat="server" Text='<%# Eval("dimension") %>' />
                         <br />
-                        <asp:Button ID="NewButton" runat="server" CausesValidation="False" CommandName="New"
+                        <asp:Button ID="btnNew" runat="server" CausesValidation="False" CommandName="New"
                             Text="New" />
-                        <asp:Button ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit"
+                        <asp:Button ID="btnEdit" runat="server" CausesValidation="False" CommandName="Edit"
                             Text="Edit" />
-                        &nbsp;<asp:Button ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete"
+                        &nbsp;<asp:Button ID="btnDelete" runat="server" CausesValidation="False" CommandName="Delete"
                             Text="Delete" />
                 </ItemTemplate>
                 <PagerSettings FirstPageText="First" LastPageText="Last" NextPageText="Next" PreviousPageText="Prev" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
+                <PagerStyle BackColor="#2461BF"  HorizontalAlign="Center" />
+                <RowStyle  />
             </asp:FormView>
 
         </div>
