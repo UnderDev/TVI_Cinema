@@ -262,10 +262,10 @@
                     <asp:Label ID="TypeLabel" ForeColor="White" runat="server" Text='<%# Eval("Type") %>' />
                         <br />
                         <span style="color:white">  Price:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="PriceLabel" ForeColor="White"  runat="server" Text='<%# Bind("Price") %>' />
+                    <asp:Label ID="PriceLabel" runat="server" Text='<%# Bind("Price") %>' />
                         <br />
                         <span style="color:white">Dimension:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="dimensionLabel" ForeColor="White"  runat="server" Text='<%# Eval("dimension") %>' />
+                    <asp:Label ID="dimensionLabel" runat="server" Text='<%# Eval("dimension") %>' />
                         <br />
                         <asp:Button ID="NewButton" runat="server" CausesValidation="False" CommandName="New"
                             Text="New" />
