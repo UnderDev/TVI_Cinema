@@ -114,6 +114,27 @@
     opacity: 0.6;
 }
 
+.validationStyle
+{
+    border: 2px solid #ECF5FF;
+    background-color: #CCDAEE;
+    border-collapse: collapse;
+    width: 78%;
+    empty-cells: hide;
+    margin-left: 100px;
+    box-shadow: 0 0 20px #000;
+}
+
+.validationStyle td
+{
+    border: 2px solid #ECF5FF;
+    font-family: rockwell;
+    font-size: large;
+    font-variant: small-caps;
+    color: #284775;
+    letter-spacing: 0.2em;
+}
+
 
 .ImageBoarderStyles input
 {
