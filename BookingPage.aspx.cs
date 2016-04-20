@@ -13,16 +13,20 @@ public partial class BookingPage : System.Web.UI.Page
     {
         if (Session["Booking"] == null)
         {
+            //if the session object dosnt exist, user should be redirected to the home page
             Response.Redirect("Default.aspx");
         }
         else
         {
+            //take booking object from session
             booking = (Booking)Session["Booking"];
+            //set session object to dimension value in object
             Session["dimension"] = booking.Dimension;
         }
     }
     protected void dllAmount_Init(object sender, EventArgs e)
     {
+        //create list of integers for values to select on ticket amounts
         DropDownList ddlSender = (DropDownList)sender;
         List<Int16> amounts = new List<Int16>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         ddlSender.DataSource = amounts;
@@ -59,16 +63,22 @@ public partial class BookingPage : System.Web.UI.Page
 
         int i = str.Length - 1;
         Char c = str[i];
+        //loop through from end to start until we hit a ';', marks the end of the unicode character
         while (c != ';')
         {
             i--;
             try
             {
+                //try to set character to i value in string
                 c = str[i];
             }
             catch
             {
+                //if caught, it must be end of the string
+                //therefore its not a unicode currency symbol, but an actual currency symbol
+                //only need to take first character off string in this case
                 i = 0;
+
                 c = ';';
             }
         }
@@ -80,8 +90,10 @@ public partial class BookingPage : System.Web.UI.Page
     }
     protected void btnContinue_Click(object sender, EventArgs e)
     {
+        //if all validators have passed
         if (Page.IsValid)
         {
+            //set needed cookies and session objects for next booking page
             String total = lblTotal.Text.Substring(1);
             HttpCookie cookieTotal = new HttpCookie("ticketTotal");
             cookieTotal.Value = total;
@@ -92,6 +104,8 @@ public partial class BookingPage : System.Web.UI.Page
     }
     protected void cvTotal_ServerValidate(object source, ServerValidateEventArgs args)
     {
+        //custom validator
+        //amount cannot be 0.00, as this means user has not selected any tickets
         if(!lblTotal.Text.Equals("0.00"))
         {
             args.IsValid = true;

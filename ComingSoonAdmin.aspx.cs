@@ -91,6 +91,7 @@ public partial class ComingSoon2 : System.Web.UI.Page
 
     private Boolean InsertUpdateData(SqlCommand cmd)
     {
+       //creates connection for the data source and executes the query.
         String connectionString = ConfigurationManager.ConnectionStrings["MovieDBConnectionString"].ConnectionString;
         SqlConnection con = new SqlConnection(connectionString);
         cmd.CommandType = CommandType.Text;
@@ -113,7 +114,7 @@ public partial class ComingSoon2 : System.Web.UI.Page
             con.Dispose();
         }
     }
-         
+      //error handling for row deleted    
     protected void gvwCSAdmin_RowDeleted(object sender, GridViewDeletedEventArgs e)
     {
         if (e.Exception != null)
@@ -128,7 +129,7 @@ public partial class ComingSoon2 : System.Web.UI.Page
     }
 
 
-
+    //error handling for row updated 
     protected void gvwCSAdmin_RowUpdated(object sender, GridViewUpdatedEventArgs e)
     {
         if (e.Exception != null)

@@ -13,14 +13,17 @@ public partial class SummaryPage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //try to take in cookies and session objects
         if ((Booking)Session["booking"] != null && Request.Cookies["ticketTotal"].Value != null)
         {
             booking = (Booking)Session["booking"];
             totalPrice = Convert.ToDouble(Request.Cookies["ticketTotal"].Value);
+            //display shows important information that was previously stored in cookies and session objects
             display();
         }
         else
         {
+            //if any objects are missing, user is redirected back to start of booking
             Response.Redirect("BookingPage.aspx");
         }
     }
@@ -44,6 +47,7 @@ public partial class SummaryPage : System.Web.UI.Page
     }
     public void display()
     {
+        //show information to screen
         String name = booking.FirstName+" "+booking.LastName;
         lblNameDisplay.Text = name;
         lblName.Text = "Name: ";
@@ -57,12 +61,14 @@ public partial class SummaryPage : System.Web.UI.Page
     }
     protected void btnReturn_Click(object sender, EventArgs e)
     {
+        //on cancel click, remove session state objects, return user to home page
         Session.Clear();
         Response.Redirect("Default.aspx");
     }
 
     protected void btnConfirm_Click(object sender, EventArgs e)
     {
+        //on confirmation click, send a confirmation email to user, clear session objects and redirect user to home page
         sendConfirmation();
         Session.Clear();
         Response.Redirect("Default.aspx");

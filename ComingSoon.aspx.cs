@@ -38,8 +38,9 @@ public partial class Default2 : System.Web.UI.Page
 
     void lvwComingSoon_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
+        //take selected movie from listview
         string word = e.CommandArgument.ToString();
-
+        //set session objects
         Session["MovieCategory"] = "ComingSoon";
         Session["SelectedMovie"] =word;
 

@@ -81,14 +81,6 @@ public partial class BookingPage2 : System.Web.UI.Page
         DropDownList tempDdl = (DropDownList)sender;
         tempDdl.DataSource = dates;
         tempDdl.DataBind();
-        /*
-         * needs fixing
-         * 
-         * 
-         * CHANGE SCOPE OF NAVBAR DATE DROPDOWN
-         */
-
-        //tempDdl.SelectedValue = (DateTime)Session["SelectedDate"]; 
     }
     protected void cvNumLegnth_ServerValidate(object source, ServerValidateEventArgs args)
     {
