@@ -49,9 +49,9 @@ public partial class Default2 : System.Web.UI.Page
             }
                 
             //formats the selected day, as grammatically correct as possible        
-            lblDate.Text = string.Format("{0:dddd} the {0:dd}{1} of {0:MMMM yyyy}", DateTime.Now, ((DateTime.Now.Day % 10 == 1 && DateTime.Now.Day != 11) ? "st"
-                                                                                        : (DateTime.Now.Day % 10 == 2 && DateTime.Now.Day != 12) ? "nd"
-                                                                                        : (DateTime.Now.Day % 10 == 3 && DateTime.Now.Day != 13) ? "rd"
+            lblDate.Text = string.Format("{0:dddd} the {0:dd}{1} of {0:MMMM yyyy}", date, ((date.Day % 10 == 1 && date.Day != 11) ? "st"
+                                                                                        : (date.Day % 10 == 2 && date.Day != 12) ? "nd"
+                                                                                        : (date.Day % 10 == 3 && date.Day != 13) ? "rd"
                                                                                         : "th"));
             
         }

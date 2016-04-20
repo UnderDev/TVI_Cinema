@@ -34,13 +34,13 @@
     <div>
 <table style="margin-left:auto;margin-right:auto">
         <tr>
-            <td align="center">
+            <td style="text-align: center;">
                 <div style="background-color:#507CD1;box-shadow: 0 0 20px #000;">
                     <asp:ListView ID="lvwScreen" runat="server" DataKeyNames="Screen,Showtime" DataSourceID="dsScreen"
                         InsertItemPosition="LastItem" OnItemDeleted="lvScreen_ItemDeleted" OnItemInserted="lvScreen_ItemInserted"
                         OnItemUpdated="lvScreen_ItemUpdated" >
                         <AlternatingItemTemplate>
-                            <tr style="background-color: #507CD1;">
+                            <tr style="background-color: #507CD1; " >
                                 <td>
                                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                                 </td>
@@ -219,14 +219,14 @@
                 Style="text-align: left" AllowPaging="True" CellPadding="4" ForeColor="#333333"
                 HorizontalAlign="Center" Width="500px">
                 <EditItemTemplate>
-                    <span style="color:white"> Type:</span>
-                <asp:Label ID="TypeLabel1" ForeColor="White" runat="server" Text='<%# Eval("Type") %>' />
+                    <span  > Type:</span>
+                <asp:Label ID="TypeLabel1"   runat="server" Text='<%# Eval("Type") %>' />
                     <br />
-                   <span style="color:white">  Price:</span>
+                   <span  >  Price:</span>
                 <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
                     <br />
-                      <span style="color:white">Dimension:</span>
-                <asp:Label ID="dimensionLabel1" ForeColor="White" runat="server" Text='<%# Eval("dimension") %>' />
+                      <span  >Dimension:</span>
+                <asp:Label ID="dimensionLabel1"   runat="server" Text='<%# Eval("dimension") %>' />
                     <br />
                     <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update"
                         Text="Update" />
@@ -234,21 +234,21 @@
                         CommandName="Cancel" Text="Cancel" />
                 </EditItemTemplate>
                 <EditRowStyle BackColor="#2461BF" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True"   />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True"   />
                 <HeaderTemplate>
                     <div style="text-align: center">
                         <asp:Label ID="Label1" runat="server" Text="Ticket Prices"></asp:Label>
                     </div>
                 </HeaderTemplate>
                 <InsertItemTemplate >
-                   <span style="color:white"> Type:</span>
+                   <span  > Type:</span>
                 <asp:TextBox ID="TypeTextBox" runat="server" Text='<%# Bind("Type") %>' />
                     <br />
-                    <span style="color:white">  Price:</span>
+                    <span  >  Price:</span>
                 <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
                     <br />
-                    <span style="color:white">Dimension:</span>
+                    <span  >Dimension:</span>
                 <asp:TextBox ID="dimensionTextBox" runat="server" Text='<%# Bind("dimension") %>' />
                     <br />
                     <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"
@@ -258,14 +258,14 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <div style="text-align: center">
-                        <span style="color:white"> Type:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="TypeLabel" ForeColor="White" runat="server" Text='<%# Eval("Type") %>' />
+                        <span  > Type:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <asp:Label ID="TypeLabel"   runat="server" Text='<%# Eval("Type") %>' />
                         <br />
-                        <span style="color:white">  Price:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="PriceLabel" ForeColor="White"  runat="server" Text='<%# Bind("Price") %>' />
+                        <span  >  &nbsp;Price:</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="PriceLabel"    runat="server" Text='<%# Bind("Price") %>' />
                         <br />
-                        <span style="color:white">Dimension:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="dimensionLabel" ForeColor="White"  runat="server" Text='<%# Eval("dimension") %>' />
+                        <span  >Dimension:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                    <asp:Label ID="dimensionLabel" runat="server" Text='<%# Eval("dimension") %>' />
                         <br />
                         <asp:Button ID="NewButton" runat="server" CausesValidation="False" CommandName="New"
                             Text="New" />
